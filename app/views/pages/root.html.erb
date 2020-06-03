@@ -1,12 +1,10 @@
+<h1>Home</h1>
 <%if user_signed_in?%>
-  <h1>Tweet</h1>
-  <%= render  "tweet", tweet: Tweet.new %>
+  <%= render "new_tweet", tweet: Tweet.new %>
 <%end%>
 
-<%Tweet.all.each do |tweet|%>
-  <div>
-    <%=tweet.user.name%>
-    <%=tweet.content%>
-  </div>
+<%Tweet.order('created_at desc').each do |tweet|%>
+  <%= render "tweet", tweet: tweet %>
+
 <%end%>
 
