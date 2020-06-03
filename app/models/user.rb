@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :providers
   has_many :comments
   has_many :commented_tweets, through: :comments, source: :tweet
-  has_many :liked_tweets, join_table: "likes", class_name: "Tweet"
+  has_and_belongs_to_many :liked_tweets, join_table: "likes", class_name: "Tweet"
 
   ## Validation
   validates :username, :email, presence: true, uniqueness: true
