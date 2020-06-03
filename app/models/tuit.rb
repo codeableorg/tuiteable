@@ -6,7 +6,8 @@ class Tuit < ApplicationRecord
   end
 
   belongs_to :user
-  has_many :comments, :likes
+  has_many :comments
+  has_many :likes
 
   validates :body, presence: true, length: {minimum: 0, maximum: 280}  
 end
