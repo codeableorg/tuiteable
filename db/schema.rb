@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_06_03_164020) do
     t.string "name"
     t.string "email"
     t.string "location"
-    t.string "avatar"
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
