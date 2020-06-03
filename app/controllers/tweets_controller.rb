@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :like]
 
   # GET /tweets
   # GET /tweets.json
@@ -59,6 +59,10 @@ class TweetsController < ApplicationController
       format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    puts "aaaa"
   end
 
   private

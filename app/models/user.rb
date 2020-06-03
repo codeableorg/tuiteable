@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # Relationships
   has_many :tweets, dependent: :destroy
+  has_many :likes, dependent: :destroy
   # Validations
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :tag, presence: true
   validates :tag, uniqueness: true
+  has_many :tweets,  through: :likes
 end
