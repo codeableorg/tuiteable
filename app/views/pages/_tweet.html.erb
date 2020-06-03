@@ -1,4 +1,10 @@
-<div>
-  <%=tweet.user.tag%>
-  <%=tweet.content%>
-</div>
+<%=link_to  "#{tweet.user.tag}/#{tweet.id}" do%>
+  <div>
+    <div>
+      <%=tweet.user.tag%>
+    </div>
+    <div>
+      <%=tweet.content%>
+    </div>
+  </div>
+<%end%>
