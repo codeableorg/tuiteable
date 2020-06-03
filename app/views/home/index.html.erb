@@ -1,0 +1,6 @@
+<h1>Home#index</h1>
+<% @tuits.each do |tuit| %>
+<h2>User: <%= tuit.user.username %></h2>
+<p><%= tuit.body %></p>
+
+<% end %>
