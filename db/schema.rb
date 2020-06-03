@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_164020) do
   create_table "tuits", force: :cascade do |t|
     t.text "body"
     t.integer "likes_count", default: 0
+    t.integer "comments_count", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
