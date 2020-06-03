@@ -1,0 +1,12 @@
+<%if user_signed_in?%>
+  <h1>Tweet</h1>
+  <%= render  "tweet", tweet: Tweet.new %>
+<%end%>
+
+<%Tweet.all.each do |tweet|%>
+  <div>
+    <%=tweet.user.name%>
+    <%=tweet.content%>
+  </div>
+<%end%>
+
