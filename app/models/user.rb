@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # Relationships
   has_many :tweets, dependent: :destroy
   # Validations
+  validates :email, presence: true
   validates :email, uniqueness: true
   validates :tag, presence: true
   validates :tag, uniqueness: true
