@@ -18,7 +18,15 @@
         </h1>
         <nav>
           <div class="nav-link">
-            <a class="nav-link__anchor" href="/">#Explorer</a>
+            <a class="nav-link__anchor" href="/">
+            <%= image_tag("explorer.svg") %>
+            Explorer</a>
+            
+          </div>
+          <div class="nav-link">
+            <a class="nav-link__anchor" href="/">
+            <%= image_tag("profile.svg") %>
+             Profile</a>
           </div>
         </nav>
       </aside>
@@ -36,6 +44,10 @@
       </main>
 
       <aside class="aside-right">
+        <div class="text-center">
+          <h4>New features coming soon!</h4>
+          <%= image_tag("new_feature.jpg", class: "new-image") %>
+        </div>
         <footer class="footer">
           Made with bravery by
           <a href="#">@BenMaRe-Dev</a>

@@ -46,6 +46,14 @@ img {
   width: 100%;
   margin: auto;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
 @media (min-width: 1060px) {
   .container {
     width: 1020px;
@@ -86,7 +94,13 @@ body {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
-  text-align: center;
+  text-align: left;
+  padding: 10px 0;
+}
+
+.nav-link img {
+  vertical-align: middle;
+  margin-right: 10px;
 }
 .main {
   width: 60%;
@@ -155,4 +169,34 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.tuit-write {
+  background-color: #1d2128;
+  padding: 5px;
+  color: #999b9e;
+  line-height: 24px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.tuit-button {
+  border-radius: 100px;
+  background-color: #1da1f2;
+  padding: 4px 8px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.explorer-title {
+  padding: 16px;
+  font-size: 20px;
+}
+
+.new-image {
+  margin: 10px;
 }
