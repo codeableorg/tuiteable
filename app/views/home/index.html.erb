@@ -1,6 +1,18 @@
 <h1>Home#index</h1>
-<% @tuits.each do |tuit| %>
-<h2>User: <%= tuit.user.username %></h2>
-<p><%= tuit.body %></p>
-
-<% end %>
+<div class="tuits">
+  <% @tuits.each do |tuit| %>
+  <div class="tuit">
+    <div class="tuit-image">
+      <%= image_tag("girl.jpeg" , alt:"girl" ) %>
+    </div>
+    <div class="tuit-body">
+      <h2 class="tuit-title" ><%= tuit.user.name %> <span>@<%= tuit.user.username%> - <%= tuit.created_at.to_date.strftime("%d %B") %>  </span></h2>
+      <p class="tuit-description" ><%= tuit.body %></p>
+      <div class="tuit-reactions">
+        <div > <%= image_tag("comment.svg", alt: "comment_icon") %>  <%= tuit.comments_count %> </div>
+        <div> <button class="tuit-like" ><%= image_tag("heart.svg", alt: "heart_icon") %></button> <%= tuit.likes_count %> </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
