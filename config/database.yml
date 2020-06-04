@@ -14,11 +14,6 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
-
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -60,9 +55,6 @@ development:
 test:
   <<: *default
   database: tuiteable_test
-  service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
-
   # host: localhost
   # username: postgres
   # password: password
@@ -90,9 +82,3 @@ production:
   database: tuiteable_production
   username: tuiteable
   password: <%= ENV['TUITEABLE_DATABASE_PASSWORD'] %>
-
-cloudinary:
-  service: Cloudinary
-  cloud_name: ""
-  api_key: ""
-  api_secret: ""
