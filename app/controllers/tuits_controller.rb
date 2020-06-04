@@ -1,17 +1,10 @@
 class TuitsController < ApplicationController
   def index
+    @tuits = Tuit.order(:created_at).limit(40)
   end
 
   def show
     @tuit = Tuit.find(params[:id])
-    # @vote = Vote.find_by(user: current_user, meme: @meme)
-  end
-
-  def new
-    @tuit = Tuit.new
-  end
-
-  def edit
   end
 
   def create
@@ -20,13 +13,16 @@ class TuitsController < ApplicationController
     if @tuit.save
       redirect_to tuit_path(@tuit)
     else
-      render :new
+      redirect_to root_path
     end
   end
 
-  def update
-  end
-
   def delete
+    @tuit = Tuit.find(tuit_params).destroy
+  end
+  
+  private
+  def tuit_params
+    params.require(:tuit).permit(:body)
   end
 end
