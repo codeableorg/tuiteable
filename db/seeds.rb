@@ -17,21 +17,24 @@ admins = [
     "name" => "Albert",
     "email" => "acastemoreno@gmail.com",
     "password" => "123456",
-    "encrypted_password" => BCrypt::Password.create("123456")
+    "encrypted_password" => BCrypt::Password.create("123456"),
+    "admin" => true
   },
   {
     "username" => "MariellaUgarte",
     "name" => "Mariella",
     "email" => "juanjoseuagrtellamocca@gmail.com",
     "password" => "123456",
-    "encrypted_password" => BCrypt::Password.create("123456")
+    "encrypted_password" => BCrypt::Password.create("123456"),
+    "admin" => true
   },
   {
     "username" => "Saidab1",
     "name" => "Saida",
     "email" => "saidabrito57@gmail.com",
     "password" => "123456",
-    "encrypted_password" => BCrypt::Password.create("123456")
+    "encrypted_password" => BCrypt::Password.create("123456"),
+    "admin" => true
   }
 ]
 
