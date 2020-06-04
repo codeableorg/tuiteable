@@ -13,4 +13,10 @@ class User < ApplicationRecord
   has_many :user_followers, through: :followers, source: :follower
   has_many :user_followings, through: :followings, source: :following
   has_many :providers
+  has_one_attached :avatar
+
+  validates :username, :email, presence: true, uniqueness: true
+  validates :avatar, content_type: [:png, :jpg], size: {less_than: 2.megabytes}
+  validates :bio, length: {maximum: 160}
 end
+
