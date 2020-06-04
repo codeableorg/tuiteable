@@ -10,7 +10,6 @@
   </head>
 
   <body>
-
   <header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
@@ -20,8 +19,8 @@
         <%= image_tag("tag.png")%> <span>Explorer</span>
       <%end %>
       <%if user_signed_in?%>
-      <%=link_to "My Profile", edit_user_registration_path %>
-      <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
+        <%=link_to "My Profile", edit_user_registration_path %>
+        <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
       <%end %>
     </nav>
   </header>
