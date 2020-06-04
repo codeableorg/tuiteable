@@ -5,14 +5,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :api, defaults: {format: :json} do
-    resources :tweets, only: [:index]
+    resources :tweets, only: [:index, :show, :create, :update, :destroy]
     post "sign_in", to: "sessions#create"
     delete "log_out", to: "sessions#destroy"
 
     resources :users, only: [:create] do
       resources :tweets, only: [:index, :show], module: 'users'
     end
-
-    resources :tweets, only: [:create, :update, :destroy]
   end
 end
