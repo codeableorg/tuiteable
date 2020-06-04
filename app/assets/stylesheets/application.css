@@ -115,6 +115,7 @@ body {
 
 .tuit {
   display: flex;
+  flex-wrap: wrap;
   border-top: 1px solid #ccc;
   /* border-left: 1px solid #ccc; */
   /* border-right: 1px solid #ccc; */
@@ -200,4 +201,56 @@ body {
 
 .new-image {
   margin: 10px;
+}
+/* TUITS SHOW PAGE */
+.show-page__article {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  border-bottom: 1px solid #999B9E;
+}
+.show-page__article-figure {
+  width: 15%;
+  text-align: center;
+}
+.show-page__article-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.show-page__article-body {
+  width: 85%;
+}
+.show-page__article-title {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+.show-page__article-subtitle {
+  margin-bottom: 5px;
+  color: #999B9E;
+  font-size: 16px;
+  line-height: 20px;
+}
+.show-page__article-description {
+  font-size: 20px;
+  line-height: 26px;
+}
+.show-page__article-metadata {
+  margin-bottom: 15px;
+  padding: 5px 0;
+  border-bottom: 1px solid #999B9E;
+  color: #999B9E;
+  font-size: 16px;
+  line-height: 20px;
+}
+.show-page__article-metadata--inline {
+  color: #999B9E;
+}
+.show-page__article-reactions {
+  display: flex;
+}
+.show-page__article-likes {
+  margin-right: 30px;
 }
