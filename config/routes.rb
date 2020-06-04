@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  namespace :api do
+  namespace :api, defaults: {format: :json} do
     resources :tweets, only: [:index]
+    post "sign_in", to: "sessions#create"
+    delete "log_out", to: "sessions#destroy"
   end
 end
