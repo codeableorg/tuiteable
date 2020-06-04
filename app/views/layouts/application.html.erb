@@ -7,17 +7,43 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in?%>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete%>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
-    <%= yield %>
+    <div class="container site-container">
+      <aside class="aside-left">
+        <h1 class="aside-left__title">
+          {tuite<span class="aside-left__title--gray">able</span>}
+        </h1>
+        <nav>
+          <div class="nav-link">
+            <a class="nav-link__anchor" href="/">#Explorer</a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <% if user_signed_in?%>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+        <%= yield %>
+      </main>
+
+      <aside class="aside-right">
+        <footer class="footer">
+          Made with bravery by
+          <a href="#">@BenMaRe-Dev</a>
+          <a href="#">@fmunives</a>
+          <a href="#">@drihu</a>
+          from Cohort #2 students
+        </footer>
+      </aside>
+    </div>
   </body>
 </html>
