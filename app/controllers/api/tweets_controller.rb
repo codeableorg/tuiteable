@@ -6,7 +6,7 @@ class Api::TweetsController < ApiController
   end
 
   def show
-    @tweet = Tweet.find_by(id: params[:id])
+    @tweet = Tweet.find(params[:id])
     render json: @tweet, status: :ok
   end
 
@@ -17,6 +17,23 @@ class Api::TweetsController < ApiController
     else
       render json: @tweet.errors, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @tweet = Tweet.find(params[:id]) 
+    if @tweet.update(tweet_params)
+      render json: @tweet, status: :ok
+    else
+      render json: @tweet.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+    render json: {
+      messages: "Tweet deleted - Success",
+    }, status: :ok
   end
 
   def tweet_params
