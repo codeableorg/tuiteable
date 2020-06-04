@@ -1,3 +1,36 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+input[type="file"],
+input[type="submit"] {
+  border-radius: 30px;
+  padding: 0 10px;
+}
+
+.field {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.user-input {
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 0 10px;
+}
+
+.field__block {
+  display: block;
+}
+
+.text-area {
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+}
+
+.actions {
+  text-align: center;
+}
