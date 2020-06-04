@@ -7,7 +7,7 @@
       </li>
     <% end %> 
   </ul>
-  <%= t.text_area :body, size: "40x4", placeholder:"What you are thinking about is...", class: "tuit-write" %>
+  <%= t.text_area :body, size: "40x4", placeholder:"What you are thinking about is...", maxlength: 280, class: "tuit-write" %>
   <div class="text-right" >
   <%= t.submit "Tuiteable!", class: "tuit-button" %></div>
 <% end %>
