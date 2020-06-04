@@ -1,0 +1,25 @@
+<h2>Log in to {tuitiable}</h2>
+
+<%= form_with(model:@user ,url: user_session_path , method: "post") do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path%>
+<%= link_to "Sign in with GitHub", user_github_omniauth_authorize_path%>
+ 
+ <h3>Not registered yet?</h3>
+ <%= link_to "Sign Up with email", new_user_registration_path%>
+
