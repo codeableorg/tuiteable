@@ -5,6 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github]
 
+  has_many :tweets
+
+  has_many :comments
+  has_many :commented_tweets, through: :comments, source: :tweet
+
+  has_many :likes
+  has_many :liked_tweets, through: :likes, source: :tweet
+         
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
