@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     delete "log_out", to: "sessions#destroy"
 
     resources :users, only: [:create] do
+      resources :tweets, only: [:index, :show], module: 'users'
     end
+
+    resources :tweets, only: [:create, :update, :destroy]
   end
 end

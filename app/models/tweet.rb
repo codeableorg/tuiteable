@@ -15,11 +15,11 @@ class Tweet < ApplicationRecord
 
   ##Callback
   def add_like(liker)
-    puts "Holi desde tweet"
+    puts "add like callback"
   end
 
   def remove_like(liker)
-    puts "Holi desde tweet"
+    puts "delete like callback"
   end
   
 end
