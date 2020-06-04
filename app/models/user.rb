@@ -22,7 +22,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
       user.username = auth.info.name.downcase.gsub(/\s/,"") + rand(1..10000).to_s
-      user.avatar = 
+      
     end
   end
 
