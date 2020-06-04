@@ -15,8 +15,10 @@
 
   <div class="actions">
     <%= f.submit "Log in", class: "button_submit" %>
+    <%= link_to "Use Facebook", user_facebook_omniauth_authorize_path, class: "fb_link" %>
+    <%= link_to "Use Github", user_github_omniauth_authorize_path, class: "gh_link" %>
+    <p>Not registered yet?</p>
+    <%= render "devise/shared/links" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
 </div>
