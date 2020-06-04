@@ -1,0 +1,28 @@
+<h1>Tuits</h1>
+
+<article style="display:flex">
+  <aside>
+    <img src="/images/avatar.png">
+  </aside>
+  <section>
+    <div><%= @tuit.user.name %></div>
+    <div><%= "@#{@tuit.user.username}" %></div>
+    <div><%= @tuit.body %></div>
+    <div><%= format(@tuit.created_at) %></div>
+    <div style="display:flex">
+      <div><%= @tuit.likes_count %> Likes</div>
+      <div><%= button_to '<3', tuit_likes_path(@tuit.id) %></div>
+    </div>
+  </section>
+</article>
+
+<% @comments.each do |comment| %>
+  <article>
+    <div>
+      <%= comment.user.name %>
+      @<%= comment.user.username %> -
+      <%= format(comment.created_at) %>
+    </div>
+    <div><%= comment.body %></div>
+  </article>
+<% end %>
