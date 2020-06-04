@@ -27,6 +27,7 @@ class User < ApplicationRecord
   ## Validation
   validates :username, :email, presence: true, uniqueness: true
   validates :bio, length: { maximum: 160 }
-  validates :avatar, file_size: { less_than_or_equal_to: 2.megabyte }
+  validates :avatar, file_size: { less_than_or_equal_to: 2.megabyte },
+    file_content_type: { allow: ['image/jpeg', 'image/png'] }
 
 end
