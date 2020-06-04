@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "home#index"
-  resources :tuits, only: [:index, :show]
+  resources :tuits, only: [:index, :show, :new, :create]
   resources :tuits do
     resources :likes, module: :tuits, only: [:create]
   end
