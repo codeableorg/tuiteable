@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-
-#Sign in- sign up with fb
+#Sign_in with github
+gem 'omniauth-github'
+#Sign_in with fb
 gem 'omniauth-facebook'
 #
 gem 'dotenv-rails', groups: [:development, :test]
