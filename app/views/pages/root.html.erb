@@ -1,8 +1,7 @@
-<h1>Home</h1>
-<%if user_signed_in?%>
-  <%= render "new_tweet", tweet: Tweet.new %>
-<%end%>
-
+<%= render 'layouts/navigation', title: 'Explorer', to_link: root_path, arrow: false %>
+<% if user_signed_in? %>
+  <%= render 'layouts/input_tweet', tweet: Tweet.new, button_text: 'tuiteable!' %>
+<% end %>
 <%Tweet.where(parent_id: nil).order(created_at: :desc).each do |tweet|%>
   <%= render "tweet", tweet: tweet %>
 <%end%>

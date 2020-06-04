@@ -4,4 +4,5 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
   has_many :responses, class_name: 'Tweet', foreign_key: 'parent_id', dependent: :destroy
+  validates :content, presence: true
 end

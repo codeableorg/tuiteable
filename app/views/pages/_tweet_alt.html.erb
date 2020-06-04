@@ -14,6 +14,7 @@
     </p>
     <footer class="w-full my-1 flex flex-row">
       <div class="flex flex-row items-center mr-20">
+        <p class="mr-20"><span class="font-bold"><%= tweet.likes.size %></span> <%= tweet.likes.size == 1 ? 'Like' : 'Likes' %></p>
         <% if user_signed_in? %>
           <% pre_like = tweet.likes.find { |like| like.user_id == current_user.id } %>
           <% if pre_like %>
@@ -24,17 +25,6 @@
         <% else %>
           <%= link_to image_tag("like.svg"), new_user_session_path %>
         <% end %>
-        <p class="mx-2 text-xs"><%= tweet.likes.size %></p>
-      </div>
-      <div class="flex flex-row items-center">
-        <% if user_signed_in? %>
-          <%= link_to image_tag("comment.svg"), tweet_path(tweet) %>
-        <% else %>
-          <%= link_to image_tag("comment.svg"), new_user_session_path %>
-        <% end %>
-        <p class="mx-2 text-xs">
-          <%= tweet.responses.size %>
-        </p>
       </div>
     </footer>
   </main>

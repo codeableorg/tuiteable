@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tuiteable</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Tuiteable</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body class="bg-blue-900">
-    <header>
-      <%=link_to "Explore", root_path%>
-      <%if user_signed_in?%>
-        <%=link_to "Profile", "/#{current_user.tag}"%>
-        <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
-      <%else%>
-        <%=link_to "Sign In", new_user_session_path%>
-        <%=link_to "Sign up", new_user_registration_path%>
-      <%end%>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <footer>
-      <div>
-        By {codeable}
-      </div>
-    </footer>
-  </body>
+<body class="bg-gray-800">
+<div class="container mx-auto box-border flex bg-dark text-white">
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/main' %>
+  <%= render 'layouts/aside' %>
+</div>
+</body>
 </html>
