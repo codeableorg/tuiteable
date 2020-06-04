@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #3C3F45;
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 104.4rem;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: #1D2128;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 16.7%;
+    min-height: 100vh;
+}
+
+.mainpage {
+    width: 57%;
+    border: 1px solid #999B9E;
+    min-height: 100vh;
+}
+
+.asideright {
+    width: 26.3%;
+    min-height: 100vh;
+}
