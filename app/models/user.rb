@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_tweets, through: :likes, source: :tweet
          
+  has_one_attached :avatar
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
