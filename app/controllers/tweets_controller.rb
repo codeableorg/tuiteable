@@ -1,2 +1,2 @@
-class TweetsController < ApplicationController
+class TweetsController < ApplicationController    
 end
