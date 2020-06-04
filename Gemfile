@@ -3,11 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 #ruby '2.6.3'
 
+gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'omniauth-facebook'
 gem 'pundit'
 gem 'devise'
+gem 'wdm' #Necesito esto en windows :(
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
