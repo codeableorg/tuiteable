@@ -19,3 +19,16 @@
 <% else %>
   <%= button_to 'Like', tweet_likes_path(@tweet), method: :post %>
 <% end %>
+
+
+<% @tweet.responses.each do |t| %>
+  <div>
+    Child
+    <div>
+      <%= t.user.tag %>
+    </div>
+    <div>
+      <%= t.content %>
+    </div>
+  </div>
+<% end %>

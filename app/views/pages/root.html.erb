@@ -3,8 +3,6 @@
   <%= render "new_tweet", tweet: Tweet.new %>
 <%end%>
 
-<%Tweet.order('created_at desc').each do |tweet|%>
+<%Tweet.where(parent_id: nil).order(created_at: :desc).each do |tweet|%>
   <%= render "tweet", tweet: tweet %>
-
 <%end%>
-
