@@ -3,11 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook github]
+         :omniauthable, omniauth_providers: %i(facebook github)
 
   has_many :tuits, foreign_key: 'owner_id', dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  acts_as_token_authenticatable
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -15,10 +17,11 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.username = auth.info.name.downcase.gsub(/\s/,"") + rand(1..10000).to_s
+      user.username = auth.info.name.downcase.gsub(/\s/, "") + rand(1..10000).to_s
       user.password = Devise.friendly_token[0, 20]
     end
   end
