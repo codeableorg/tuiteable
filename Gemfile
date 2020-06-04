@@ -51,3 +51,4 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
