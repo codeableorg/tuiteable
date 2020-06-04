@@ -1,0 +1,5 @@
+<h1>Tuit's view</h1>
+
+<% @tuits.each do |tuit| %>
+  <%= render '/tuit/item_tuit', tuit: tuit %>
+<% end %>
