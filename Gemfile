@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
@@ -29,6 +28,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  %w(rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support).each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+  end
+  
+  gem 'dotenv-rails'
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -51,3 +56,5 @@ gem "omniauth-github", "~> 1.4"
 gem "omniauth-facebook", "~> 6.0"
 
 gem "simple_token_authentication", "~> 1.17"
+
+gem "faker", "~> 2.12"
