@@ -51,3 +51,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+<<<<<<< HEAD
+=======
+gem 'file_validators'
+gem 'pundit'
+>>>>>>> 78cff009012a05214043e3d7d5e2c8aafac6dfa1

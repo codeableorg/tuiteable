@@ -22,8 +22,12 @@ class User < ApplicationRecord
   has_many :comments
   has_many :commented_tweets, through: :comments, source: :tweet
   has_and_belongs_to_many :liked_tweets, join_table: "likes", class_name: "Tweet"
+  has_one_attached :avatar
 
   ## Validation
   validates :username, :email, presence: true, uniqueness: true
+  validates :bio, length: { maximum: 160 }
+  validates :avatar, file_size: { less_than_or_equal_to: 2.megabyte },
+    file_content_type: { allow: ['image/jpeg', 'image/png'] }
 
 end
