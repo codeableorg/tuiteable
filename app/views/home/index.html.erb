@@ -1,16 +1,45 @@
-<h1>Home#index</h1>
-<div class="tuits">
-  <% @tuits.each do |tuit| %>
+<div class="explorer">
+  <h2 class="explorer-title" >Explorer</h2>
+</div>
+<% if current_user %>
   <div class="tuit">
     <div class="tuit-image">
       <%= image_tag("girl.jpeg" , alt:"girl" ) %>
     </div>
     <div class="tuit-body">
-      <h2 class="tuit-title" ><%= tuit.user.name %> <span>@<%= tuit.user.username%> - <%= tuit.created_at.to_date.strftime("%d %B") %>  </span></h2>
-      <p class="tuit-description" ><%= tuit.body %></p>
+    <%= form_with do |f| %>
+      <%= f.text_area :body, size: "40x4", placeholder:"What you are thinking about is...", class: "tuit-write" %>
+      <div class="text-right" ><%= f.submit "Tuiteable!", class: "tuit-button" %></div>
+    <% end %>
+    </div>
+  </div>
+<% end %>  
+<div class="tuits">
+  <% @tuits.sample(40).each do |tuit| %>
+  <div class="tuit">
+    <div class="tuit-image">
+      <%= image_tag("girl.jpeg" , alt:"girl" ) %>
+    </div>
+    <div class="tuit-body">
+      <h2 class="tuit-title">
+        <%= tuit.user.name %>
+        <span
+          >@<%= tuit.user.username%> - <%= tuit.created_at.to_date.strftime("%d
+          %B") %>
+        </span>
+      </h2>
+      <p class="tuit-description"><%= tuit.body %></p>
       <div class="tuit-reactions">
-        <div > <%= image_tag("comment.svg", alt: "comment_icon") %>  <%= tuit.comments_count %> </div>
-        <div> <button class="tuit-like" ><%= image_tag("heart.svg", alt: "heart_icon") %></button> <%= tuit.likes_count %> </div>
+        <div>
+          <%= image_tag("comment.svg", alt: "comment_icon") %> <%=
+          tuit.comments_count %>
+        </div>
+        <div>
+          <button class="tuit-like">
+            <%= image_tag("heart.svg", alt: "heart_icon") %>
+          </button>
+          <%= tuit.likes_count %>
+        </div>
       </div>
     </div>
   </div>
