@@ -184,6 +184,8 @@ GEM
     pg (1.2.3-x64-mingw32)
     puma (4.3.5)
       nio4r (~> 2.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.2.2)
     rack-proxy (0.6.5)
       rack
@@ -261,6 +263,7 @@ GEM
       tzinfo (>= 1.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
+    wdm (0.1.1)
     web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -291,6 +294,7 @@ DEPENDENCIES
   omniauth-github (~> 1.4)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
+  pundit
   rails (~> 6.0.3, >= 6.0.3.1)
   rspec-core!
   rspec-expectations!
@@ -303,6 +307,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  wdm
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
