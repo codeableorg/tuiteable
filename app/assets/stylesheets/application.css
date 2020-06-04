@@ -23,7 +23,13 @@ html {
     margin: 0;
     padding: 0;
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
+label {
+    display: inline-block;
+}
 body {
     background: #3C3F45;
     margin: 0;

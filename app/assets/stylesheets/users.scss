@@ -1,3 +1,87 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.fa-long-arrow-alt-left {
+  color: #1da1f2;
+}
+
+.ml-50 {
+  display: inline-block;
+  margin-left: 5rem;
+}
+
+.signup {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.5rem, 0;
+}
+
+.signup-item {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.signup-label {
+  font-weight: bold;
+  font-size: 2rem;
+  color: white;
+  width: 30%;
+}
+
+.signup-input {
+  font-size: 1.6rem;
+  padding: 1rem;
+  width: 65%;
+  height: 4rem;
+  border-radius: 1.5rem;
+  border: none;
+}
+
+.signup-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.container-file {
+  width: 65%;
+}
+
+.signup-upfile {
+  font-size: 1.6rem;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+}
+
+.signup-text {
+  width: 100%;
+  min-height: 14rem;
+  max-height: 14rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 1.5rem;
+  border: none;
+  margin-top: 1rem;
+}
+
+.signup-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.6rem 0.8rem;
+  background: #1da1f2;
+  border-radius: 10rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: white;
+  border: none;
+}
