@@ -68,8 +68,7 @@ body {
   width: 25%;
 }
 .aside-left,
-.aside-right,
-.main {
+.aside-right {
   padding: 15px;
 }
 .aside-left__title {
