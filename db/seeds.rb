@@ -14,4 +14,13 @@ sebas_user.tuits.create!(body:"soy Sebas")
 wilber_user.liked_tuits << Tuit.second
 humberto_user.liked_tuits << Tuit.third
 sebas_user.liked_tuits << Tuit.first
-
+wilber_comment = Comment.create!(body:"Buen tuit, Sebas",tuit_id:3,user_id:wilber_user.id)
+humberto_comment = Comment.create!(body:"Buen tuit, Wilber",tuit_id:1,user_id:humberto_user.id)
+sebas_comment = Comment.create!(body:"Buen tuit, Humberto",tuit_id:2,user_id:sebas_user.id)
+Tuit.first.retuits.create!(body:"Hola Wilber, soy Sebas", owner_id:3)
+Tuit.second.retuits.create!(body:"Hola Humberto, soy Wilber", owner_id:1)
+Tuit.third.retuits.create!(body:"Hola Sebas, soy Humberto", owner_id:2)
+#  Can one self follow itself?
+wilber_user.followers << humberto_user
+wilber_user.followers << sebas_user
+sebas_user.followees << humberto_user

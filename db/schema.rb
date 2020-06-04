@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_213643) do
   end
 
   create_table "tuits", force: :cascade do |t|
-    t.text "body"
-    t.integer "likes_count"
-    t.integer "comments_count"
-    t.integer "tuits_count"
+    t.text "body", null: false
+    t.integer "likes_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
+    t.integer "tuits_count", default: 0, null: false
     t.bigint "parent_id"
     t.bigint "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_213643) do
     t.string "email", default: "", null: false
     t.string "location"
     t.string "avatar"
-    t.boolean "admin"
+    t.boolean "admin", default: false, null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
