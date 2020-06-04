@@ -7,15 +7,12 @@
       <%= image_tag("girl.jpeg" , alt:"girl" ) %>
     </div>
     <div class="tuit-body">
-    <%= form_with do |f| %>
-      <%= f.text_area :body, size: "40x4", placeholder:"What you are thinking about is...", class: "tuit-write" %>
-      <div class="text-right" ><%= f.submit "Tuiteable!", class: "tuit-button" %></div>
-    <% end %>
+    <%= render 'tuits/tuit_form' %>
     </div>
   </div>
 <% end %>  
 <div class="tuits">
-  <% @tuits.sample(40).each do |tuit| %>
+  <% @tuits.each do |tuit| %>
   <div class="tuit">
     <div class="tuit-image">
       <%= image_tag("girl.jpeg" , alt:"girl" ) %>
