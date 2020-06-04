@@ -1,0 +1,428 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: #1D2128;
+}
+
+.mainContainer{
+  display: flex;
+}
+
+.first{
+  border-right: 2px solid grey;
+  width: fit-content;
+  height: 100vh;
+  padding: 10px 28px;
+  padding-top: 10px;
+}
+
+.first img{
+  margin-top: 5px;
+}
+
+.firstColumn{
+  display: flex;
+  align-items: center;
+  margin-left: -7px;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.firstColumn .hash{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.firstColumn .user{
+  display: flex;
+  align-items: center;
+}
+
+button#up{
+  margin-left: 143px;
+}
+
+.firstColumn button{
+  color: red;
+  border: solid 2px red;
+  border-radius: 15px;
+  padding: 5px;
+  background: transparent;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.hidden{
+  display: none;
+  color: red;
+}
+
+.firstColumn a{
+  text-decoration: none;
+  font-size: 19px;
+  color: #fff;
+  margin-left: 12px;
+}
+
+.second{
+  border-right: 2px solid grey;
+  height: 100vh;
+  padding-bottom: 20px;
+  width: 56em;
+}
+
+.second .head{
+  border-bottom: 2px solid grey;
+}
+
+.second .head p{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 15px 25px;
+}
+
+.head a{
+  color: rgb(0, 171, 238);
+  text-decoration: none;
+}
+
+.about{
+  border-bottom: 7px solid grey;
+}
+
+.about button{
+  padding: 7px 13px;
+  background: #1DA1F2;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  margin-left: 790px;
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+.about .content input{
+  width: 750px;
+  height: 50px;
+  background: transparent;
+  padding-left: 15px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.about  .content{
+  display: flex;
+  padding: 15px;
+}
+
+.about  .content img{
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.form{
+  width: 897px;
+  border-bottom: 2px solid gray;
+  font-weight: bold;
+  padding-left: 250px;
+  padding-top: 17px;
+  border-bottom: none;
+}
+
+#username{
+  margin: 10px 50px;
+  padding: 0 0 0 15px;
+}
+
+#namee{
+  margin: 10px 80px;
+  padding: 0 0 0 15px;
+}
+
+#emaill{
+  margin: 10px 83px;
+  padding: 0 0 0 15px;
+}
+
+#passwordd{
+  margin: 10px 52px;
+  padding: 0 0 0 15px;
+}
+
+#pc{
+  margin: 10px 58px;
+  padding: 0 0 0 15px;
+}
+
+#location{
+  margin: 10px 62px;
+  padding: 0 0 0 15px;
+}
+
+.form input{
+  height: 35px;
+  border-radius: 14px;
+  border: none;
+  width: 230px;
+}
+
+.form label{
+  color: #fff;
+}
+
+.form form textarea{
+  width: 362px;
+  height: 140px;
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+form button{
+  border: 2px solid #1DA1F2;
+  background: #1DA1F2;
+  color: #fff;
+  padding: 5px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-left: 119px;
+}
+
+.avatar button{
+  border: 2px solid #1DA1F2;
+  background: transparent;
+  color: #1DA1F2;
+  padding: 5px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-left: 74px;
+}
+
+.third{
+  color: #fff;
+}
+
+.third .card{
+  background: rgba(153, 155, 158, 0.25);
+  margin: 7px 18px 30px 18px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 13px;
+  width: 210px;
+  align-items: center;
+}
+
+.card button{
+  width: fit-content;
+}
+
+.card form{
+  width: 213px;
+  margin: 11px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card input{
+  height: 35px;
+  border-radius: 14px;
+  border: none;
+  width: 201px;
+  margin: 7px 0;
+  padding: 0 0 0 12px;
+}
+
+.card h1#title{
+  margin-bottom: 10px;
+}
+
+.card h1{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card #login{
+  color: #fff;
+  background: #1DA1F2;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.card #facebook{
+  color: #fff;
+  padding: 4px 6px;
+  background: #1D5CD7;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.card #github{
+  color: #fff;
+  padding: 4px 6px;
+  background: #000;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.card #signup{
+  color: #1DA1F2;
+  border: 2px solid #1DA1F2;
+  border-radius: 20px;
+  padding: 10px;
+  background: transparent;
+  margin: 10px 0;
+}
+
+.third{
+  text-align: center;
+}
+.third p#message{
+  font-size: 13px;
+}
+
+/* Tweet */
+
+.tweet{
+  width: 866px;
+  border-bottom: 2px solid grey;
+  display: flex;
+  font-size: 16px;
+  color: #fff;
+  padding: 16px;
+}
+
+.tweet img#image{
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.tweet span{
+  color: grey;
+  font-weight: 300;
+}
+
+.content p#comment{
+  margin: 10px 0 7px 0;
+}
+
+.info{
+  display: flex;
+  margin-top: 13px;
+}
+
+.comments{
+  display: flex;
+  align-items: center;
+}
+
+.comments img{
+  height: 15px;
+  margin-right: 5px;
+}
+
+.likes{
+  display: flex;
+  align-items: center;
+  margin-left: 110px;
+}
+
+.likes img{
+  height: 15px;
+  margin-right: 5px;
+}
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  border-bottom: 2px solid grey;
+  padding: 20px 0;
+}
+
+.profile span{
+  color: grey;
+}
+
+.profile img#profile{
+  height: 105px;
+  border-radius: 50%;
+}
+
+.profile p{
+  margin: 20px 0;
+}
+
+.profile .profinfo{
+  display: flex;
+
+  width: 280px;
+  justify-content: space-between;
+}
+
+.profinfo .location span{
+  margin-left: 7px;
+}
+
+.profinfo .calendar span{
+  margin-left: 7px;
+}
+
+.profinfo .location{
+  display: flex;
+  align-items: center;
+}
+
+.profinfo .calendar{
+  display: flex;
+  align-items: center;
+}
+
+.profile button{
+  background: transparent;
+  color: #1DA1F2;
+  border: solid 2px #1DA1F2;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin: 14px 0 0 780px;
+}
+
+.tuitsAndLikes {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid grey;
+}
+
+
+.tuitsAndLikes .windows{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.tuitsAndLikes a{
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.windowActive{
+  color: gray !important;
+}
