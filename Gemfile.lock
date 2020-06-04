@@ -286,6 +286,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  omniauth
   omniauth-facebook
   omniauth-github
   pg (>= 0.18, < 2.0)
