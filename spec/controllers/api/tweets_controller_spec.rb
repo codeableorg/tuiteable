@@ -9,7 +9,7 @@ describe Api::TweetsController do
 
   it 'returns http status ok' do
     get :index
-    expect(response.status).to eq(200)
+    expect(response).to have_http_status(:ok)
   end
 
   it 'render json with all tweets' do
