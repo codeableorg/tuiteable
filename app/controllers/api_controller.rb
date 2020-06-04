@@ -11,7 +11,6 @@ class ApiController < ActionController::API
         .none? { |callable| callable.call(self) }
   end
 
-  # ugly hack but works like a charm in Rails 5.1
   def authentication_callback
     @authentication_callback ||= _process_action_callbacks.find do |callback|
       callback.instance_variable_get('@key') == :authenticate_user!

@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     resources :tweets, only: [:index]
     post "sign_in", to: "sessions#create"
     delete "log_out", to: "sessions#destroy"
+
+    resources :users, only: [:create] do
+    end
   end
 end
