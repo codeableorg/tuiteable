@@ -50,3 +50,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'dotenv-rails', groups: [:development, :test]
