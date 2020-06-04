@@ -1,3 +1,27 @@
-<h1>Tuit show view</h1>
+<h1>Tuit</h1>
 
-<%= render '/tuit/item_tuit', tuit: @tuit %>
+<div>
+  <div>
+    <img src="" alt="" />
+  </div>
+  <div>
+    <p><%= @tuit.user.name %></p>
+    <p><%= @tuit.user.username %></p>
+    <p><%= @tuit.body %></p>
+    <p><%= @tuit.created_at.strftime("%l:%M %p - %b %e, %Y") %></p> 
+    <div>
+      L: <%= @tuit.likes_count %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <% @tuit.comments.each do |comment| %>
+    <div>
+      <%= comment.user.name %>
+      <%= comment.user.username %> - 
+      <%= comment.created_at.strftime("%e %B")%>
+    </div>
+    <p><%= comment.body %></p>
+  <% end %>
+</div>
