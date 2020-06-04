@@ -1,0 +1,34 @@
+<div class="tuit">
+    <div class="tuit-image">
+      <%= image_tag("girl.jpeg" , alt:"girl" ) %>
+    </div>
+    <div class="tuit-body">
+      <a class="tuit-title" href="<%= tuit_path(tuit) %>">
+        <%= tuit.user.name %>
+        <span>
+          @<%= tuit.user.username %> -
+          <%= tuit.created_at.to_date.strftime("%d %B") %>
+        </span>
+      </a>
+      <p class="tuit-description" >
+        <span class="tuit-description__text" ><%= tuit.body %></span>
+        <% if tuit.user == current_user %>
+          <span>
+            <%= link_to "delete", tuit_path(tuit), method: :delete, class:"tuit-button tuit-delete  tuit-button-red-outline ", data: {confirm: "are you sure?"} %>
+          </span>
+        <% end %>
+      </p>
+      <div class="tuit-reactions">
+        <div>
+          <%= image_tag("comment.svg", alt: "comment_icon") %> <%=
+          tuit.comments_count %>
+        </div>
+        <div>
+          <button class="tuit-like">
+            <%= image_tag("heart.svg", alt: "heart_icon") %>
+          </button>
+          <%= tuit.likes_count %>
+        </div>
+      </div>
+    </div>
+  </div>

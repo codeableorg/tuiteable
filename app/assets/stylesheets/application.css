@@ -151,6 +151,17 @@ body {
 .tuit-description {
   margin-top: 0;
   margin-bottom: 8px;
+  position: relative;
+}
+
+.tuit-description__text {
+  width: 90%;
+  display: inline-block;
+}
+
+.tuit-description .tuit-delete {
+  position: absolute;
+  right: 0;
 }
 
 .tuit-title span {
@@ -185,13 +196,22 @@ body {
 
 .tuit-button {
   border-radius: 100px;
-  background-color: #1da1f2;
   padding: 4px 8px;
   border: none;
-  color: #fff;
   font-size: 16px;
   cursor: pointer;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.tuit-button-blue {
+  background-color: #1da1f2;
+  color: #fff;
+}
+
+.tuit-button-red-outline {
+  background: none;
+  border: 1px solid #e0245e;
+  color: #e0245e;
 }
 
 .explorer-title {
@@ -207,7 +227,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
-  border-bottom: 1px solid #999B9E;
+  border-bottom: 1px solid #999b9e;
 }
 .show-page__article-figure {
   width: 15%;
@@ -229,7 +249,7 @@ body {
 }
 .show-page__article-subtitle {
   margin-bottom: 5px;
-  color: #999B9E;
+  color: #999b9e;
   font-size: 16px;
   line-height: 20px;
 }
@@ -240,13 +260,13 @@ body {
 .show-page__article-metadata {
   margin-bottom: 15px;
   padding: 5px 0;
-  border-bottom: 1px solid #999B9E;
-  color: #999B9E;
+  border-bottom: 1px solid #999b9e;
+  color: #999b9e;
   font-size: 16px;
   line-height: 20px;
 }
 .show-page__article-metadata--inline {
-  color: #999B9E;
+  color: #999b9e;
 }
 .show-page__article-reactions {
   display: flex;
