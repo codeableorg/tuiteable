@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :tweets
-  has_many :liked_tweets, source: :tweet, through: :likes
-  has_many :commented_tweets, source: :tweet, through: :comments
+  has_many :likes
+  has_many :liked_tweets, class_name: "Tweet", through: :likes
+  has_many :comments
+  has_many :comented_tweets, class_name: "Tweet", through: :comments
+  has_many :followers, class_name: "Follow", foreign_key: "following_id"
+  has_many :followings, class_name: "Follow", foreign_key: "followers_id"
+  has_many :user_followers, through: :followers, source: :follower
+  has_many :user_followings, through: :followings, source: :following
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_202938) do
+ActiveRecord::Schema.define(version: 2020_06_04_004417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_202938) do
 
   create_table "follows", force: :cascade do |t|
     t.bigint "following_id", null: false
-    t.bigint "followers_id", null: false
+    t.bigint "follower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followers_id"], name: "index_follows_on_followers_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
@@ -43,13 +43,24 @@ ActiveRecord::Schema.define(version: 2020_06_03_202938) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "tweets", force: :cascade do |t|
-    t.text "body"
-    t.integer "retweet"
-    t.integer "likes"
+  create_table "providers", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_providers_on_user_id"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.text "body"
+    t.integer "retweets_count", default: 0
+    t.integer "likes_count", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "parent_id"
+    t.index ["parent_id"], name: "index_tweets_on_parent_id"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
@@ -59,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_06_03_202938) do
     t.string "avatar"
     t.string "display_name"
     t.boolean "admin"
-    t.integer "followers_count"
-    t.integer "followings_count"
+    t.integer "followers_count", default: 0
+    t.integer "followings_count", default: 0
     t.text "bio"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
@@ -69,9 +80,11 @@ ActiveRecord::Schema.define(version: 2020_06_03_202938) do
 
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
-  add_foreign_key "follows", "users", column: "followers_id"
+  add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
+  add_foreign_key "providers", "users"
+  add_foreign_key "tweets", "tweets", column: "parent_id"
   add_foreign_key "tweets", "users"
 end
