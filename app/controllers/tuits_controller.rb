@@ -1,4 +1,6 @@
 class TuitsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy, :like]
+
   def index
     @tuits = Tuit.order(:created_at).limit(40)
   end
@@ -17,11 +19,23 @@ class TuitsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @tuit = Tuit.find(tuit_params).destroy
   end
-  
+
+  def like
+    @tuit = Tuit.find(params[:id])
+    @vote = @tuit.votes.find_by(user: current_user)
+    if @vote
+      @vote.destroy
+    else
+      @tuit.votes.find_or_create_by(user: current_user)
+    end
+    redirect_to @tuit
+  end
+
   private
+
   def tuit_params
     params.require(:tuit).permit(:body)
   end

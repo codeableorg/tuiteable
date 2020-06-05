@@ -104,13 +104,9 @@ button#up {
   font-weight: bold;
   border: none;
   border-radius: 20px;
-  margin-left: 790px;
-  margin-bottom: 15px;
-  margin-top: -10px;
 }
 
 .about .content input {
-  width: 750px;
   height: 50px;
   background: transparent;
   padding-left: 15px;
@@ -121,6 +117,7 @@ button#up {
 
 .about .content {
   display: flex;
+  align-items: center;
   padding: 15px;
 }
 
@@ -306,26 +303,45 @@ form button {
 
 .third p#message {
   font-size: 13px;
+  text-align: center;
+  margin: 0 18px;
 }
 
 /* Tweet */
 
-.tweet {
-  min-width: 20em;
-  border-bottom: 2px solid grey;
-  display: flex;
+.tweet-wrapper {
   font-size: 16px;
   color: #fff;
   padding: 16px;
+
+  min-width: 20em;
+  border-bottom: 2px solid grey;
 }
 
-.tweet img#image {
+.tweet {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+}
+
+.tweet-comment {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+  color: #fff;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.tweet img#image,
+.tweet-comment img#image {
   height: 50px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
-.tweet span {
+.tweet span,
+.tweet-comment span {
   color: grey;
   font-weight: 300;
 }
@@ -337,11 +353,16 @@ form button {
 .info {
   display: flex;
   margin-top: 13px;
+  position: relative;
+  z-index: 1;
+  margin-left: 62px;
 }
 
 .comments {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .comments img {
@@ -353,6 +374,8 @@ form button {
   display: flex;
   align-items: center;
   margin-left: 110px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .likes img {

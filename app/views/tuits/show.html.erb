@@ -1,36 +1,40 @@
 <% content_for :page_heading do %>
-  Tuit
+  <% link_to '<-', root_path %>Tuit
 <% end %>
 <div class="showTuit">
-  <div class="tweet">
-    <img id="image" src="/img/goku.png">
-    <div class="content">
-      <h3><%= @tuit.owner.name %></h3>
-      <span>@<%= @tuit.owner.username %> - <%= @tuit.created_at.strftime '%-d %B' %></span>
-      <p id='comment' ><%= @tuit.body %></p>
-      <span><%= @tuit.created_at.strftime '%I:%M %p - %b %-d, %Y' %></span>
-      <div class="info">
-        <div class="comments">
-          <img src="/img/comment.png">
-          <p><%= @tuit.comments.count %></p>
-        </div>
-        <div class="likes">
-          <img src="/img/like.png">
-          <p><%= @tuit.votes.count %></p>
-        </div>
+  <div class="tweet-wrapper">
+    <div class="tweet">
+      <img id="image" src="/img/goku.png">
+      <div class="content">
+        <h3><%= @tuit.owner.name %></h3>
+        <span>@<%= @tuit.owner.username %> - <%= @tuit.created_at.strftime '%-d %B' %></span>
+        <p id='comment' ><%= @tuit.body %></p>
+        <span><%= @tuit.created_at.strftime '%I:%M %p - %b %-d, %Y' %></span>
       </div>
+    </div>
+    <div class="info">
+      <%= link_to @tuit, class:'comments' do %>
+        <img src="/img/comment.png">
+        <p><%= @tuit.comments.count %></p>
+      <%end%>
+      <%= link_to like_tuit_path(@tuit), class:'likes' do %>
+        <img src="/img/like.png">
+        <p><%= @tuit.votes.count %></p>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="about">
-  <div class="content">
-    <img id="image" src="/img/fire.png">
-    <input type="text" placeholder="Think before write...">
+<% if user_signed_in? %>
+  <div class="about">
+    <div class="content">
+      <img id="image" src="/img/fire.png">
+      <input type="text" placeholder="Think before write...">
+      <button>Comment!</button>
+    </div>
   </div>
-  <button>Comment!</button>
-</div>
+<% end %>
 <% @tuit.comments.each do |comment| %>
-  <div class="tweet">
+  <div class="tweet-comment">
     <img id="image" src="/img/tanus.png">
     <div class="content">
       <h3><%= comment.user.name %> <span>@<%= comment.user.username %> - <%= comment.created_at.strftime '%-d %B' %></span> </h3>

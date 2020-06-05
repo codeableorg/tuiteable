@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   resources :tuits do
     resources :comments
+    member do
+      get 'like', to: 'tuits#like'
+    end
   end
 
   devise_scope :user do

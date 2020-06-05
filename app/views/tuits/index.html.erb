@@ -1,23 +1,24 @@
 <% content_for :page_heading do %>
-Explorer
+  Explorer
 <% end %>
-
 <% @tuits.each do |tuit|%>
-  <div class="tweet">
-    <img id="image" src="../img/tanus.png">
-    <div class="content">
-      <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
-      <p id='comment' ><%=tuit.body%></p>
-      <div class="info">
-        <div class="comments">
-          <img src="../img/comment.png">
-          <p><%=tuit.comments.count%></p>
-        </div>
-        <div class="likes">
-          <img src="../img/like.png">
-          <p><%=tuit.votes.count%></p>
-        </div>
+  <div class="tweet-wrapper">
+    <%= link_to tuit, class:'tweet' do %>
+      <img id="image" src="/img/tanus.png">
+      <div class="content">
+        <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
+        <p id='comment' ><%=tuit.body%></p>
       </div>
+    <% end %>
+    <div class="info">
+      <%= link_to tuit, class:'comments' do %>
+        <img src="/img/comment.png">
+        <p><%=tuit.comments.count%></p>
+      <% end %>
+      <%= link_to like_tuit_path(tuit), class:'likes' do %>
+        <img src="/img/like.png">
+        <p><%=tuit.votes.count%></p>
+      <% end %>
     </div>
   </div>
 <%end%>
