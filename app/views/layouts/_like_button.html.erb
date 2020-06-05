@@ -1,0 +1,12 @@
+<%=
+  button_to(
+    tuit_likes_path(tuit),
+    params: { redirect: redirect },
+    class: 'tuit__heart-button',
+  ) do
+%>
+  <%= heart_img(tuit) %>
+  <% if count %>
+    <%= likes_count(tuit) %>
+  <% end %>
+<% end %>

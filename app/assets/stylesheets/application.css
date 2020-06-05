@@ -202,6 +202,17 @@ body {
 .new-image {
   margin: 10px;
 }
+.tuit__heart-button {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+}
+.tuit__heart-button img {
+  width: 16px;
+  height: 15px;
+}
 /* TUITS SHOW PAGE */
 .show-page__article {
   display: flex;
