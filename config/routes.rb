@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'comments/create'
-  get 'porfile' ,to: 'users#index'
+  get 'profile' ,to: 'users#index'
+  resources :users , only:[:update, :edit]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'tweets#index'
 
