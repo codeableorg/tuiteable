@@ -14,18 +14,14 @@
     <div class="index-page">
       <div class="column-left">
         <%= link_to  "#Explore", root_path %>
-        <% if user_signed_in? %>
-          <%= link_to  "#Explore", root_path %>          
+        <% if user_signed_in? %>                    
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <%= link_to  "Perfil", 'porfile' %>
+          <%= link_to  "Create tweet", 'tcreate' %>
         <%end%>
       </div>
       <div class="column-middle">
-        <% if user_signed_in? %>
         
-          <%= link_to  "#Explore", root_path %>          
-          
-        <%end%>
         <%= yield %>
         
       </div>
