@@ -8,6 +8,10 @@
   <p><%= image_tag("location.png") %><%= current_user.location%></p>
   <p><%= image_tag("calendar.png") %><%= current_user.created_at.to_date%></p>
 </div>
+<div>
+  <p><%= current_user.followed_users.count %> Following </p>
+  <p><%= current_user.followers.count %> Followers</p>
+</div>
 <% current_user.tuits.each do |tuit_item| %>
   <%= render partial: "home/tuit", locals: { tuit: tuit_item } %>  
 <% end %>
