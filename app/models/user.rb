@@ -11,6 +11,18 @@ class User < ApplicationRecord
   has_many :commented_tuits, through: :comments, source: :tuit
   has_one_attached :avatar
 
+  # has_many :followers, foreign_key: :follower_id, class_name: "Follow"
+  # has_many :followed, through: :followers, source: :followed
+
+  # has_many :followed, foreign_key: :followed_id, class_name: "Follow"
+  # has_many :followers, through: :followed, source: :follower
+
+  has_many :follows, foreign_key: :follower_id, class_name: "Follow"
+  has_many :followed_users, through: :follows, source: :followed
+
+  has_many :followings, foreign_key: :followed_id, class_name: "Follow"
+  has_many :followers, through: :followings, source: :follower
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
