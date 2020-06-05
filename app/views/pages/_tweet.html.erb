@@ -1,4 +1,4 @@
-<%=link_to  "#{tweet.user.tag}/#{tweet.id}" do%>
+<%=link_to tweet_path(tweet) do%>
   <div>
     <div>
       <%=tweet.user.tag%>

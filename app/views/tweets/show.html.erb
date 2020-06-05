@@ -1,6 +1,6 @@
 <p>
   <strong>
-    <%= @tweet.user.tag %>
+    <%= link_to @tweet.user.tag, user_path(@tweet.user) %>
   </strong>
 </p>
 

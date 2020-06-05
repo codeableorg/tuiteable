@@ -1,4 +1,24 @@
-<h1>User Profile</h1>
+<p>
+  <strong>Avatar:</strong>
+  <% if @user.avatar.attached? %>
+    <image src="<%=(url_for(@user.avatar))%>">
+  <% end %>
+</p>
 
-<p>@<%=@user.tag%></p>
+<p>
+  <strong>Tag:</strong>
+  <%= @user.tag %>
+</p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

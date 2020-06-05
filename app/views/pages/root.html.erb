@@ -5,6 +5,5 @@
 
 <%Tweet.order('created_at desc').each do |tweet|%>
   <%= render "tweet", tweet: tweet %>
-
 <%end%>
 

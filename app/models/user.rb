@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :tag, presence: true
   validates :tag, uniqueness: true
   has_many :tweets,  through: :likes
+  # Attachments
+  has_one_attached :avatar
 end
