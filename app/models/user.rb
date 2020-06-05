@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tweets
   has_many :likes
-  has_many :liked_tweets, class_name: "Tweet", through: :likes
+  has_many :liked_tweets, through: :likes, source: :tweet
   has_many :comments
   has_many :comented_tweets, class_name: "Tweet", through: :comments
   has_many :followers, class_name: "Follow", foreign_key: "following_id"

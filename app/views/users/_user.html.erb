@@ -1,0 +1,21 @@
+<div class="profile">
+  <div class="profile-containeravatar">
+    <%= image_tag get_avatar(@user), class: "profile-avatar" %>
+  </div>
+  <span class="profile-name"><%=@user.display_name %></span>
+  <span class="profile-username">@<%= @user.username %></span>
+  <p class="profile-bio">
+    <%=@user.bio %>
+  </p>
+  <div class="profile-details">
+    <div class="profile-locationcontainer">
+      <i class="fas fa-map-marker-alt"></i>
+      <span class="profile-location"><%= @user.location %></span>
+    </div>
+    <div class="profile-datecontainer">
+      <i class="far fa-calendar-alt"></i>
+      <span class="profile-date">Joined <%= format_date_profile( @user.created_at) %></span>
+    </div>
+  </div>
+  <a href="#" class="profile-edit">Edit Profile</a>
+</div>
