@@ -1,10 +1,10 @@
 <article class="flex flex-row w-full border border-gray-600 p-3">
   <aside class="w-16 flex items-center">
-    <img class="rounded-full" src="https://www.geo-sight.co.uk/wp-content/uploads/2014/10/Person-PlaceHolder.png" alt="">
+    <img class="rounded-full" src="<%=(url_for(tweet.user.avatar))%>" alt="">
   </aside>
   <main class="flex-grow flex flex-col px-5">
     <header class="w-full my-1">
-      <a href="<%= tweet_url(tweet) %>" class="font-bold">Nombre del tuitero</a>
+      <a href="<%= tweet_url(tweet) %>" class="font-bold"><%= tweet.user.name %></a>
       <a href="#" class="text-gray-500"> @<%= tweet.user.tag %></a>
       <span class="text-gray-500"> - <%= tweet.created_at.strftime("%B %-d") %></span>
     </header>

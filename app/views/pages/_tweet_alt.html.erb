@@ -4,7 +4,7 @@
   </aside>
   <main class="flex-grow flex flex-col px-5">
     <header class="w-full my-1">
-      <a href="<%= tweet_url(tweet) %>" class="font-bold">Nombre del tuitero</a>
+      <a href="<%= tweet_url(tweet) %>" class="font-bold"><%=tweet.user.name%></a>
       <a href="#" class="text-gray-500"> @<%= tweet.user.tag %></a>
       <span class="text-gray-500"> - <%= tweet.created_at.strftime("%B %-d") %></span>
     </header>

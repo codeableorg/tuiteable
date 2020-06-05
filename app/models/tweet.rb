@@ -1,4 +1,5 @@
 class Tweet < ApplicationRecord
+  # Relations
   belongs_to :user
   belongs_to :parent, class_name: 'Tweet', optional: true, counter_cache: :responses_count
   has_many :likes, dependent: :destroy
