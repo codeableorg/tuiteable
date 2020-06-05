@@ -13,13 +13,9 @@
       </div>
     </div>
     <div class="info">
-      <%= link_to @tuit, class:'comments' do %>
-        <img src="/img/comment.png">
-        <p><%= @tuit.comments.count %></p>
-      <%end%>
+      <p><%= pluralize(@tuit.votes.count,'Like')%></p>
       <%= link_to like_tuit_path(@tuit), class:'likes' do %>
         <img src="/img/like.png">
-        <p><%= @tuit.votes.count %></p>
       <% end %>
     </div>
   </div>
@@ -29,8 +25,8 @@
     <div class="content">
       <img id="image" src="/img/fire.png">
       <input type="text" placeholder="Think before write...">
-      <button>Comment!</button>
     </div>
+      <button>Comment!</button>
   </div>
 <% end %>
 <% @tuit.comments.each do |comment| %>

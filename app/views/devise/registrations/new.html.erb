@@ -1,45 +1,37 @@
 <% content_for :page_heading do %>
-Sign up
+  <%= link_to root_path do %>&larr;<% end %>Back to Explorer
 <% end %>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form signup-form'}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="form">
-    <form>
-      <div class="field">
-        <%= f.label :username %><br />
-        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-      </div>
-      <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </div>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-      <div class="field">
-        <%= f.label :location %><br />
-        <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
-      </div>
-      <div class="field">
-        <%= f.label :bio %><br />
-        <%= f.text_field :bio, autofocus: true, autocomplete: "bio" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    </form>
-  </div>
+    <div class="field">
+      <%= f.label :username, 'Username:' %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, 'Name:' %>
+      <%= f.text_field :name, autocomplete: "name" %>
+    </div>
+    <div class="field">
+      <%= f.label :email, 'Email:' %>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+    <div class="field">
+      <%= f.label :password, 'Password:' %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, 'Password confirm:' %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <div class="field">
+      <%= f.label :location, 'Location:' %>
+      <%= f.text_field :location, autocomplete: "location" %>
+    </div>
+    <div class="text-area">
+      <%= f.label 'Bio:',id: 'bio' %><br />
+      <%= f.text_area :bio, id: 'bio', cols:30, rows:10 %>
+    </div>
+    <div class="actions">
+      <%= f.button "Create an account", id: 'up' %>
+    </div>
 <% end %>
