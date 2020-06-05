@@ -4,7 +4,7 @@ class Api::Tweets::LikesController < ApiController
   before_action :get_like, only: [:create, :destroy]
 
   def index
-    render json: @tweet.likers status: :ok
+    render json: @tweet.likes status: :ok
   end
 
   def create

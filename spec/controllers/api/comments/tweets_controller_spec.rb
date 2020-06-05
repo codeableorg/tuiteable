@@ -13,7 +13,7 @@ describe Api::Tweets::CommentsController do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'render json with all tweets' do
+    it 'render json with all comments' do
       get :index, params: {tweet_id: @tweet}
       comments = JSON.parse(response.body)
       expect(comments.size).to eq 1
@@ -53,7 +53,7 @@ describe Api::Tweets::CommentsController do
       expect(response).to have_http_status(:created)
     end
 
-    it 'render json with all tweets' do
+    it 'render json with all comments' do
       post :create, params: {tweet_id: @tweet, comment: {body: "holi"}}
       comment = JSON.parse(response.body)
       expect(comment["body"]).to eq "holi"
@@ -90,7 +90,7 @@ describe Api::Tweets::CommentsController do
       expect(comment["body"]).to eq "woli"
     end
 
-    it 'render json with updated tweet by admin' do
+    it 'render json with updated comment by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
       put :update, params: {tweet_id: @tweet, id: @comment, comment: {body: "woli"}}
