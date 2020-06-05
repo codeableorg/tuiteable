@@ -18,6 +18,7 @@ admins = [
     "email" => "acastemoreno@gmail.com",
     "password" => "123456",
     "encrypted_password" => BCrypt::Password.create("123456"),
+    "bio" => Faker::Lorem.sentence,
     "admin" => true
   },
   {
@@ -26,6 +27,7 @@ admins = [
     "email" => "juanjoseuagrtellamocca@gmail.com",
     "password" => "123456",
     "encrypted_password" => BCrypt::Password.create("123456"),
+    "bio" => Faker::Lorem.sentence,
     "admin" => true
   },
   {
@@ -34,6 +36,7 @@ admins = [
     "email" => "saidabrito57@gmail.com",
     "password" => "123456",
     "encrypted_password" => BCrypt::Password.create("123456"),
+    "bio" => Faker::Lorem.sentence,
     "admin" => true
   }
 ]
@@ -45,7 +48,7 @@ p "Seed regular user"
 users = []
 20.times do |i|
   password = "123456"
-  users << { name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, encrypted_password: BCrypt::Password.create(password), created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
+  users << { name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, encrypted_password: BCrypt::Password.create(password), bio: Faker::Lorem.sentence, created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
 end
 User.insert_all!(users)
 

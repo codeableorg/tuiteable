@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profile/show'
   resources :tweets do
     resources :comments
     post 'like', on: :member
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
   resources :comments do
     resources :comments 
   end
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, controllers: { registrations: 'registrations' }
   root to: "home#index"
   
 
