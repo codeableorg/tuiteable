@@ -2,7 +2,6 @@
   <aside class="w-16 flex items-center">
     <img class="rounded-full" src="<%=(url_for(tweet.user.avatar))%>" alt="">
   </aside>
-
   <main class="flex-grow flex flex-col px-5">
     <header class="w-full my-1">
       <a href="<%= tweet_url(tweet) %>" class="font-bold"><%= tweet.user.name %></a>
@@ -38,4 +37,7 @@
       </div>
     </footer>
   </main>
+  <aside class="w-20">
+    <%= render 'tweets/delete_tweet', tweet: tweet %>
+  </aside>
 </article>

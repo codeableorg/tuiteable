@@ -3,5 +3,5 @@
   <%= render 'layouts/input_tweet', tweet: Tweet.new, button_text: 'tuiteable!' %>
 <% end %>
 <%Tweet.where(parent_id: nil).order(created_at: :desc).each do |tweet|%>
-  <%= render "tweet", tweet: tweet %>
+  <%= render "pages/tweet", tweet: tweet %>
 <%end%>

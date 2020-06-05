@@ -25,13 +25,15 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-
+    @tweet.user_id = current_user.id
+    last_url = Rails.application.routes.recognize_path(request.referrer)
+    @tweet.parent_id = last_url[:id] if last_url.key?(:id)
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to '/', notice: 'Tweet was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
         format.json { render :show, status: :created, location: @tweet }
       else
-        format.html { render :new }
+        format.html { redirect_back(fallback_location: root_path, tweet: Tweet.new, alert: list_errors) }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
@@ -56,20 +58,23 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     respond_to do |format|
-      format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
+      format.html { redirect_back(fallback_location: root_path, notice: 'Tweet was successfully deleted') }
       format.json { head :no_content }
     end
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def list_errors
+    @tweet.errors.full_messages.to_sentence
+  end
+
   def set_tweet
     @tweet = Tweet.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def tweet_params
-    params.require(:tweet).permit(:user_id, :content)
+    params.require(:tweet).permit(:content)
   end
 end
