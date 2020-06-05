@@ -4,4 +4,11 @@ class Tweet < ApplicationRecord
   has_many :retweets, class_name: "Tweet", foreign_key: "parent_id"
   has_many :likes
   has_many :comments
+
+  validates :body, length: { in: 1..280 }
+
+  before_create do
+    self.retweets_count = 0
+    self.likes_count = 0
+  end
 end
