@@ -53,7 +53,7 @@ end
 
 puts 'create comments'
 tweets.each do |tweet|
-  4.times do
+  User.all.sample(4).each do |user|
     tweet.comments.create!({
       user: users[rand(users.size)],
       body: Faker::Quote.most_interesting_man_in_the_world,
