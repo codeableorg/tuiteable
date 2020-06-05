@@ -1,5 +1,12 @@
 <h1>Tuit's view</h1>
 
+<% if user_signed_in? %>
+  <%= form_for [@tuit] do |f| %>
+    <%= f.text_area :body %>
+    <button>tuiteable!</button>
+  <% end %>
+<% end %>
+
 <% @tuits.each do |tuit| %>
   <%= render '/tuit/item_tuit', tuit: tuit %>
 <% end %>
