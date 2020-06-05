@@ -1,9 +1,11 @@
-<aside class="w-1/5">
-  <% if user_signed_in? %>
-    <%= link_to "Profile", "/#{current_user.tag}" %>
-    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Sign up", new_user_registration_path %>
-  <% end %>
+<aside class="w-1/5 px-5 py-2">
+  <div class="bg-gray-800 p-2">
+    <% if user_signed_in? %>
+      <h2 class="text-lg font-bold my-2 text-center">New features coming soon!</h2>
+      <div class="w-full"><%= image_tag "features_soon.png", class: 'mx-auto' %></div>
+    <% else %>
+      <h2 class="text-lg font-bold my-2 text-center">Log in to {tuiteable} </h2>
+      <%= render 'devise/sessions/login' %>
+    <% end %>
+  </div>
 </aside>
