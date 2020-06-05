@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :tuits, foreign_key: 'owner_id', dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :liked_tuits, source: 'tuit', through: :votes
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
 

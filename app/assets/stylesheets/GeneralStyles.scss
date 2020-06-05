@@ -449,14 +449,15 @@ form button {
   align-items: center;
 }
 
-.profile button {
+.profile .edit-profile {
   background: transparent;
   color: #1da1f2;
   border: solid 2px #1da1f2;
   padding: 5px;
   border-radius: 20px;
   font-size: 16px;
-  margin: 14px 0 0 780px;
+  margin: 14px 0 0 auto;
+  text-decoration: none;
 }
 
 .tuitsAndLikes {

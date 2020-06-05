@@ -4,17 +4,17 @@
 <%= render partial: 'profile' %>
 <div class="tuitsAndLikes">
   <div class="windows">
-    <%= link_to 'Tuits', profile_path, class: '' %>
-    <%= link_to 'Likes', profile_likes_path, class: "windowActive" %>
+    <%= link_to 'Tuits', profile_path, class: 'windowActive' %>
+    <%= link_to 'Likes', profile_likes_path, class: '' %>
   </div>
 </div>
 <div class="tuits">
-  <% current_user.tuits.each do |tuit|%>
+  <% current_user.liked_tuits.each do |tuit|%>
     <div class="tweet-wrapper">
       <%= link_to tuit, class:'tweet' do %>
         <img id="image" src="/img/tanus.png">
         <div class="content">
-          <h3><%= current_user.name%><span> @<%=current_user.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
+          <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
           <p id='comment' ><%=tuit.body%></p>
         </div>
       <% end %>

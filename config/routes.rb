@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
-  get '/profile', to: 'users#show'
+  scope '/profile' do
+    get '/', to: 'users#show', as: 'profile'
+    get '/likes', to: 'users#show_likes', as: 'profile_likes'
+  end
+  
   resources :tuits do
     resources :comments
     member do

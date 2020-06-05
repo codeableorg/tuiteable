@@ -2,7 +2,7 @@ class TuitsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy, :like]
 
   def index
-    @tuits = Tuit.order(:created_at).limit(40)
+    @tuits = Tuit.order(created_at: :desc).limit(40)
   end
 
   def show

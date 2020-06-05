@@ -1,6 +1,17 @@
 <% content_for :page_heading do %>
   Explorer
 <% end %>
+<% if user_signed_in? %>
+  <%= form_with(model: Tuit) do |f|%>
+    <div class="about">
+      <div class="content">
+        <img id="image" src="../img/fire.png">
+        <%= f.text_field :body, placeholder: 'What you are thinking about is...' %>
+      </div>
+      <%= f.button 'Tuiteable!' %>
+    </div>
+  <% end %>
+<% end %>
 <% @tuits.each do |tuit|%>
   <div class="tweet-wrapper">
     <%= link_to tuit, class:'tweet' do %>
