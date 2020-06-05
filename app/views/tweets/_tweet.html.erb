@@ -1,0 +1,29 @@
+<div class="separator">
+  <article class="tweet">
+    <div class="tweet-avatar">
+      <img src=<%= get_avatar(@tweet.user) %> alt="" class="tweet-useravatar" />
+    </div>
+    <div class="tweet-content">
+      <div class="tweet-top">
+        <span class="tweet-topleft"><%= @tweet.user.display_name %></span>
+        <span class="tweet-topright"><%= link_to "@#{@tweet.user.username}", user_path(@tweet.user) %></span>
+      </div>
+      <p class="tweet-body">
+        <%= @tweet.body %>
+      </p>
+      <p class="tweet-datetime"><%= print_date_time_tweet(@tweet.created_at) %></p>
+      <hr class="ruler">
+      <div class="tweet-bottom">
+        <div class="tweet-comments">
+          <span class="tweet-bottomtext">
+            <%= @tweet.comments_count %><%= @tweet.comments_count == 1 ? " Comment" : " Comments" %>
+          </span>
+        </div>
+        <div class="tweet-likes">
+          <i class="far fa-heart"></i>
+          <span class="tweet-bottomtext"><%= @tweet.likes_count %></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

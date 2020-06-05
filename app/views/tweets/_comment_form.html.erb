@@ -1,0 +1,10 @@
+<%= form_with(model: @comment, method: "post") do |f| %>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Comment" %>
+  </div>
+<% end %>
