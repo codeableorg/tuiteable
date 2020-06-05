@@ -4,7 +4,8 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
+    @user = User.find(params[:user_id])
+    @tweets = params[:id] ? @user.tweets.order(created_ad: :desc) : Tweet.all.order(created_at: :desc)
   end
 
   # GET /tweets/1

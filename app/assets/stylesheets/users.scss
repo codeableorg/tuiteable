@@ -78,3 +78,169 @@ textarea {
   border-radius: 100px;
   padding: 0 10px;
 }
+.fa-long-arrow-alt-left {
+  color: #1da1f2;
+}
+
+.ml-50 {
+  display: inline-block;
+  margin-left: 5rem;
+}
+
+.signup {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.5rem, 0;
+}
+
+.signup-item {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.signup-label {
+  font-weight: bold;
+  font-size: 2rem;
+  color: white;
+  width: 30%;
+}
+
+.signup-input {
+  font-size: 1.6rem;
+  padding: 1rem;
+  width: 65%;
+  height: 4rem;
+  border-radius: 1.5rem;
+  border: none;
+}
+
+.signup-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.container-file {
+  width: 65%;
+}
+
+.signup-upfile {
+  font-size: 1.6rem;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+}
+
+.signup-text {
+  width: 100%;
+  min-height: 14rem;
+  max-height: 14rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 1.5rem;
+  border: none;
+  margin-top: 1rem;
+}
+
+.signup-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.6rem 0.8rem;
+  background: #1da1f2;
+  border-radius: 10rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: white;
+  border: none;
+}
+
+
+.profile {
+  text-align: center;
+  width: 100%;
+}
+
+.profile-containeravatar {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+}
+
+.profile-avatar {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 2rem;
+  color: white;
+  display: block;
+  margin-top: 1rem;
+}
+
+.profile-username {
+  color: #999b9e;
+  font-size: 1.6rem;
+}
+
+.profile-bio {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.profile-details {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 5.6rem;
+}
+
+.profile-locationcontainer {
+  color: #999b9e;
+  font-size: 1.6rem;
+  margin-right: 5.4rem;
+}
+
+.profile-datecontainer {
+  color: #999b9e;
+  font-size: 1.6rem;
+}
+
+.profile-edit {
+  display: block;
+  color: #1da1f2;
+  font-size: 1.6rem;
+  border: 1px solid #1da1f2;
+  padding: 0.5rem 0.9rem;
+  margin-left: auto;
+  float: right;
+  margin-top: -2.5rem;
+  border-radius: 10rem;
+}
+
+.profile-linksclasstweet {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #999B9E;
+}
+
+.link-actived {
+  color: white !important;
+}
+

@@ -5,15 +5,58 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(
-  username: 'adc',
-  email: 'adc@mail.com',
-  display_name: 'ADC',
+require 'faker'
+require 'date'
+
+# admin account
+admin = User.create!(
+  username: 'admin',
+  email: 'admin@mail.com',
+  display_name: 'admin',
   admin: true,
-  password: 'qwerty',
+  bio: Faker::Quote.most_interesting_man_in_the_world,
+  location: Faker::Address.city,
+  password: '123456',
+  created_at: Time.now.days_ago(61),
 )
 
-Tweet.create!(
-  body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. At quanta conantur! Mundum hunc omnem oppidum esse nostrum! Incendi igitur eos, qui audiunt, vides.',
-  user_id: 1,
-)
+puts "---------------------------------"
+puts "admin account added. credentials:"
+puts "username: #{admin.username}"
+puts "email: #{admin.email}"
+puts "password: #{admin.password}"
+puts "---------------------------------"
+
+puts "create users"
+users = Array.new(20) do
+  User.create!({
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    display_name: Faker::Name.name,
+    admin: false,
+    bio: Faker::Quotes::Chiquito.expression,
+    location: Faker::Address.city,
+    password: '123456',
+    created_at: Time.now.days_ago(61),
+  })
+end
+
+puts 'create tweets'
+tweets = users.each_with_object([]) do |user|
+  20.times do
+    user.tweets.create!({
+      body: Faker::Quote.most_interesting_man_in_the_world,
+      created_at: Time.now.days_ago(rand(60)),
+    })
+  end
+end
+
+puts 'create comments'
+tweets.each do |tweet|
+  4.times do
+    tweet.comments.create!({
+      user: users[rand(users.size)],
+      body: Faker::Quote.most_interesting_man_in_the_world,
+    })
+  end
+end
