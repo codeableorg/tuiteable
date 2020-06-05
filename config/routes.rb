@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resources :tweets
+  resources :tweets, only: [:create, :destroy, :show]
   resources :users do
     resources :tweets, only: [:index]
     resources :favorites, only: [:index]
