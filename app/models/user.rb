@@ -35,7 +35,8 @@ class User < ApplicationRecord
   has_many :providers
   has_many :comments
   has_many :commented_tweets, through: :comments, source: :tweet
-  has_and_belongs_to_many :liked_tweets, join_table: "likes", class_name: "Tweet"
+  has_many :likes, -> { order created_at: :desc }, dependent: :destroy
+  has_many :liked_tweets, through: :likes, source: :tweet
   has_one_attached :avatar
 
   ## Validation

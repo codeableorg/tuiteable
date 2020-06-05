@@ -68,5 +68,7 @@ p "Seed likes"
 tweets = Tweet.all
 
 User.all.map do |user|
-  user.liked_tweets << tweets.sample(rand(1..30))
+  tweets.sample(rand(1..30)).each do |tweet|
+    Like.create(user: user, tweet: tweet)
+  end
 end
