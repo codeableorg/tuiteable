@@ -15,7 +15,9 @@
       <hr class="ruler">
       <div class="tweet-bottom">
         <div class="tweet-comments">
-          <span class="tweet-bottomtext"><%= @tweet.comments_count %> Likes</span>
+          <span class="tweet-bottomtext">
+            <%= @tweet.comments_count %><%= @tweet.comments_count == 1 ? " Comment" : " Comments" %>
+          </span>
         </div>
         <div class="tweet-likes">
           <i class="far fa-heart"></i>
