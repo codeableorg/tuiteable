@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'bcrypt'
 
 describe Api::TweetsController do
   describe 'GET to index' do
@@ -68,21 +67,21 @@ describe Api::TweetsController do
     it 'returns http status created by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      put :update, params: {id: @tweet, tweet: {body: "woli"}}
       expect(response).to have_http_status(:ok)
     end
 
     it 'returns http status created by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      put :update, params: {id: @tweet, tweet: {body: "woli"}}
       expect(response).to have_http_status(:ok)
     end
 
     it 'render json with updated tweet by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      put :update, params: {id: @tweet, tweet: {body: "woli"}}
       tweet = JSON.parse(response.body)
       expect(tweet["body"]).to eq "woli"
     end
@@ -90,7 +89,7 @@ describe Api::TweetsController do
     it 'render json with updated tweet by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      put :update, params: {id: @tweet, tweet: {body: "woli"}}
       tweet = JSON.parse(response.body)
       expect(tweet["body"]).to eq "woli"
     end
@@ -106,21 +105,21 @@ describe Api::TweetsController do
     it 'returns http status ok by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      delete :destroy, params: {id: @tweet.id}
+      delete :destroy, params: {id: @tweet}
       expect(response).to have_http_status(:ok)
     end
 
     it 'returns http status ok by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      delete :destroy, params: {id: @tweet.id}
+      delete :destroy, params: {id: @tweet}
       expect(response).to have_http_status(:ok)
     end
 
     it 'render json message by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      delete :destroy, params: {id: @tweet.id}
+      delete :destroy, params: {id: @tweet}
       tweet = JSON.parse(response.body)
       expect(tweet["messages"]).to eq "Tweet deleted - Success"
     end
@@ -128,7 +127,7 @@ describe Api::TweetsController do
     it 'render json message by owner' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      delete :destroy, params: {id: @tweet.id}
+      delete :destroy, params: {id: @tweet}
       tweet = JSON.parse(response.body)
       expect(tweet["messages"]).to eq "Tweet deleted - Success"
     end
