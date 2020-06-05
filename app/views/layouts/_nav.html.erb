@@ -4,12 +4,12 @@
     <li class="mb-5">
       <%= link_to root_url, class: 'flex' do %>
         <%= image_tag "hash.svg", class: 'mr-3' %>
-        <span class="font-bold text-xl">Explorer</span>
+        <span class="font-bold text-xl">Explore</span>
       <% end %>
     </li>
     <% if user_signed_in? %>
     <li class="mb-5">
-      <%= link_to 'profile', class: 'flex' do %>
+      <%= link_to user_path(current_user), class: 'flex' do %>
         <%= image_tag "user.svg", class: 'mr-3' %>
         <span class="font-bold text-xl">Profile</span>
       <% end %>
