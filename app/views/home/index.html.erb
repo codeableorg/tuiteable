@@ -30,8 +30,10 @@
       <p class="tuit-description" ><%= tuit.body %></p>
       <div class="tuit-reactions">
         <div>
-          <%= image_tag("comment.svg", alt: "comment_icon") %> <%=
-          tuit.comments_count %>
+          <%= link_to tuit_path(tuit), class: 'tuit__comment-button' do %>
+            <%= image_tag("comment.svg", alt: "comment_icon") %>
+            <%= tuit.comments_count %>
+          <% end %>
         </div>
         <div>
           <%=

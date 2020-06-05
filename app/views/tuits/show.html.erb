@@ -35,6 +35,31 @@
   </section>
 </article>
 
+<% if user_signed_in? %>
+  <%=
+    form_with(
+      model: Comment.new,
+      url: tuit_comments_path(@tuit),
+      class: 'show-page__article show-page__form',
+    ) do |f|
+  %>
+    <aside class="show-page__article-figure">
+      <%= image_tag 'girl.jpeg', class: 'show-page__article-image' %>
+    </aside>
+
+    <section class="show-page__article-body show-page__form-body">
+      <%=
+        f.text_area(
+          :body,
+          class: 'show-page__form-textarea',
+          placeholder: 'Think before write...',
+        )
+      %>
+      <%= f.submit 'Comment!', class: 'show-page__form-submit' %>
+    </section>
+  <% end %>
+<% end %>
+
 <section class="show-page__articles">
   <% @comments.each do |comment| %>
     <article class="show-page__article">
