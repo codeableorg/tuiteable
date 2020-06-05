@@ -1,26 +1,33 @@
 <div class="tweet-container">
-  <div class="user-photo">
-  </div>
+  <div class="user-photo"></div>
   <div class="tweet-form">
-    <%= form_with(model: tweet, local: true) do |form| %>
-      <% if tweet.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
-    
-          <ul>
-            <% tweet.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    
-      <div class="">
-        <%= form.text_area :body, placeholder: 'What you are thinking about is... ' , class:"tweet-text-area" %>
-      </div>
-      <div class="actions tweet-submit">
-        <%= form.submit "tuiteable!" , class:"tweet-button"%>
-      </div>
+    <%= form_with(model: tweet, local: true) do |form| %> <% if
+    tweet.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from
+        being saved:
+      </h2>
+
+      <ul>
+        <% tweet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
+
+    <div class="">
+      <%= form.text_area :body, placeholder: 'What you are thinking about is...
+      ' , class:"tweet-text-area" %>
+    </div>
+    <div class="actions tweet-submit">
+      <%= form.submit "tuiteable!" , class:"tweet-button"%>
+    </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :retweets %> <%= form.number_field :retweets %>
+    </div>
   </div>
 </div>

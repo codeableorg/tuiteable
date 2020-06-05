@@ -1,0 +1,21 @@
+<div>
+  <a href="/">
+    <%= image_tag "tuiteable.svg", alt: "Tuiteable" %>
+  </a>
+</div>
+<div>
+  <%= link_to("/explorer") do %>
+    <i class="fas fa-hashtag"></i> Explorer
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <div>
+    <%= link_to("/profile") do %>
+      <i class="far fa-user"></i> Profile
+    <% end %>
+  </div>
+  <div>
+    <%=link_to "Logout", destroy_user_session_path, method: :delete %>
+  </div>
+<% end %>

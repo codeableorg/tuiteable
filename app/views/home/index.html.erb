@@ -1,2 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="separator">
+  <p class="separator-title">Explorer</p>
+</div>
+<% @tweets.each do |tweet| %>
+  <div class="separator">
+    <%= render "tweets/tweet", locals: {tweet: tweet, user: tweet.user} %>
+  </div>
+<% end %>

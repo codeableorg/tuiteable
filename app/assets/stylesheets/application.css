@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require sidebar
  */
 
 html {
@@ -23,14 +24,25 @@ html {
     margin: 0;
     padding: 0;
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+a:visited {
+    color: inherit;
+}
+label {
+    display: inline-block;
+}
 body {
     background: #3C3F45;
+    color: #ffffff;
     margin: 0;
 }
 
 .wrapper {
-    max-width: 104.4rem;
+    max-width: 110.4rem;
     width: 100%;
     font-family: 'Roboto', sans-serif;
     background: #1D2128;
@@ -41,12 +53,12 @@ body {
 }
 
 .sidebar {
-    width: 16.7%;
+    width: 15.7%;
     min-height: 100vh;
 }
 
 .mainpage {
-    width: 57%;
+    width: 58%;
     border: 1px solid #999B9E;
     min-height: 100vh;
 }
@@ -54,4 +66,15 @@ body {
 .asideright {
     width: 26.3%;
     min-height: 100vh;
+}
+.separator {
+    padding: 1.6rem;
+    border: 1px solid #999b9e;
+    border-top: none;
+}
+
+.separator-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
 }
