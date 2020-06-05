@@ -1,5 +1,6 @@
 <div class="separator">
   <p class="separator-title">Explorer</p>
+  <%= image_tag url_for(User.find(3).avatar) %>
 </div>
 <% @tweets.each do |tweet| user = tweet.user%>
   <div class="separator">
