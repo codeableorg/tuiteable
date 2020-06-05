@@ -1,15 +1,10 @@
-<section>
-    <%= image_tag(url_for(@user.avatar)) %>
-    <h2><%= @user.name%> </h2>
-    <span> <%= @user.username%> </span>
-    <p> <%= @user.bio%> <p>
-    <span><%= @user.location%> <span>
-    <span> <%=@user.created_at%> </span>
-<section>
+<%= render "data_user" %>
 <div>
-    <%= link_to  "Tuits" %>
-    <%= link_to  "Likes" %>
+    <%= link_to  "Tuits",partial: :tweets %>
+    <%= link_to  "Likes",partial: :likes %>
 </div>
-<section>
-
-</section>
+<%if params[:partial] == "tweets" || params[:partial].nil?%>
+<%= render 'tweets' %>
+<%else%>
+<%= render 'likes' %>
+<%end%>
