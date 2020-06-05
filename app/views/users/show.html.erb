@@ -1,1 +1,7 @@
+<p id="notice"><%= notice %></p>
 
+<%= render 'user' %>
+
+<% @user.tweets.each do |tweet| %>
+  <%= render partial: 'tweets/tweet', locals: { user: @user, tweet: tweet } %>
+<% end %>

@@ -42,9 +42,9 @@ users = Array.new(20) do
 end
 
 puts 'create tweets'
-tweets = users.each_with_object([]) do |user|
+tweets = users.each_with_object([]) do |user, all_tweets|
   20.times do
-    user.tweets.create!({
+    all_tweets << user.tweets.create!({
       body: Faker::Quote.most_interesting_man_in_the_world,
       created_at: Time.now.days_ago(rand(60)),
     })
