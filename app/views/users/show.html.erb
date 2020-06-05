@@ -2,6 +2,6 @@
 
 <%= render 'user' %>
 
-<%= @user.tweets.each do |tweet| %>
-  <%= render partial: 'tweets/user', locals: { tweet: tweet } %>
+<% @user.tweets.each do |tweet| %>
+  <%= render partial: 'tweets/tweet', locals: { user: @user, tweet: tweet } %>
 <% end %>
