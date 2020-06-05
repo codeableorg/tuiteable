@@ -40,24 +40,25 @@ describe Api::Tweets::CommentsController do
     end
   end
 
-  # describe 'POST to create' do
-  #   before :each do
-  #     @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-  #     @request.headers['X-User-Email'] = @user.email
-  #     @request.headers['X-User-Token'] = @user.authentication_token
-  #   end
+  describe 'POST to create' do
+    before :each do
+      @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+    end
 
-  #   it 'returns http status created' do
-  #     post :create, params: {tweet: {body: "holi"}}
-  #     expect(response).to have_http_status(:created)
-  #   end
+    it 'returns http status created' do
+      post :create, params: {tweet_id: @tweet, comment: {body: "holi"}}
+      expect(response).to have_http_status(:created)
+    end
 
-  #   it 'render json with all tweets' do
-  #     post :create, params: {tweet: {body: "holi"}}
-  #     tweet = JSON.parse(response.body)
-  #     expect(tweet["body"]).to eq "holi"
-  #   end
-  # end
+    it 'render json with all tweets' do
+      post :create, params: {tweet_id: @tweet, comment: {body: "holi"}}
+      comment = JSON.parse(response.body)
+      expect(comment["body"]).to eq "holi"
+    end
+  end
 
   # describe 'PUT to update' do
   #   before :each do
