@@ -6,7 +6,17 @@
   <p> <%= @tweet.body %> </p>
   <p><%= @tweet.created_at.strftime('%H:%M %p - %b %e, %Y') %></p>
   <span><%= @tweet.likes_count %> Likes</span>
+
+  <% if user_signed_in? %>
+    <%= image_tag "likes-icon.png" %>
+  <% else %>
+    <%= link_to new_user_registration_path do %>
+      <%= image_tag "likes-icon.png" %>
+    <% end %>
+  <% end %>
+
 </section>
+
 <hr>
 
 <% if user_signed_in? %>
