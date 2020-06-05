@@ -62,6 +62,9 @@ comments = []
   comments << { user_id: rand(1..23), tweet_id: rand(1..30), body: Faker::Lorem.sentence, created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
 end
 Comment.insert_all!(comments)
+Tweet.all.each do |tweet|
+  Tweet.reset_counters(tweet.id, :comments)
+end
 
 p "Seed likes"
 
