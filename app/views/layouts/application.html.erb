@@ -15,7 +15,7 @@
       <div class="column-left">
         <% if user_signed_in? %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          <%= image_tag(url_for(current_user.avatar)) %>
+          <%= link_to  "Perfil" %>
         <%end%>
       </div>
       <div class="column-middle">
