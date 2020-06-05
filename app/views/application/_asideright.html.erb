@@ -1,6 +1,11 @@
-
 <% if user_signed_in? %>
- <p>Hola</p>
+    <div class="new-feature">
+        <h2>New features coming soon!</h2>
+        <%= image_tag "soon.png", alt: "New features" %>
+    </div>
 <% else %>
-<%= render "users/new_form" %>
+    <%= render "users/new_form" %>
 <% end %>
+<footer>
+    Made with bravery by Jorge Gonzalez, Andres Del Carpio and Nicolle Quispe {codeable} cohort #2 
+</footer>
