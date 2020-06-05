@@ -1,4 +1,47 @@
-<h1>My account</h1>
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
-<%= link_to "Edit", edit_user_registration_url %>
+<header class="main-content-header">
+  <%= image_tag "blue_arrow.png", class: 'blue-arrow' %>
+  <h2 class="sign-up-title">Back to Explorer </h2>
+</header>
+<div class="profile-content">
+  <section class="person-profile">
+    <%= image_tag "noavatar.png" %>
+    <h2 class="person-profile-name"><%= @user.name %></h2>
+    <span class="person-profile-username">@<%= @user.username %></span>
+    <p class="person-profile-bio">asdasdasd<!--    @<%#= @user.bio %>--> </p>
+
+    <div class="person-profile-extra-info">
+    <span>
+      <%= image_tag "location_icon.png" %>
+      <%= @user.location %>
+    </span>
+      <span>
+      <%= image_tag "calender_icon.png" %>
+        <%= @join_date %>
+    </span>
+    </div>
+    <%= link_to "Edit Profile", edit_user_registration_url, :class => "ghost-blue-btn edit-profile-btn" %>
+  </section>
+  <section class="profile-content-resources">
+    <nav class="profile-content-resources-nav">
+      <ul>
+        <li
+          <% if controller.action_name == 'show' %> class="active-bold"
+          <% end %>>
+          <%= link_to "TUITS", user_path(current_user) %>
+        </li>
+        <li
+          <% if controller.action_name == 'show_likes' %> class="active-bold"
+          <% end %>>
+          <a href="/user_like/<%= @user.id %>">LIKES</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="profile-content-resources-data">
+      <% if controller.action_name == 'show' %>
+        <%= render partial: 'layouts/tuit_block', locals: {tuits: @user.tuits.order(created_at: :desc), like_show: false} %>
+      <% else %>
+        <%= render partial: 'layouts/tuit_block', locals: {tuits: @tuits_liked, like_show: true} %>
+      <% end %>
+    </div>
+  </section>
+</div>
