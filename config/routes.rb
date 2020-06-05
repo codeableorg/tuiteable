@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "tuits#index"
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions',
+  }
+
   get '/profile', to: 'users#show'
   resources :tuits do
     resources :comments
@@ -26,5 +30,4 @@ Rails.application.routes.draw do
       end
     end
   end
-  
 end
