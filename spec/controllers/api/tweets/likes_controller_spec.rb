@@ -21,36 +21,39 @@ describe Api::Tweets::LikesController do
 
   end
 
-  # describe 'POST to create' do
-  #   before :each do
-  #     @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-  #     @tweet = Tweet.create(owner: @user, body: "tweet body")
-  #   end
+  describe 'POST to create' do
+    before :each do
+      @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+    end
 
-  #   it 'returns http status created' do
-  #     post :create, params: {tweet_id: @tweet}
-  #     expect(response).to have_http_status(:created)
-  #   end
+    it 'returns http status created' do
+      post :create, params: {tweet_id: @tweet}
+      expect(response).to have_http_status(:created)
+    end
 
-  #   it 'render json like info' do
-  #     post :create, params: {tweet_id: @tweet}
-  #     like = JSON.parse(response.body)
-  #     expect(like["tweet_id"]).to eq @tweet.id
-  #     expect(like["user_id"]).to eq @user.id
-  #   end
+    it 'render json like info' do
+      post :create, params: {tweet_id: @tweet}
+      like = JSON.parse(response.body)
+      expect(like["tweet_id"]).to eq @tweet.id
+      expect(like["user_id"]).to eq @user.id
+    end
 
-  #   it 'returns http status :not_acceptable with preview liked tweet' do
-  #     Like.create(user: @user, tweet: @tweet)
-  #     post :create, params: {tweet_id: @tweet}
-  #     expect(response).to have_http_status(:not_acceptable)
-  #   end
+    it 'returns http status :not_acceptable with preview liked tweet' do
+      Like.create(user: @user, tweet: @tweet)
+      post :create, params: {tweet_id: @tweet}
+      expect(response).to have_http_status(:not_acceptable)
+    end
 
-  #   it 'render json error info when like a with preview liked tweet' do
-  #     post :create, params: {tweet_id: @tweet}
-  #     like = JSON.parse(response.body)
-  #     expect(like["error"]).to eq "the tweet with id #{@tweet.id} was already liked by the current user"
-  #   end
-  # end
+    it 'render json error info when like a with preview liked tweet' do
+      Like.create(user: @user, tweet: @tweet)
+      post :create, params: {tweet_id: @tweet}
+      like = JSON.parse(response.body)
+      expect(like["error"]).to eq "the tweet with id #{@tweet.id} was already liked by the current user"
+    end
+  end
 
   # describe 'DELETE to destroy' do
   #   before :each do
