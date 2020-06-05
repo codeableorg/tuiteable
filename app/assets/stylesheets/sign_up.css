@@ -1,0 +1,68 @@
+
+.sign_up_form {
+  padding: 0px 105px;
+  border-top: 1px solid #ffffff;
+  margin-top: 15px;
+}
+
+.sign_up_form label {
+  width: 110px;
+}
+
+.main_field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.main_field:nth-child(2) {
+  margin-top: 15px;
+}
+
+.subfields_reg {
+  border-radius: 15px;
+  height: 40px;
+  width: 250px;
+  border: none;
+}
+
+.field_avatar {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.button_avatar {
+  border: 1px solid #1DA1F2;
+  border-radius: 100px;
+  background-color: #1d2128;
+  color: #1DA1F2;
+  text-decoration: none;
+  height: 28px;
+  width: 135px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 28px;
+  cursor: pointer;
+  margin-left:  45px;
+}
+
+.subfield_bio {
+  margin-top: 5px;
+  height: 140px;
+  width: 400px;
+  border-radius: 15px;
+  border: none;
+}
+
+.account_submit {
+  background: #1DA1F2;
+  border-radius: 100px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  height: 28px;
+  width: 148px;
+  margin: 10px 0px 15px 0px;
+  cursor: pointer;
+  border: none;
+}
