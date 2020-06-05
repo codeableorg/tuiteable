@@ -4,7 +4,7 @@ describe Api::Tweets::CommentsController do
   describe 'GET to index' do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-      @tweet = Tweet.create(owner_id: @user.id, body: "tweet body")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
       @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
     end
 
@@ -21,23 +21,24 @@ describe Api::Tweets::CommentsController do
 
   end
 
-  # describe 'GET to show' do
-  #   before :each do
-  #     @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-  #     @tweet = Tweet.create(owner_id: @user.id, body: "tweet body")
-  #   end
+  describe 'GET to show' do
+    before :each do
+      @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
+    end
 
-  #   it 'returns http status ok' do
-  #     get :show, params: {id: @tweet.id}
-  #     expect(response).to have_http_status(:ok)
-  #   end
+    it 'returns http status ok' do
+      get :show, params: {tweet_id: @tweet, id: @comment}
+      expect(response).to have_http_status(:ok)
+    end
 
-  #   it 'render json with all tweets' do
-  #     get :show, params: {id: @tweet.id}
-  #     tweet = JSON.parse(response.body)
-  #     expect(tweet["body"]).to eq "tweet body"
-  #   end
-  # end
+    it 'render json with comment info' do
+      get :show, params: {tweet_id: @tweet, id: @comment}
+      comment = JSON.parse(response.body)
+      expect(comment["body"]).to eq "comment body"
+    end
+  end
 
   # describe 'POST to create' do
   #   before :each do
