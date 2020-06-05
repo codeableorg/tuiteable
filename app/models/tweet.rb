@@ -1,28 +1,25 @@
 class Tweet < ApplicationRecord
   ## Association
   belongs_to :owner, class_name: 'User'
-  has_many :comments, dependent: :destroy
+  has_many :comments, -> { order created_at: :desc }, dependent: :destroy
   has_many :commentators, through: :comments, source: :user
-  has_and_belongs_to_many :likers,
-    join_table: "likes",
-    class_name: "User",
-    after_add: :add_like,
-    after_remove: :remove_like
+  has_many :likes, -> { order created_at: :desc }, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
 
   before_destroy do |tweet| 
     tweet.likers.destroy(tweet.likers) ## Destroy likers and allow callbacks to execute
   end
 
-  #Validations 
-  validates :body, length: { in: 1..280 }
-
+  ##Validation 
+  validates :body, presence: true, length: { in: 1..280 }
+ 
   ##Callback
   def add_like(liker)
-    puts "Holi desde tweet"
+    puts "add like callback"
   end
 
   def remove_like(liker)
-    puts "Holi desde tweet"
+    puts "delete like callback"
   end
-  
+
 end

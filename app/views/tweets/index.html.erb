@@ -22,7 +22,7 @@
 <div class="div_separator"></div>
 
 <% @tweets.each do |tweet|%>
-  <%= link_to root_path, :class=>"select_tweet" do%> 
+  <%= link_to tweet_path(tweet), :class=>"select_tweet" do%> 
     <article class="tweet_container">
       <% if tweet.owner.avatar.attached?%>
         <%= image_tag(tweet.owner.avatar, :class=>"owner-image")%>
