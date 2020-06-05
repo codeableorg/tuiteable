@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
     @tweet.parent_id = last_url[:id] if last_url.key?(:id)
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
+        format.html { redirect_back(fallback_location: root_path, notice: 'Tweet was successfully created.') }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { redirect_back(fallback_location: root_path, tweet: Tweet.new, alert: list_errors) }
