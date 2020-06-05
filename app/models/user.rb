@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :liked_tuits, through: :likes, source: :tuit
   has_many :commented_tuits, through: :comments, source: :tuit
+  has_one_attached :avatar
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
