@@ -3,7 +3,7 @@ require 'bcrypt'
 
 describe Api::TweetsController do
   before :each do
-    @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
+    @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
     @tweet = Tweet.create(owner_id: @user.id, body: "tweet body")
   end
 

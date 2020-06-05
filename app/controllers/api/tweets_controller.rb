@@ -20,7 +20,8 @@ class Api::TweetsController < ApiController
   end
 
   def update
-    @tweet = Tweet.find(params[:id]) 
+    @tweet = Tweet.find(params[:id])
+    authorize @tweet
     if @tweet.update(tweet_params)
       render json: @tweet, status: :ok
     else
@@ -30,6 +31,7 @@ class Api::TweetsController < ApiController
 
   def destroy
     @tweet = Tweet.find(params[:id])
+    authorize @tweet
     @tweet.destroy
     render json: {
       messages: "Tweet deleted - Success",
