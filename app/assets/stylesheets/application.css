@@ -222,12 +222,28 @@ body {
 .new-image {
   margin: 10px;
 }
+.tuit__like-button,
+.tuit__comment-button {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+}
+.tuit__like-button img,
+.tuit__comment-button img {
+  width: 16px;
+  height: 15px;
+}
 /* TUITS SHOW PAGE */
 .show-page__article {
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
   border-bottom: 1px solid #999b9e;
+}
+.show-page__article:last-child {
+  margin-bottom: 15px;
 }
 .show-page__article-figure {
   width: 15%;
@@ -266,11 +282,41 @@ body {
   line-height: 20px;
 }
 .show-page__article-metadata--inline {
-  color: #999b9e;
+  color: #999B9E;
+  font-weight: normal;
 }
 .show-page__article-reactions {
   display: flex;
 }
 .show-page__article-likes {
   margin-right: 30px;
+}
+.show-page__form-textarea {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+  padding: 5px;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: #999B9E;
+  font-size: 20px;
+  font-family: "Roboto";
+  line-height: 24px;
+}
+.show-page__form-body {
+  display: flex;
+  flex-direction: column;
+}
+.show-page__form-submit {
+  align-self: flex-end;
+  padding: 5px 15px;
+  background-color: #1DA1F2;
+  border: 0;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
 }

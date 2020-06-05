@@ -13,6 +13,7 @@ puts 'Creating Users'
     username: Faker::Name.unique.name.split.join(''),
     name: Faker::Name.name,
     email: Faker::Internet.email,
+    password: Faker::Internet.password,
   )
 end
 

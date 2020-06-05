@@ -1,13 +1,13 @@
 class TuitsController < ApplicationController
   def show
     @tuit = Tuit.find(params[:id])
-    @comments = @tuit.comments
+    @comments = @tuit.comments.order(created_at: :desc)
   end
 
   def new
     @tuit = Tuit.new
   end
-  
+
   def create
     @tuit = Tuit.new(tuit_params)
     @tuit.user = current_user

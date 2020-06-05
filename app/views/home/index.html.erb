@@ -1,18 +1,50 @@
 <div class="explorer">
   <h2 class="explorer-title" >Explorer</h2>
 </div>
+
 <% if current_user %>
   <div class="tuit">
     <div class="tuit-image">
     <%= show_avatar(current_user)%>
     </div>
     <div class="tuit-body">
-    <%= render 'tuits/tuit_form' %>
+      <%= render 'tuits/tuit_form' %>
     </div>
   </div>
-<% end %>  
+<% end %>
+
 <div class="tuits">
   <% @tuits.each do |tuit| %>
-    <%= render partial:"tuit", locals: { tuit: tuit  } %>
+  <div class="tuit">
+    <div class="tuit-image">
+      <%= image_tag("girl.jpeg" , alt:"girl" ) %>
+    </div>
+    <div class="tuit-body">
+      <a class="tuit-title" href="<%= tuit_path(tuit) %>">
+        <%= tuit.user.name %>
+        <span>
+          @<%= tuit.user.username %> -
+          <%= tuit.created_at.to_date.strftime("%d %B") %>
+        </span>
+      </a>
+      <p class="tuit-description" ><%= tuit.body %></p>
+      <div class="tuit-reactions">
+        <div>
+          <%= link_to tuit_path(tuit), class: 'tuit__comment-button' do %>
+            <%= image_tag("comment.svg", alt: "comment_icon") %>
+            <%= tuit.comments_count %>
+          <% end %>
+        </div>
+        <div>
+          <%=
+            render(
+              partial: 'layouts/like_button',
+              locals: { tuit: tuit, count: true, redirect: '/' },
+            )
+          %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
