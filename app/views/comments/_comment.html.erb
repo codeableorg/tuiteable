@@ -5,7 +5,7 @@
   <div class="comment-content">
     <div class="comment-top">
       <span class="comment-displayname"><%=user.display_name %></span>
-      <a href="#" class="comment-username">@<%= user.username %></a>
+      <%= link_to "@#{@user.username}", @user %>
       <span class="comment-date">- <%= print_date_time_tweet(comment.created_at) %></span>
     </div>
     <p class="comment-body">
