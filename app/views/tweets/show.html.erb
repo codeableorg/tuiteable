@@ -2,10 +2,10 @@
 
 <%= link_to '<- Tuit', root_path %>
 
-<%= render 'tweet', tweet: @tweet %>
+<%= render partial: 'tweet', locals: { tweet: @tweet, user: @tweet.user } %>
 
 <% if current_user%>
-  <%= render 'comment_form', locals: { tweet_id: @tweet.id, user_id: current_user } %>
+  <%= render partial: 'comment_form', locals: { tweet_id: @tweet.id, user: current_user } %>
 <% end %>
 
-<%= render 'tweet_comments', tweet: @tweet %>
+<%= render partial: 'tweet_comments', locals: { comments: @tweet.comments } %>
