@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  acts_as_token_authenticatable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable, :recoverable, :rememberable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable, :omniauthable, omniauth_providers: %i[facebook github]
@@ -15,6 +18,17 @@ class User < ApplicationRecord
     user
   end
 
+  ## Authenticate user by email and password
+  def self.authenticate(params)
+    user = User.find_for_authentication(:email => params["email"])
+    user&.valid_password?(params["password"]) ? user : nil
+  end
+
+  def reset_authentication_token!
+    self.authentication_token = nil
+    save # automatically generates a new authentication token
+    authentication_token 
+  end
 
   ## Association
   has_many :tweets, foreign_key: :owner_id
