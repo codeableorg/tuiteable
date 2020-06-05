@@ -1,0 +1,22 @@
+<nav class="w-1/5 flex flex-col">
+  <%= link_to image_tag("logo.svg", width: 180), root_url, class: 'mx-auto my-5' %>
+  <ul class="mx-auto">
+    <li class="mb-5">
+      <%= link_to root_url, class: 'flex' do %>
+        <%= image_tag "hash.svg", class: 'mr-3' %>
+        <span class="font-bold text-xl">Explorer</span>
+      <% end %>
+    </li>
+    <% if user_signed_in? %>
+    <li class="mb-5">
+      <%= link_to 'profile', class: 'flex' do %>
+        <%= image_tag "user.svg", class: 'mr-3' %>
+        <span class="font-bold text-xl">Profile</span>
+      <% end %>
+    </li>
+    <li class="mb-5">
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:'bg-transparent hover:bg-red-800 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-800 hover:border-transparent rounded-full' %>
+    </li>
+    <% end %>
+  </ul>
+</nav>

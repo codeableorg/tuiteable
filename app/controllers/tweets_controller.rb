@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_tweet, only: %i[show edit update destroy like]
 
   # GET /tweets
   # GET /tweets.json
@@ -61,18 +61,15 @@ class TweetsController < ApplicationController
     end
   end
 
-  def like
-    puts "aaaa"
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:user_id, :content)
-    end
+  # Only allow a list of trusted parameters through.
+  def tweet_params
+    params.require(:tweet).permit(:user_id, :content)
+  end
 end
