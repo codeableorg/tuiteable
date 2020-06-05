@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :tweets, only: [:index, :show, :create, :update, :destroy] do
       resources :comments, only: [:index, :show, :create, :update, :destroy], module: 'tweets'
+      resources :likes, only: [:index, :create, :destroy], module: 'tweets'
     end
     post "sign_in", to: "sessions#create"
     delete "log_out", to: "sessions#destroy"
