@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/show'
+  get 'user/create'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root "home#index"
   resources :tuits, only: [:index, :show, :new, :create, :destroy]

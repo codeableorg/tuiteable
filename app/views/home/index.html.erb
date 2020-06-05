@@ -4,7 +4,7 @@
 <% if current_user %>
   <div class="tuit">
     <div class="tuit-image">
-      <%= image_tag("girl.jpeg" , alt:"girl" ) %>
+    <%= show_avatar(current_user)%>
     </div>
     <div class="tuit-body">
     <%= render 'tuits/tuit_form' %>
