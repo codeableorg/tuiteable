@@ -46,28 +46,6 @@ body {
   padding-top: 7px;
 }
 
-.ghost-blue-btn {
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 20px;
-  color: #1da1f2;
-  background: transparent;
-  border: 1px solid #1da1f2;
-  border-radius: 15px;
-  padding: 4px 8px;
-}
-
-.solid-blue-btn {
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 20px;
-  color: #ffffff;
-  background-color: #1da1f2;
-  border: 1px solid #1da1f2;
-  border-radius: 15px;
-  padding: 4px 8px;
-}
-
 .ghost-red-btn {
   text-decoration: none;
   font-size: 16px;
