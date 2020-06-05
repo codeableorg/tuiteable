@@ -64,14 +64,14 @@ describe Api::TweetsController do
       @tweet = Tweet.create(owner: @user, body: "tweet body")
     end
 
-    it 'returns http status created by owner' do
+    it 'returns http status updated by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
       put :update, params: {id: @tweet, tweet: {body: "woli"}}
       expect(response).to have_http_status(:ok)
     end
 
-    it 'returns http status created by admin' do
+    it 'returns http status updated by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
       put :update, params: {id: @tweet, tweet: {body: "woli"}}
