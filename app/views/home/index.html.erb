@@ -7,11 +7,17 @@
   <%end%>
 <% @tweets.each do |tweet|%>
     <p><%= tweet.owner.name%> @<%= tweet.owner.username%>- <%= tweet.created_at.to_date.strftime('%-d %B')%></p>
+    <%= link_to tweet_path(tweet) do%>
     <p><%= tweet.body%></p>
-    <span>
-      <%= image_tag("comments.png")%><%= tweet.comments.count%> 
-      <%= image_tag("likes.png") %><%= tweet.likers.count%>
-    </span>
+      <div>
+        <span>
+          <%= image_tag("comments.png")%><%= tweet.comments.count%> 
+          <%= image_tag("likes.png") %><%= tweet.likers.count%>
+          <p><%= 'comments: ' + tweet.comments.count.to_s %>
+          <p><%= 'likes: ' + tweet.likers.count.to_s %>
+        </span>
+      </div>
+    <% end %>
   <% end%>
 
 
