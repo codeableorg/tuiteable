@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require sidebar
  */
 
 html {
@@ -36,6 +37,7 @@ label {
 }
 body {
     background: #3C3F45;
+    color: #ffffff;
     margin: 0;
 }
 
