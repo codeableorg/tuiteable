@@ -1,12 +1,16 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #fff;
+  font-family: 'Roboto', sans-serif;
 }
+
 
 .index-page {
   display: flex;
@@ -28,4 +32,15 @@
   width: 270px;
   height: 100vh;
   background-color: #1d2128;
+}
+.group {
+  margin-bottom: 15px;
+}
+.group-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.tweets-group {
+  padding-left: 15px;
 }
