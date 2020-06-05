@@ -1,0 +1,12 @@
+<h1>Explorer</h1>
+
+<% if user_signed_in? %>
+  <%= form_with model: @tuit do |f| %>
+    <%= f.text_area :body, placeholder: 'What you are thinking about is...' %>
+    <button>tuiteable!</button>
+  <% end %>
+<% end %>
+
+<% @tuits.each do |tuit| %>
+  <%= render '/tuit/item_tuit', tuit: tuit %>
+<% end %>
