@@ -1,0 +1,50 @@
+<% content_for :page_heading do %>
+  <a href="#">←</a> Back to Explorer
+<% end %>
+
+<div class="profile">
+  <img id="profile" src="../img/goku.png" alt=""> 
+  <h1><%= @user.name%></h1>
+  <span>@<%= @user.username%></span>
+  <p><%= @user.bio%></p>
+  <div class="profinfo">
+    <div class="location">
+      <img src="../img/location.png">
+      <span><%= @user.location%></span>
+    </div>
+    <div class="calendar">
+      <img src="../img/calendar.png">
+      <span>Joined <%= @user.created_at.strftime '%B %Y'%></span>
+    </div>
+  </div>
+  <button><%= link_to "Edit Profile", edit_user_registration_path %></button>
+</div>
+
+<div class="tuitsAndLikes">
+  <div class="windows">
+    <a href="#" class="windowActive">Tuits</a>
+    <a href="#">Likes</a>
+  </div>
+</div>
+
+<div class="tuits">
+  <% current_user.tuits.each do |tuit|%>
+  <div class="tweet">
+    <img id="image" src="../img/tanus.png">
+    <div class="content">
+      <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
+      <p id='comment' ><%=tuit.body%></p>
+      <div class="info">
+        <div class="comments">
+          <img src="../img/comment.png">
+          <p><%=tuit.comments.count%></p>
+        </div>
+        <div class="likes">
+          <img src="../img/like.png">
+          <p><%=tuit.votes.count%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
