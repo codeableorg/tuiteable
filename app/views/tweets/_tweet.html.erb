@@ -13,6 +13,9 @@
       <p class="tweet-metadata">
         <%= tweet.created_at.strftime("%-d %B") %>
       </p>
+      <% if user_signed_in? and current_user==tweet.user %>                    
+          <%= link_to "Delete", tweet_path(tweet), method: :delete %>
+      <%end%>      
     </header>
     <p class="tweet-body"><%= tweet.body%></p>    
     <footer>
@@ -20,5 +23,5 @@
       <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
     </footer>    
   </div>
-  <% end %>
+  <% end %>  
 </article>
