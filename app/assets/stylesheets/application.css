@@ -20,11 +20,18 @@
      box-sizing: border-box;
  }
 
+ html{
+   height: 100%;
+ }
+
  body {
      background-color: #3C3F45;
+     height: 100%;
+     display: grid;
  }
 
  .tuitiable_container {
+    height: 100%;
     background-color: #1D2128;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
