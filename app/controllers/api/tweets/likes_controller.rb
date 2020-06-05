@@ -34,6 +34,6 @@ class Api::Tweets::LikesController < ApiController
   end
 
   def get_like
-    @like = Tweet.find_by(tweet_id: params[:tweet_id], user_id: current_user().id)
+    @like = Like.find_by(tweet_id: params[:tweet_id], user_id: current_user().id)
   end
 end
