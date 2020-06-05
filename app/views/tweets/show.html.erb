@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p>
   <strong>
     <%= link_to @tweet.user.tag, user_path(@tweet.user) %>
@@ -18,4 +19,11 @@
   <%= button_to 'Unlike', tweet_like_path(@tweet, pre_like), method: :delete %>
 <% else %>
   <%= button_to 'Like', tweet_likes_path(@tweet), method: :post %>
+=======
+<%= render 'layouts/navigation', title: 'Tuit', to_link: request.referer.present? ? request.referer : default_path, arrow: true %>
+<%= render 'pages/tweet_alt', tweet: @tweet %>
+<%= render 'layouts/input_tweet', tweet: Tweet.new, button_text: 'Comment!' if user_signed_in? %>
+<% @tweet.responses.each do |t| %>
+  <%= render 'pages/tweet', tweet: t %>
+>>>>>>> f343f18787b317c2f37588525963645b280fa84e
 <% end %>
