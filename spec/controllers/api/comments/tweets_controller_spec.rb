@@ -99,41 +99,42 @@ describe Api::Tweets::CommentsController do
     end
   end
 
-  # describe 'DELETE to destroy' do
-  #   before :each do
-  #     @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-  #     @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
-  #     @tweet = Tweet.create(owner_id: @user.id, body: "tweet body")
-  #   end
+  describe 'DELETE to destroy' do
+    before :each do
+      @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
+      @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
+    end
 
-  #   it 'returns http status ok by owner' do
-  #     @request.headers['X-User-Email'] = @user.email
-  #     @request.headers['X-User-Token'] = @user.authentication_token
-  #     delete :destroy, params: {id: @tweet.id}
-  #     expect(response).to have_http_status(:ok)
-  #   end
+    it 'returns http status ok by owner' do
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
+      expect(response).to have_http_status(:ok)
+    end
 
-  #   it 'returns http status ok by admin' do
-  #     @request.headers['X-User-Email'] = @admin_user.email
-  #     @request.headers['X-User-Token'] = @admin_user.authentication_token
-  #     delete :destroy, params: {id: @tweet.id}
-  #     expect(response).to have_http_status(:ok)
-  #   end
+    it 'returns http status ok by admin' do
+      @request.headers['X-User-Email'] = @admin_user.email
+      @request.headers['X-User-Token'] = @admin_user.authentication_token
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
+      expect(response).to have_http_status(:ok)
+    end
 
-  #   it 'render json message by owner' do
-  #     @request.headers['X-User-Email'] = @user.email
-  #     @request.headers['X-User-Token'] = @user.authentication_token
-  #     delete :destroy, params: {id: @tweet.id}
-  #     tweet = JSON.parse(response.body)
-  #     expect(tweet["messages"]).to eq "Tweet deleted - Success"
-  #   end
+    it 'render json message by owner' do
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
+      comment = JSON.parse(response.body)
+      expect(comment["messages"]).to eq "Comment deleted - Success"
+    end
 
-  #   it 'render json message by owner' do
-  #     @request.headers['X-User-Email'] = @admin_user.email
-  #     @request.headers['X-User-Token'] = @admin_user.authentication_token
-  #     delete :destroy, params: {id: @tweet.id}
-  #     tweet = JSON.parse(response.body)
-  #     expect(tweet["messages"]).to eq "Tweet deleted - Success"
-  #   end
-  # end
+    it 'render json message by owner' do
+      @request.headers['X-User-Email'] = @admin_user.email
+      @request.headers['X-User-Token'] = @admin_user.authentication_token
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
+      comment = JSON.parse(response.body)
+      expect(comment["messages"]).to eq "Comment deleted - Success"
+    end
+  end
 end
