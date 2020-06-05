@@ -21,7 +21,7 @@
         <hr>
         <p class="tuit-numbers">
             <span class="tuit-owner"><%=@tuit.comments_count%></span>
-            <span class="tuit-details tuit-numbers-item"> <%=like = (@tuit.comments_count > 1) ? 'Likes' : 'Like'%> </span> 
+            <span class="tuit-details tuit-numbers-item"> <%=like = (@tuit.comments_count > 1) ? 'Likes' : 'Like'%> </span>
             <%= image_tag('like.svg', :alt => 'likes') %>
         </p>
     </div>
@@ -43,7 +43,7 @@
         </p>
         <p class="tuit-comment-body"><%=comment.body %></p>
     </div>
-    <% end %> 
+    <% end %>
  <% end %>
 </div>
 
