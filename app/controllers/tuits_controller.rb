@@ -12,8 +12,9 @@ class TuitsController < ApplicationController
 
   def create
     @tuit = Tuit.new(tuit_params)
+    @tuit.user = current_user
     if @tuit.save
-      redirect_to tuit_path(@tuit)
+      redirect_to action: 'index'
     else
       render 'new'
     end

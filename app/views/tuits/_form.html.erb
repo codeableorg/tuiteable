@@ -1,7 +1,0 @@
-<%= form_with(url: "/tuits/new", method: "post") do %>
-  <%= hidden_field_tag(:meme_id, locals[:meme_id]) %>
-  <p>
-    <%= label_tag :body %>
-  </p>
-  <%= submit_tag("Comment") %>
-<% end %>
