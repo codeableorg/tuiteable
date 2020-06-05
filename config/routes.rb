@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  get 'porfile' ,to: 'users#index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'tweets#index'
 
