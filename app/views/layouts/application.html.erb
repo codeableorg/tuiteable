@@ -12,7 +12,6 @@
 
   <body>
     <div class="tuitiable_container">
-      
       <nav class="navbar_tuitiable">
         <%= link_to image_tag("tuiteable.png"), root_path %>  
         <%= link_to root_path, :class =>"explorer_link" do%>
@@ -27,24 +26,23 @@
       </nav>
      
       <main class="tweets_container">
-      
         <%= yield %>
       </main>
      
-     <div class= "aside_footer_container" >
-      <aside class="right_bar_tuitiable">
-        <%if user_signed_in?%>
-          <%= render 'home/new_features'%>
-        <%else%>
-          <%= render 'user/sign_in_form'%>
-        <%end%>
-      </aside>
+      <div class= "aside_footer_container" >
+        <aside class="right_bar_tuitiable">
+          <%if user_signed_in?%>
+            <%= render 'home/new_features'%>
+          <%else%>
+            <%= render 'user/sign_in_form'%>
+          <%end%>
+        </aside>
 
-      <footer class="footer_tuitiable">
-        <p>Made by Albert, Mariella y Saida</p>
-        <p>cohort #2 students</p>
-      </footer>
-    </div>
+        <footer class="footer_tuitiable">
+          <p>Made by Albert, Mariella y Saida</p>
+          <p>cohort #2 students</p>
+        </footer>
+      </div>
 
     </div>
 
