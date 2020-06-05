@@ -25,9 +25,10 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-
+    @tweet.user = current_user
     respond_to do |format|
       if @tweet.save
+        @tweet.created_at = @tweet.created_at.to_date
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
         format.json { render :show, status: :created, location: @tweet }
       else

@@ -4,20 +4,20 @@
   <strong>Body:</strong>
   <%= @tweet.body %>
 </p>
-
+<br>
 <p>
   <strong>Retweet:</strong>
-  <%= @tweet.retweet %>
+  <%= @tweet.retweets_count %>
 </p>
-
+<br>
 <p>
   <strong>Likes:</strong>
-  <%= @tweet.likes %>
+  <%= @tweet.likes_count %>
 </p>
-
+<br>
 <p>
   <strong>User:</strong>
-  <%= @tweet.user_id %>
+  <%= @tweet.user.display_name %>
 </p>
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
