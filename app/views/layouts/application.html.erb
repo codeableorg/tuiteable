@@ -12,18 +12,20 @@
   <body>
 
     <div class="index-page">
-      <div class="column-left"></div>
+      <div class="column-left">
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <%= image_tag(url_for(current_user.avatar)) %>
+        <%end%>
+      </div>
       <div class="column-middle">
-    
-        <%= yield %>
       
+        <%= yield %>
+        
       </div>
       <div class="column-right">
-      
-        <% if user_signed_in? %>
-          <li>Welcome, <%= current_user.username %></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        <% else %>
+        
+        <% unless user_signed_in? %>
           <%= render  file:"devise/sessions/new" %>
         <% end %>
 
@@ -34,13 +36,9 @@
             <a href="https://github.com/marccmartian" target="_blank">Marvin Carrasco</a>
           </p>
         </footer>
+   
       </div>
+
     </div>
-
   </body>
-
-
-
-
-
 </html>
