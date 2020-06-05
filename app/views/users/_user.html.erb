@@ -17,5 +17,7 @@
       <span class="profile-date">Joined <%= format_date_profile( @user.created_at) %></span>
     </div>
   </div>
-  <a href="#" class="profile-edit">Edit Profile</a>
+  <% if user_signed_in? && current_user %>
+    <%= link_to "Edit Profile", edit_user_path , class:"profile-edit"%>
+  <% end %>
 </div>
