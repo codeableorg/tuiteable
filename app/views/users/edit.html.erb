@@ -1,6 +1,7 @@
-<h1>Editing User</h1>
+<div class="back-button">
+  <%= link_to @user do %>
+    <i class="fas fa-arrow-left"></i>Back to Profile
+  <% end %>
+</div>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= render 'edit_form', user: @user %>

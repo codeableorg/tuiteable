@@ -1,0 +1,37 @@
+<%= form_with(model: user, local: true, class: "form") do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :display_name, "Name:" %>
+    <%= form.text_field :display_name, class: "user-input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location, "Location:" %>
+    <%= form.text_field :location, class: "user-input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar, "Avatar:" %>
+    <%= form.file_field :avatar, accept: ".jpg,.jpeg,.png" %>
+  </div>
+
+  <div class="field field-block">
+    <%= form.label :bio, "Bio:" %>
+    <%= form.text_area :bio, class: "text-area user-input", size: "25x6" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Profile", class: "submit-button" %>
+  </div>
+<% end %>
