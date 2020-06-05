@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       flash[:alert] ="Success to update your acount"
-      redirect_to root_path
+      redirect_to "/profile"
     else
       flash[:alert] ="Error to update your acount"
       edit_user_path(@user)
