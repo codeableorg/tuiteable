@@ -129,7 +129,7 @@ describe Api::Tweets::CommentsController do
       expect(comment["messages"]).to eq "Comment deleted - Success"
     end
 
-    it 'render json message by owner' do
+    it 'render json message by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
       delete :destroy, params: {tweet_id: @tweet, id: @comment}

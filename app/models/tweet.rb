@@ -1,6 +1,4 @@
 class Tweet < ApplicationRecord
-  attr_accessor :likes
-
   ## Association
   belongs_to :owner, class_name: 'User'
   has_many :comments, -> { order created_at: :desc }, dependent: :destroy
