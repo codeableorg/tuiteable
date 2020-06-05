@@ -1,0 +1,45 @@
+form.sign_up{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  .field{
+    width: 380px;
+
+    label{
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 20px;
+
+      color: #FFFFFF;
+    }
+
+    textarea{
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 15px;
+      resize: none;
+      height: 140px;
+    }
+  }
+
+  .field.inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    
+    label{
+      width: 120px;
+    }
+
+    input{
+      width: 250px;
+      border-radius: 15px;
+      height: 40px;
+      padding: 10px;
+    }
+  }
+}
