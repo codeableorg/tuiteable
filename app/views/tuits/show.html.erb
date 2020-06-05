@@ -1,3 +1,4 @@
+
 <div class="main-content-header">
     <%= link_to root_path do %>
         <%= image_tag "blue_arrow.png", class: 'blue-arrow' %>
@@ -21,8 +22,10 @@
         <hr>
         <p class="tuit-numbers">
             <span class="tuit-owner"><%=@tuit.comments_count%></span>
-            <span class="tuit-details tuit-numbers-item"> <%=like = (@tuit.comments_count > 1) ? 'Likes' : 'Like'%> </span>
-            <%= image_tag('like.svg', :alt => 'likes') %>
+            <span class="tuit-details tuit-numbers-item"> <%=like = (@tuit.comments_count > 1) ? 'Likes' : 'Like'%> </span> 
+            <%= link_to new_user_registration_path do %> <% flash.alert = "You must have an account to like this tuit" %>
+                <%= image_tag('like.svg', :alt => 'likes') %>
+            <% end %>
         </p>
     </div>
 </div>
