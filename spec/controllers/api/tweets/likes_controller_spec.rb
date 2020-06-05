@@ -55,33 +55,31 @@ describe Api::Tweets::LikesController do
     end
   end
 
-  # describe 'DELETE to destroy' do
-  #   before :each do
-  #     @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-  #     @tweet = Tweet.create(owner: @user, body: "tweet body")
-  #   end
+  describe 'DELETE to destroy' do
+    before :each do
+      @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+    end
 
-  #   it 'returns http status ok by owner' do
-  #     @like = Like.create(user: @user, tweet: @tweet)
-  #     @request.headers['X-User-Email'] = @user.email
-  #     @request.headers['X-User-Token'] = @user.authentication_token
-  #     delete :destroy, params: {tweet_id: @tweet}
-  #     expect(response).to have_http_status(:ok)
-  #   end
+    it 'returns http status ok by owner' do
+      @like = Like.create(user: @user, tweet: @tweet)
+      delete :destroy, params: {tweet_id: @tweet, id: @like.id}
+      expect(response).to have_http_status(:ok)
+    end
 
-  #   it 'render json message by owner' do
-  #     @like = Like.create(user: @user, tweet: @tweet)
-  #     @request.headers['X-User-Email'] = @user.email
-  #     @request.headers['X-User-Token'] = @user.authentication_token
-  #     delete :destroy, params: {tweet_id: @tweet}
-  #     like = JSON.parse(response.body)
-  #     expect(like["messages"]).to eq "Like deleted - Success"
-  #   end
+    it 'render json message by owner' do
+      @like = Like.create(user: @user, tweet: @tweet)
+      delete :destroy, params: {tweet_id: @tweet, id: @like.id}
+      like = JSON.parse(response.body)
+      expect(like["messages"]).to eq "Like deleted - Success"
+    end
 
-  #   it 'returns http status :not_acceptable with no preview liked tweet' do
-  #     delete :destroy, params: {tweet_id: @tweet}
-  #     expect(response).to have_http_status(:not_acceptable)
-  #   end
+    it 'returns http status :not_acceptable with no preview liked tweet' do
+      delete :destroy, params: {tweet_id: @tweet, id: 1}
+      expect(response).to have_http_status(:not_acceptable)
+    end
 
-  # end
+  end
 end
