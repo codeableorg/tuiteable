@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_many :providers
 
   def self.from_omniauth(auth)
-    user = find_or_create_by(email: auth.email) do |user|
+    user = where(email: auth.info.email).first_or_create do |user|
       email = auth.info.email
       user.email = if email.nil?
                     "no@mail#{rand(1..10000)}.com"
@@ -29,7 +29,11 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.name.downcase.gsub(/\s/,"") + rand(1..10000).to_s
     end
-
+    p " "
+    p " "
+    p " "
+    p " "
+    p user.errors
     user.providers.find_or_create_by(provider: auth.provider, uid: auth.uid)
     return user
   end

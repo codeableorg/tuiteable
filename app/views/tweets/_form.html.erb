@@ -1,6 +1,6 @@
 <div class="tweet-container">
   <div class="user-photo">
-    
+    <img src=<%= get_avatar(current_user) %> alt="" class="tweet-useravatar">
   </div>
   <div class="tweet-form">
     <%= form_with(model: tweet, local: true) do |form| %> 
