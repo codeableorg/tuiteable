@@ -1,18 +1,18 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-body{
-  background: #1D2128;
+body {
+  background: #1d2128;
 }
 
-.mainContainer{
+.mainContainer {
   display: flex;
 }
 
-.first{
+.first {
   border-right: 2px solid grey;
   width: fit-content;
   height: 100vh;
@@ -20,11 +20,11 @@ body{
   padding-top: 10px;
 }
 
-.first img{
+.first img {
   margin-top: 5px;
 }
 
-.firstColumn{
+.firstColumn {
   display: flex;
   align-items: center;
   margin-left: -7px;
@@ -32,23 +32,22 @@ body{
   flex-direction: column;
 }
 
-.firstColumn .hash{
+.firstColumn .hash {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-
-.firstColumn .user{
+.firstColumn .user {
   display: flex;
   align-items: center;
 }
 
-button#up{
+button#up {
   margin-left: 143px;
 }
 
-.firstColumn button{
+.firstColumn .sign_out {
   color: red;
   border: solid 2px red;
   border-radius: 15px;
@@ -58,48 +57,48 @@ button#up{
   margin-top: 20px;
 }
 
-.hidden{
+.hidden {
   display: none;
   color: red;
 }
 
-.firstColumn a{
+.firstColumn a {
   text-decoration: none;
   font-size: 19px;
   color: #fff;
   margin-left: 12px;
 }
 
-.second{
+.second {
   border-right: 2px solid grey;
   height: 100vh;
   padding-bottom: 20px;
-  width: 56em;
+  max-width: 56em;
 }
 
-.second .head{
+.second .head {
   border-bottom: 2px solid grey;
 }
 
-.second .head p{
+.second .head p {
   color: #fff;
   font-size: 30px;
   font-weight: 600;
   margin: 15px 25px;
 }
 
-.head a{
+.head a {
   color: rgb(0, 171, 238);
   text-decoration: none;
 }
 
-.about{
+.about {
   border-bottom: 7px solid grey;
 }
 
-.about button{
+.about button {
   padding: 7px 13px;
-  background: #1DA1F2;
+  background: #1da1f2;
   color: #fff;
   font-size: 15px;
   font-weight: bold;
@@ -110,7 +109,7 @@ button#up{
   margin-top: -10px;
 }
 
-.about .content input{
+.about .content input {
   width: 750px;
   height: 50px;
   background: transparent;
@@ -120,17 +119,17 @@ button#up{
   font-size: 20px;
 }
 
-.about  .content{
+.about .content {
   display: flex;
   padding: 15px;
 }
 
-.about  .content img{
+.about .content img {
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.form{
+.form {
   width: 897px;
   border-bottom: 2px solid gray;
   font-weight: bold;
@@ -139,48 +138,56 @@ button#up{
   border-bottom: none;
 }
 
-#username{
+.form-center {
+  text-align: center;
+}
+
+#username {
   margin: 10px 50px;
   padding: 0 0 0 15px;
 }
 
-#namee{
+#namee {
   margin: 10px 80px;
   padding: 0 0 0 15px;
 }
 
-#emaill{
+#emaill {
   margin: 10px 83px;
   padding: 0 0 0 15px;
 }
 
-#passwordd{
+#passwordd {
   margin: 10px 52px;
   padding: 0 0 0 15px;
 }
 
-#pc{
+#pc {
   margin: 10px 58px;
   padding: 0 0 0 15px;
 }
 
-#location{
+#location {
   margin: 10px 62px;
   padding: 0 0 0 15px;
 }
 
-.form input{
+.form-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.form input {
   height: 35px;
   border-radius: 14px;
   border: none;
   width: 230px;
 }
 
-.form label{
+.form label {
   color: #fff;
 }
 
-.form form textarea{
+.form form textarea {
   width: 362px;
   height: 140px;
   border-radius: 15px;
@@ -188,31 +195,31 @@ button#up{
   padding: 10px;
 }
 
-form button{
-  border: 2px solid #1DA1F2;
-  background: #1DA1F2;
+form button {
+  border: 2px solid #1da1f2;
+  background: #1da1f2;
   color: #fff;
   padding: 5px;
   border-radius: 15px;
-  margin: 10px;
-  margin-left: 119px;
+  margin: 5px;
+  /* margin-left: 119px; */
 }
 
-.avatar button{
-  border: 2px solid #1DA1F2;
+.avatar button {
+  border: 2px solid #1da1f2;
   background: transparent;
-  color: #1DA1F2;
+  color: #1da1f2;
   padding: 5px;
   border-radius: 15px;
   margin: 10px;
   margin-left: 74px;
 }
 
-.third{
+.third {
   color: #fff;
 }
 
-.third .card{
+.third .card {
   background: rgba(153, 155, 158, 0.25);
   margin: 7px 18px 30px 18px;
   display: flex;
@@ -222,18 +229,18 @@ form button{
   align-items: center;
 }
 
-.card button{
+.card button {
   width: fit-content;
 }
 
-.card form{
+.card form {
   width: 213px;
-  margin: 11px 0;
+  /* margin: 11px 0; */
   font-size: 16px;
   font-weight: bold;
 }
 
-.card input{
+.card input {
   height: 35px;
   border-radius: 14px;
   border: none;
@@ -242,62 +249,69 @@ form button{
   padding: 0 0 0 12px;
 }
 
-.card h1#title{
+.card h1#title {
   margin-bottom: 10px;
 }
 
-.card h1{
+.card h1 {
   font-size: 16px;
   font-weight: bold;
 }
 
-.card #login{
+.card #login {
   color: #fff;
-  background: #1DA1F2;
+  background: #1da1f2;
   padding: 10px 15px;
   border: none;
   border-radius: 20px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
-.card #facebook{
+.card #facebook {
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: none;
   color: #fff;
   padding: 4px 6px;
-  background: #1D5CD7;
+  background: #1d5cd7;
   border: none;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
-.card #github{
+.card #github {
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: none;
   color: #fff;
   padding: 4px 6px;
   background: #000;
   border: none;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.card #signup{
-  color: #1DA1F2;
-  border: 2px solid #1DA1F2;
+.card #signup {
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  color: #1da1f2;
+  border: 2px solid #1da1f2;
   border-radius: 20px;
   padding: 10px;
   background: transparent;
-  margin: 10px 0;
+  margin-top: 10px;
+  /* margin: 10px 0; */
 }
 
-.third{
-  text-align: center;
-}
-.third p#message{
+.third p#message {
   font-size: 13px;
 }
 
 /* Tweet */
 
-.tweet{
-  width: 866px;
+.tweet {
+  min-width: 20em;
   border-bottom: 2px solid grey;
   display: flex;
   font-size: 16px;
@@ -305,48 +319,48 @@ form button{
   padding: 16px;
 }
 
-.tweet img#image{
+.tweet img#image {
   height: 50px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
-.tweet span{
+.tweet span {
   color: grey;
   font-weight: 300;
 }
 
-.content p#comment{
+.content p#comment {
   margin: 10px 0 7px 0;
 }
 
-.info{
+.info {
   display: flex;
   margin-top: 13px;
 }
 
-.comments{
+.comments {
   display: flex;
   align-items: center;
 }
 
-.comments img{
+.comments img {
   height: 15px;
   margin-right: 5px;
 }
 
-.likes{
+.likes {
   display: flex;
   align-items: center;
   margin-left: 110px;
 }
 
-.likes img{
+.likes img {
   height: 15px;
   margin-right: 5px;
 }
 
-.profile{
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -355,48 +369,48 @@ form button{
   padding: 20px 0;
 }
 
-.profile span{
+.profile span {
   color: grey;
 }
 
-.profile img#profile{
+.profile img#profile {
   height: 105px;
   border-radius: 50%;
 }
 
-.profile p{
+.profile p {
   margin: 20px 0;
 }
 
-.profile .profinfo{
+.profile .profinfo {
   display: flex;
 
   width: 280px;
   justify-content: space-between;
 }
 
-.profinfo .location span{
+.profinfo .location span {
   margin-left: 7px;
 }
 
-.profinfo .calendar span{
+.profinfo .calendar span {
   margin-left: 7px;
 }
 
-.profinfo .location{
+.profinfo .location {
   display: flex;
   align-items: center;
 }
 
-.profinfo .calendar{
+.profinfo .calendar {
   display: flex;
   align-items: center;
 }
 
-.profile button{
+.profile button {
   background: transparent;
-  color: #1DA1F2;
-  border: solid 2px #1DA1F2;
+  color: #1da1f2;
+  border: solid 2px #1da1f2;
   padding: 5px;
   border-radius: 20px;
   font-size: 16px;
@@ -409,20 +423,19 @@ form button{
   border-bottom: 2px solid grey;
 }
 
-
-.tuitsAndLikes .windows{
+.tuitsAndLikes .windows {
   width: 400px;
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
 }
 
-.tuitsAndLikes a{
+.tuitsAndLikes a {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.windowActive{
+.windowActive {
   color: gray !important;
 }

@@ -13,12 +13,21 @@
   <body>
     <div class="mainContainer">
       <div class="first">
-        <img src="/img/logo.png" height="43">
+        <a href="/"><img src="/img/logo.png" height="43"></a>
         <div class="firstColumn">
           <div class="hash">
             <img src="/img/hash.png" alt="">
-            <a href="#">Explorer</a>
+            <%= link_to 'Explorer', root_path %>
           </div>
+          <% if signed_in? %>
+            <div class="user hidden">
+              <img src="/img/user.png" alt="">
+              <%= link_to 'Profile', profile_path %>
+            </div>
+            <div class="user hidden">
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'sign_out' %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="second">
@@ -31,18 +40,31 @@
       </div>
       <div class="third">
         <div class="card">
-          <h1>Log in to { tuiteable }</h1>
-          <form>
-            <label for="email">Email</label> <br />
-            <input type="text" id='email'> <br />
-            <label for="password">Password</label> <br />
-            <input type="password" id="password">
-          </form>
-          <button id="login">Log in</button>
-          <button id="facebook">Use Facebook</button>
-          <button id="github">Use Github</button>
-          <p>Not registered yet?</p>
-          <button id="signup">Sign up with email</button>
+          <% if !signed_in? %>
+            <%= form_with(url: user_session_path, scope: 'user', local:true) do |f| %>
+              <h1 class="form-title">Log in to { tuiteable }</h1>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+              <div class="form-center">
+                <div>
+                  <button type="submit" id="login">Log in</button>
+                </div>
+                <div>
+                  <%= link_to 'Use Facebook',omniauth_authorize_path('user', :facebook),id: 'facebook'%>
+                </div>
+                <div>
+                  <%= link_to 'Use Github',omniauth_authorize_path('user', :github),id: 'github'%>
+                </div>
+                <p>Not registered yet?</p>
+                <%= link_to 'Sign up with email', new_user_registration_path, id: 'signup'%>
+              </div>
+            <% end %>
+          <% else %>
+            <h1 id="title">New features coming soon!</h1>
+            <img src="/img/feature.png">
+          <% end %>
         </div>
         <p id="message">Made with bravery by {codeable}</p>
         <p id="message">cohort #2 student</p>
