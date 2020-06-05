@@ -1,29 +1,24 @@
-<div class="separator">
-  <article class="tweet">
-    <div class="tweet-avatar">
-      <img src=<%= get_avatar(@tweet.user) %> alt="" class="tweet-useravatar" />
+<article class="tweet">
+  <div class="tweet-avatar">
+    <img src=<%= get_avatar(user) %> alt="" class="tweet-useravatar">
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-top">
+      <span class="tweet-topleft"><%= user.display_name %></span>
+      <span class="tweet-topright"><%= link_to "@#{user.username}", user_path(user) %>  - <%= print_date_tweet(tweet.created_at) %></span>
     </div>
-    <div class="tweet-content">
-      <div class="tweet-top">
-        <span class="tweet-topleft"><%= @tweet.user.display_name %></span>
-        <span class="tweet-topright"><%= link_to "@#{@tweet.user.username}", user_path(@tweet.user) %></span>
+    <p class="tweet-body">
+      <%= tweet.body %>
+    </p>
+    <div class="tweet-bottom">
+      <div class="tweet-comments">
+        <i class="far fa-comment"></i>
+        <span class="tweet-bottomtext"><%= tweet.comments_count %></span>
       </div>
-      <p class="tweet-body">
-        <%= @tweet.body %>
-      </p>
-      <p class="tweet-datetime"><%= print_date_time_tweet(@tweet.created_at) %></p>
-      <hr class="ruler">
-      <div class="tweet-bottom">
-        <div class="tweet-comments">
-          <span class="tweet-bottomtext">
-            <%= @tweet.comments_count %><%= @tweet.comments_count == 1 ? " Comment" : " Comments" %>
-          </span>
-        </div>
-        <div class="tweet-likes">
-          <i class="far fa-heart"></i>
-          <span class="tweet-bottomtext"><%= @tweet.likes_count %></span>
-        </div>
+      <div class="tweet-likes">
+        <i class="far fa-heart"></i>
+        <span class="tweet-bottomtext"><%= tweet.likes_count %></span>
       </div>
     </div>
-  </article>
-</div>
+  </div>
+</article>
