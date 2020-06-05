@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 #ruby '2.6.3'
+require 'rbconfig'
 
 gem 'omniauth'
 gem 'omniauth-github'
@@ -9,7 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'omniauth-facebook'
 gem 'pundit'
 gem 'devise'
-gem 'wdm' #Necesito esto en windows :(
+gem 'wdm' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i #Necesito esto en windows :(
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
@@ -55,3 +56,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# token authentication
+gem 'simple_token_authentication', '~> 1.0'
