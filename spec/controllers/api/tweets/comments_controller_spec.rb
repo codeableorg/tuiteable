@@ -1,21 +1,22 @@
 require 'rails_helper'
 
-describe Api::TweetsController do
+describe Api::Tweets::CommentsController do
   describe 'GET to index' do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
       @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
     end
 
     it 'returns http status ok' do
-      get :index
+      get :index, params: {tweet_id: @tweet}
       expect(response).to have_http_status(:ok)
     end
 
-    it 'render json with all tweets' do
-      get :index
-      tweets = JSON.parse(response.body)
-      expect(tweets.size).to eq 1
+    it 'render json with all comments' do
+      get :index, params: {tweet_id: @tweet}
+      comments = JSON.parse(response.body)
+      expect(comments.size).to eq 1
     end
 
   end
@@ -24,112 +25,116 @@ describe Api::TweetsController do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
       @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
     end
 
     it 'returns http status ok' do
-      get :show, params: {id: @tweet}
+      get :show, params: {tweet_id: @tweet, id: @comment}
       expect(response).to have_http_status(:ok)
     end
 
-    it 'render json with all tweets' do
-      get :show, params: {id: @tweet}
-      tweet = JSON.parse(response.body)
-      expect(tweet["body"]).to eq "tweet body"
+    it 'render json with comment info' do
+      get :show, params: {tweet_id: @tweet, id: @comment}
+      comment = JSON.parse(response.body)
+      expect(comment["body"]).to eq "comment body"
     end
   end
 
   describe 'POST to create' do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @tweet = Tweet.create(owner: @user, body: "tweet body")
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
     end
 
     it 'returns http status created' do
-      post :create, params: {tweet: {body: "holi"}}
+      post :create, params: {tweet_id: @tweet, comment: {body: "holi"}}
       expect(response).to have_http_status(:created)
     end
 
-    it 'render json with all tweets' do
-      post :create, params: {tweet: {body: "holi"}}
-      tweet = JSON.parse(response.body)
-      expect(tweet["body"]).to eq "holi"
+    it 'render json with all comments' do
+      post :create, params: {tweet_id: @tweet, comment: {body: "holi"}}
+      comment = JSON.parse(response.body)
+      expect(comment["body"]).to eq "holi"
     end
   end
 
   describe 'PUT to update' do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-      @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
       @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
+      @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
     end
 
     it 'returns http status updated by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      put :update, params: {id: @tweet, tweet: {body: "woli"}}
+      put :update, params: {tweet_id: @tweet, id: @comment, comment: {body: "woli"}}
       expect(response).to have_http_status(:ok)
     end
 
     it 'returns http status updated by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      put :update, params: {id: @tweet, tweet: {body: "woli"}}
+      put :update, params: {tweet_id: @tweet, id: @comment, comment: {body: "woli"}}
       expect(response).to have_http_status(:ok)
     end
 
-    it 'render json with updated tweet by owner' do
+    it 'render json with updated comment by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      put :update, params: {id: @tweet, tweet: {body: "woli"}}
-      tweet = JSON.parse(response.body)
-      expect(tweet["body"]).to eq "woli"
+      put :update, params: {tweet_id: @tweet, id: @comment, comment: {body: "woli"}}
+      comment = JSON.parse(response.body)
+      expect(comment["body"]).to eq "woli"
     end
 
-    it 'render json with updated tweet by admin' do
+    it 'render json with updated comment by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      put :update, params: {id: @tweet, tweet: {body: "woli"}}
-      tweet = JSON.parse(response.body)
-      expect(tweet["body"]).to eq "woli"
+      put :update, params: {tweet_id: @tweet, id: @comment, comment: {body: "woli"}}
+      comment = JSON.parse(response.body)
+      expect(comment["body"]).to eq "woli"
     end
   end
 
   describe 'DELETE to destroy' do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-      @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
       @tweet = Tweet.create(owner: @user, body: "tweet body")
+      @comment = Comment.create(tweet: @tweet, user: @user, body: "comment body")
+      @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
     end
 
     it 'returns http status ok by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      delete :destroy, params: {id: @tweet}
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
       expect(response).to have_http_status(:ok)
     end
 
     it 'returns http status ok by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      delete :destroy, params: {id: @tweet}
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
       expect(response).to have_http_status(:ok)
     end
 
     it 'render json message by owner' do
       @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
-      delete :destroy, params: {id: @tweet}
-      tweet = JSON.parse(response.body)
-      expect(tweet["messages"]).to eq "Tweet deleted - Success"
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
+      comment = JSON.parse(response.body)
+      expect(comment["messages"]).to eq "Comment deleted - Success"
     end
 
-    it 'render json message by owner' do
+    it 'render json message by admin' do
       @request.headers['X-User-Email'] = @admin_user.email
       @request.headers['X-User-Token'] = @admin_user.authentication_token
-      delete :destroy, params: {id: @tweet}
-      tweet = JSON.parse(response.body)
-      expect(tweet["messages"]).to eq "Tweet deleted - Success"
+      delete :destroy, params: {tweet_id: @tweet, id: @comment}
+      comment = JSON.parse(response.body)
+      expect(comment["messages"]).to eq "Comment deleted - Success"
     end
   end
 end

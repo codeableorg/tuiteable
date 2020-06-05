@@ -15,6 +15,6 @@ class TweetPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin? || tweet.owner == user
+    true
   end
 end

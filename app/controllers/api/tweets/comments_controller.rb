@@ -4,7 +4,7 @@ class Api::Tweets::CommentsController < ApiController
   before_action :get_comment, only: [:show, :update, :destroy]
 
   def index
-    render json: @tweet.comments status: :ok
+    render json: @tweet.comments, status: :ok
   end
 
   def show
