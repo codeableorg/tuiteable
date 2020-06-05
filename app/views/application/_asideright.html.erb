@@ -1,0 +1,6 @@
+
+<% if user_signed_in? %>
+ <p>Hola</p>
+<% else %>
+<%= render "users/new_form" %>
+<% end %>

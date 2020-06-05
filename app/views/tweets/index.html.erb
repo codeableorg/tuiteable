@@ -1,26 +1,4 @@
 <p id="notice"><%= notice %></p>
-<div class="tweet">
-  <% @tweets.each do |tweet| %>
-  <div class="tweet-container tweet-info">
-    <div class="user-photo"></div>
-    <div class="tweet-info">
-      <h2>
-        <%= tweet.user.display_name %>
-        <span>
-          @<%= tweet.user.username %> - <%= tweet.created_at.to_date.strftime("%-d
-          %b")%>
-        </span>
-      </h2>
-      <p class="tweet-body"><%= tweet.body %></p>
-      <div class="tweet-reaction">
-        <p class="reaction r-r"><i class="fas fa-retweet"></i> <%= tweet.retweets_count %></p>
-        <p class="reaction"><i class="far fa-heart"></i> <%= tweet.likes_count %></p>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <%= link_to 'New Tweet', new_tweet_path %>
-</div>
 <div class="separator">
   <%= render "users/user", locals: {user: @user } %>
 </div>

@@ -26,7 +26,7 @@ class User < ApplicationRecord
                     email
                   end
       user.password = Devise.friendly_token[0, 20]
-      user.username = "@" + auth.info.name.downcase.gsub(/\s/,"") + rand(1..10000).to_s
+      user.username = auth.info.name.downcase.gsub(/\s/,"") + rand(1..10000).to_s
     end
 
     user.providers.find_or_create_by(provider: auth.provider, uid: auth.uid)
@@ -36,6 +36,6 @@ class User < ApplicationRecord
 
   validates :username, :email, presence: true, uniqueness: true
   validates :avatar, content_type: [:png, :jpg], size: {less_than: 2.megabytes}
-  validates :bio, length: {maximum: 160}
+  #validates :bio, length: {maximum: 160}
 end
 

@@ -1,8 +1,12 @@
 <div class="separator">
   <p class="separator-title">Explorer</p>
 </div>
+<% if user_signed_in? %>
+  <%= render partial: "tweets/form", locals: {tweet: @tweet}%>
+<% end %>
+
 <% @tweets.each do |tweet| %>
   <div class="separator">
-    <%= render "tweets/tweet", locals: {tweet: tweet, user: tweet.user} %>
+    <%= render partial: "tweets/tweet", locals: {tweet: tweet, user_tweet: tweet.user} %>
   </div>
 <% end %>

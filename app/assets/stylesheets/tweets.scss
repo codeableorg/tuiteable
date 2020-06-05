@@ -5,20 +5,21 @@
   display: flex;
 }
 .user-photo {
-  width: 18%;
+  width: 12%;
 }
 .tweet-form {
-  width: 82%;
+  width: 88%;
 }
 .tweet-text-area {
   background: transparent;
-  //border: 1px solid #1d2128;
+  border: 1px solid #1d2128;
   color: #ffffff;
   border-color: none;
-  width: 98%;
+  width: 97%;
   height: 7em;
   resize: none;
-  padding: 15px;
+  padding-top: 15px;
+  font-family: "Roboto";
 }
 .tweet-text-area:focus {
   outline: 0px;
