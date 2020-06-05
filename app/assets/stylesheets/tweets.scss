@@ -1,3 +1,151 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.tweetdetail {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tweetdetail-imgcontainer {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.tweetdetail-avatar {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+}
+
+.tweetdetail-content {
+  width: 90%;
+}
+
+.tweetdetail-userdisplayname {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+.tweetdetail-username {
+  font-size: 1.6rem;
+  color: #999b9e;
+}
+
+.tweetdetail-body {
+  font-size: 2rem;
+  color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tweetdetail-time {
+  font-size: 1.6rem;
+  color: #999b9e;
+  margin-bottom: 0.5rem;
+}
+
+.tweetdetail-bottom {
+  border-top: 1px solid #999b9e;
+  padding: 1.5rem 0;
+  display: flex;
+}
+
+.tweetdetail-likescount {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  color: #999b9e;
+  margin-right: 5rem;
+}
+
+.tweetdetail-likes {
+  font-weight: bold;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.tweetdetail-addlike {
+  color: white;
+  font-size: 1.6rem;
+}
+
+.sendcomment {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sendcomment-form {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.sendcomment-body {
+  width: 74%;
+  min-height: 7rem;
+  max-height: 7rem;
+  background-color: #1d2128;
+  border: none;
+  font-size: 2rem;
+  color: #999b9e;
+}
+
+.sendcomment-button {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: white;
+  background: #1da1f2;
+  border-radius: 10rem;
+  border: none;
+  padding: 0.5rem 0.8rem;
+}
+
+.comment {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comment-avatarcontainer {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.comment-avatar {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+}
+
+.comment-content {
+  width: 90%;
+}
+
+.comment-top {
+  font-size: 1.6rem;
+  color: #999b9e;
+  margin-bottom: 1.1rem;
+}
+
+.comment-displayname {
+  font-weight: bold;
+  color: white;
+  margin-right: 0.8rem;
+}
+
+.comment-body {
+  font-size: 1.6rem;
+  color: white;
+}
