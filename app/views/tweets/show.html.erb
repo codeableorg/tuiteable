@@ -1,5 +1,6 @@
 <h1>SHOW ONE TWEET</h1>
 <section>
+  <%= image_tag(url_for(@tweet.user.avatar), class: "algo") %>
   <h2> <%= @tweet.user.name %> </h2>
   <p>@<%= @tweet.user.username %></p>
   <p> <%= @tweet.body %> </p>

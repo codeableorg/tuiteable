@@ -15,14 +15,10 @@
       </p>
     </header>
     <p class="tweet-body"><%= tweet.body%></p>
-    <%
-=begin%>
     <footer>
-      <span class="tweet-count"><%image_tag "comment.svg", class: "tweet-count-icon"%></span>
-      <span class="tweet-count"><%image_tag "heart.svg", class: "tweet-count-icon"%></span>
+      <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%></span><%=tweet.comments_count%>
+      <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
     </footer>
-    <%
-=end%>
   </div>
   <% end %>
 </article>
