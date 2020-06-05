@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_190547) do
+ActiveRecord::Schema.define(version: 2020_06_05_173136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2020_06_04_190547) do
 
   create_table "follows", force: :cascade do |t|
     t.bigint "following_id", null: false
-    t.bigint "followers_id", null: false
+    t.bigint "follower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followers_id"], name: "index_follows_on_followers_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 2020_06_04_190547) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -108,7 +110,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_190547) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
-  add_foreign_key "follows", "users", column: "followers_id"
+  add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
