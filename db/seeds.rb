@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'date'
 
 # admin account
 admin = User.create!(
@@ -16,6 +17,7 @@ admin = User.create!(
   bio: Faker::Quote.most_interesting_man_in_the_world,
   location: Faker::Address.city,
   password: '123456',
+  created_at: Time.now.days_ago(61),
 )
 
 puts "---------------------------------"
@@ -32,17 +34,19 @@ users = Array.new(20) do
     email: Faker::Internet.email,
     display_name: Faker::Name.name,
     admin: false,
-    bio: Faker::Quote.most_interesting_man_in_the_world,
+    bio: Faker::Quotes::Chiquito.expression,
     location: Faker::Address.city,
     password: '123456',
+    created_at: Time.now.days_ago(61),
   })
 end
 
 puts 'create tweets'
-tweets = users.each_with_object([]) do |user, all_tweets|
+tweets = users.each_with_object([]) do |user|
   20.times do
-    all_tweets << user.tweets.create!({
+    user.tweets.create!({
       body: Faker::Quote.most_interesting_man_in_the_world,
+      created_at: Time.now.days_ago(rand(60)),
     })
   end
 end

@@ -2,7 +2,5 @@
   <p class="separator-title">Explorer</p>
 </div>
 <% @tweets.each do |tweet| %>
-  <div class="separator">
-    <%= render "tweets/tweet", locals: {tweet: tweet, user: tweet.user} %>
-  </div>
+  <%= render partial: "tweets/tweet", locals: { tweet: tweet, user: tweet.user } %>
 <% end %>
