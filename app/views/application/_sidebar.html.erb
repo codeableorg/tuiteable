@@ -3,13 +3,13 @@
     <%= image_tag "tuiteable.svg", alt: "Tuiteable" %>
   </a>
 </div>
-<div>
-  <%= link_to("/explorer") do %>
-    <i class="fas fa-hashtag"></i> Explorer
-  <% end %>
-</div>
 
 <% if user_signed_in? %>
+  <div>
+    <%= link_to("/explorer") do %>
+      <i class="fas fa-hashtag"></i> Explorer
+    <% end %>
+  </div>
   <div>
     <%= link_to("/profile") do %>
       <i class="far fa-user"></i> Profile
