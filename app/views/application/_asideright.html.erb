@@ -1,0 +1,27 @@
+<% if !user_signed_in? %>
+  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+    <div class="field">
+      <%= f.label :email, "Email:" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, "Password:" %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+
+    <div class="sign-up">
+      <p>Not registered yet?</p>
+      <%= link_to "Sign Up with email", "users/sign_up", class: "sign-up__btn" %>
+    </div>
+  <% end %>
+<% end %>
