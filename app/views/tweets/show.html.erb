@@ -1,11 +1,49 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to '<- Tuit', root_path %>
-
-<%= render 'tweet', tweet: @tweet %>
-
-<% if current_user%>
-  <%= render 'comment_form', locals: { tweet_id: @tweet.id, user_id: current_user } %>
+<div class="separator">
+  <a href=<%= root_path %>>
+    <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    <p class="separator-title ml-50">Tuit</p>
+  </a>
+</div>
+<div class="separator">
+  <article class="tweetdetail">
+    <div class="tweetdetail-imgcontainer">
+      <img src=<%= get_avatar(@user) %> alt="" class="tweetdetail-avatar" />
+    </div>
+    <div class="tweetdetail-content">
+      <p class="tweetdetail-userdisplayname"><%= @user.display_name %></p>
+      <a href="#" class="tweetdetail-username"><%= @user.username %></a>
+      <p class="tweetdetail-body">
+        <%= @tweet.body %>
+      </p>
+      <p class="tweetdetail-time"><%= format_time_tweet(@tweet.created_at) %></p>
+      <div class="tweetdetail-bottom">
+        <p class="tweetdetail-likescount">
+          <span class="tweetdetail-likes"><%= @tweet.likes_count %></span> Likes
+        </p>
+        <%= generate_like(@tweet) %>
+      </div>
+    </div>
+  </article>
+</div>
+<% if user_signed_in? %>
+<div class="separator">
+  <div class="sendcomment">
+    <div class="tweetdetail-imgcontainer">
+      <img src="<%= get_avatar(current_user) %>" alt="" class="tweetdetail-avatar" />
+    </div>
+    <%= form_with model: @comment, url: tweet_comments_path(@tweet), method: :post, class: "sendcomment-form" do |f| %>
+      <%= f.text_area :body, class: "sendcomment-body", placeholder: "Think before write..." %>
+      <%= f.submit "Comment!", class: "sendcomment-button" %>
+     <%end %>
+  </div>
+</div>
 <% end %>
+    <% @comments.each do |comment| %>
+    <div class="separator">
+      <%= render partial: "comments/comment" , locals: {comment: comment, user: comment.user}%>
+    </div>
+    <% end %>
 
-<%= render 'tweet_comments', tweet: @tweet %>
+
+
+
