@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::SessionsController do
   before :each do
-    User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456", encrypted_password: BCrypt::Password.create("123456"))
+    User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
   end
 
   it 'returns http status created' do

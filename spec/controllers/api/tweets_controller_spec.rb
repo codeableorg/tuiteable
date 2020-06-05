@@ -17,4 +17,15 @@ describe Api::TweetsController do
     tweets = JSON.parse(response.body)
     expect(tweets.size).to eq 1
   end
+
+  it 'returns http status ok' do
+    get :show, params: {id: @tweet.id}
+    expect(response).to have_http_status(:ok)
+  end
+
+  it 'render json with all tweets' do
+    get :show, params: {id: @tweet.id}
+    tweet = JSON.parse(response.body)
+    expect(tweet["body"]).to eq "tweet body"
+  end
 end
