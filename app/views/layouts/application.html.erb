@@ -7,38 +7,45 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
 
   <body>
-  <header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <nav>
-      <%= link_to image_tag("tuiteable.png"), root_path %>
-      <%= link_to root_path do%>
-        <%= image_tag("tag.png")%> <span>Explorer</span>
-      <%end %>
-      <%if user_signed_in?%>
-        <%=link_to "My Profile", edit_user_registration_path %>
-        <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
-      <%end %>
-    </nav>
-  </header>
+    <div class="tuitiable_container">
+      <nav class="navbar_tuitiable">
+        <%= link_to image_tag("tuiteable.png"), root_path %>  
+        <%= link_to root_path, :class =>"explorer_link" do%>
+          <%= image_tag("tag.png", :class => "tag_image")%> <span>Explorer</span>
+        <%end %>
+        <%if user_signed_in?%>
+          <%= link_to edit_user_registration_path, :class =>"explorer_link" do%>
+          <%= image_tag("user.png", :class => "tag_image")%> <span>Profile</span>
+          <%end %>
+          <%=link_to "Log out", destroy_user_session_path, method: :delete, :class=> "log_out_link"%>
+        <%end %>
+      </nav>
+     
+      <main class="tweets_container">
+        <%= yield %>
+      </main>
+     
+      <div class= "aside_footer_container" >
+        <aside class="right_bar_tuitiable">
+          <%if user_signed_in?%>
+            <%= render 'home/new_features'%>
+          <%else%>
+            <%= render 'user/sign_in_form'%>
+          <%end%>
+        </aside>
 
-  <%= yield %>
+        <footer class="footer_tuitiable">
+          <p>Made by Albert, Mariella y Saida</p>
+          <p>cohort #2 students</p>
+        </footer>
+      </div>
 
-  <aside>
-    <%if user_signed_in?%>
-      <%= render 'home/new_features'%>
-    <%else%>
-      <%= render 'user/sign_in_form'%>
-    <%end%>
-  </aside>
+    </div>
 
   </body>
 
-  <footer>
-    <p>Made by Albert, Mariella y Saida</p>
-    <p>cohort #2 students</p>
-  </footer>
 </html>
