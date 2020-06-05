@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :tweets, only: [:destroy]
+  resources :tweets, only: [:destroy, :create]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root to: "home#index"
+  root to: "tweets#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -13,6 +13,9 @@ class Tweet < ApplicationRecord
     tweet.likers.destroy(tweet.likers) ## Destroy likers and allow callbacks to execute
   end
 
+  #Validations 
+  validates :body, length: { in: 1..280 }
+
   ##Callback
   def add_like(liker)
     puts "Holi desde tweet"

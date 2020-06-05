@@ -11,8 +11,11 @@
       <%else%>
          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
       <%end%>
-      <p class="tweet_placeholder">What you are thinking about is...</p>
-      <button class="btn-tweet">tuiteable!</button>
+
+    <%= form_for(@tweet, url: tweets_path , method: "post") do |f| %>
+      <%= f.text_field :body, placeholder: "What you are thinking about is...", :class => "tweet_placeholder"%>
+      <%= f.submit "tuiteable!", :class => "btn-tweet" %>
+    <% end%>
     </div>
   <%end%>
 
@@ -41,5 +44,3 @@
   <% end%>
 <%end%>
   
-
-
