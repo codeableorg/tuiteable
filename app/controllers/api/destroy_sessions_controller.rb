@@ -5,6 +5,7 @@ class Api::DestroySessionsController < ApiController
     p @user
     @user.save
     if !@user.authentication_token.blank?
+      sign_out @user
       render json: {
           messages: "Sigout In Successfully",
           is_success: true,
