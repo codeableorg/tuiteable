@@ -42,7 +42,7 @@ describe Api::TweetsController do
   describe 'POST to create' do
     before :each do
       @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
-      @request.headers['X-User-Email'] = "test@gmail.com"
+      @request.headers['X-User-Email'] = @user.email
       @request.headers['X-User-Token'] = @user.authentication_token
     end
 
@@ -55,6 +55,44 @@ describe Api::TweetsController do
       post :create, params: {tweet: {body: "holi"}}
       tweet = JSON.parse(response.body)
       expect(tweet["body"]).to eq "holi"
+    end
+  end
+
+  describe 'PUT to update' do
+    before :each do
+      @user = User.create(username: "test", name: "test", "email" => "test@gmail.com", password: "123456")
+      @admin_user = User.create(username: "admin", name: "admin", "email" => "admin@gmail.com", password: "123456", admin: true)
+      @tweet = Tweet.create(owner_id: @user.id, body: "tweet body")
+    end
+
+    it 'returns http status created by owner' do
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'returns http status created by admin' do
+      @request.headers['X-User-Email'] = @admin_user.email
+      @request.headers['X-User-Token'] = @admin_user.authentication_token
+      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'render json with updated tweet by owner' do
+      @request.headers['X-User-Email'] = @user.email
+      @request.headers['X-User-Token'] = @user.authentication_token
+      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      tweet = JSON.parse(response.body)
+      expect(tweet["body"]).to eq "woli"
+    end
+
+    it 'render json with updated tweet by admin' do
+      @request.headers['X-User-Email'] = @admin_user.email
+      @request.headers['X-User-Token'] = @admin_user.authentication_token
+      put :update, params: {id: @tweet.id, tweet: {body: "woli"}}
+      tweet = JSON.parse(response.body)
+      expect(tweet["body"]).to eq "woli"
     end
   end
 end
