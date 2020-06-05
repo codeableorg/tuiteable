@@ -1,25 +1,30 @@
-<h2>Log in to {tuitiable}</h2>
+<div class="log_in_container">
+<h2 class="log_in_title">Log in to {tuitiable}</h2>
 
 <%= form_with(model:@user ,url: user_session_path , method: "post") do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"input_field" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", :class=>"input_field" %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", :class=>"log_in_btn" %>
   </div>
 <% end %>
+<div class="social_media_log_in">
+<%= link_to "Use FaceBook", user_facebook_omniauth_authorize_path, :class=> "social_media_btn log_in_fb"%>
+<%= link_to "Use Github", user_github_omniauth_authorize_path, :class=> "social_media_btn log_in_GH"%>
+</div>
 
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path%>
-<%= link_to "Sign in with GitHub", user_github_omniauth_authorize_path%>
- 
- <h3>Not registered yet?</h3>
- <%= link_to "Sign Up with email", new_user_registration_path%>
+<div class="sign_up_email">
+ <h3 class="not_registered_text">Not registered yet?</h3>
+ <%= link_to "Sign Up with email", new_user_registration_path, :class=> "sign_up_btn"%>
+<div>
+ </div>
 

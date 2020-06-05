@@ -13,3 +13,178 @@
  *= require_tree .
  *= require_self
  */
+
+ *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     background-color: #3C3F45;
+ }
+
+ .tuitiable_container {
+    background-color: #1D2128;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    max-width: 1044px;
+    margin: auto;
+    display: flex;
+ }
+
+ .navbar_tuitiable {
+    width: 174px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 17px;
+ }
+
+ .explorer_link {
+   font-weight: bold;
+   font-size: 16px;
+   line-height: 20px;
+   font-style: normal; 
+   text-decoration: none;
+   color: #ffffff;
+   margin-top: 20px;
+ }
+
+ .tag_image {
+   vertical-align: bottom;
+   margin-right: 6px;
+ }
+
+ .log_out_link {
+   border: 2px solid #E0245E;
+   border-radius: 100px;
+   color: #E0245E;
+   text-align: center;
+   padding: 4px 8px;
+   text-decoration: none;
+   margin-top: 20px;
+ }
+
+ .tweets_container {
+   width: 600px;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .aside_footer_container {
+   width: 270px;
+   padding-top: 7px;
+  
+ }
+
+ .new_features_container{
+   margin: auto;
+   width: 217px;
+   text-align: center;
+   background: rgba(153, 155, 158, 0.25);
+   height: 201px;
+ }
+
+ .features_title{
+   font-weight: bold;
+   font-size: 16px;
+   line-height: 20px;
+   padding: 10px;
+ }
+
+ .footer_tuitiable {
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 35px;
+ }
+
+ .log_in_container{
+   width: 230px;
+   background: rgba(153, 155, 158, 0.25);
+   margin: auto;
+   font-size: 16px;
+   line-height: 20px;
+   font-weight: bold;
+   padding: 10px 15px 5px 15px;
+   height: 406px;
+
+ }
+ .log_in_title{
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+
+ }
+
+ .input_field{
+   border-radius: 15px;
+   height: 40px;
+   background-color: #ffffff;
+   margin-top: 5px;
+   margin-bottom: 10px;
+ }
+
+ .actions{
+   text-align: center;
+ }
+
+ .log_in_btn {
+   background-color: #1DA1F2;
+   border-radius: 100px;
+   padding: 10px 12px;
+   color: #ffffff;
+   font-size: 16px;
+   border-style: none;
+   margin-bottom: 10px;
+ }
+
+.social_media_log_in{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social_media_btn {
+  border-radius: 100px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: normal;
+  padding: 4px 8px;
+  margin-bottom: 10px;
+
+ }
+
+.log_in_fb {
+   background-color: #1D5CD7;
+   width: 118px;
+ }
+
+.log_in_GH {
+   background-color: #191A1B;
+   width: 94px;
+ }
+
+.sign_up_email {
+text-align: center;
+}
+
+.not_registered_text {
+   margin-top: 18px;
+   font-size: 16px;
+   text-align: center;
+   margin-bottom: 18px;
+
+ }
+
+.sign_up_btn {
+   border: 2px solid #1DA1F2;
+   border-radius: 100px;
+   color: #1DA1F2;
+   text-align: center;
+   padding: 10px 12px;
+   text-decoration: none;
+ }

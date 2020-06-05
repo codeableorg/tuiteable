@@ -4,11 +4,14 @@
 <p><%= 'likes: ' + @tweet.likers.count.to_s %>
 <p><%= @tweet.created_at.strftime("%B %d, %Y")%>
 <%= button_to 'Like', like_tweet_path(@tweet), method: :post %>
-<h4>Add comments<h4>
-<%= form_for([@tweet, @tweet.comments.build]) do |f|%>
-    <%= f.text_area :body %>
-    <%= f.hidden_field :user_id, :value => current_user.id %> 
-    <%= f.submit %>
+
+<%if user_signed_in?%>
+    <h4>Add comments<h4>
+    <%= form_for([@tweet, @tweet.comments.build]) do |f|%>
+        <%= f.text_area :body %>
+        <%= f.hidden_field :user_id, :value => current_user.id %> 
+        <%= f.submit %>
+    <% end %>
 <% end %>
 <% @tweet.comments.each do |comment| %>
     <% if !comment.user.nil? %>

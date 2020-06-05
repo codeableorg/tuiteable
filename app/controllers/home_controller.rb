@@ -3,4 +3,7 @@ class HomeController < ApplicationController
     @tweets = Tweet.all.order(created_at: :desc)
     @user = User.new
   end
+
+
+
 end
