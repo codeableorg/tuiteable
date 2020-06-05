@@ -1,24 +1,26 @@
-<article class="tweet">
-  <div class="tweet-avatar">
-    <img src=<%= get_avatar(user) %> alt="" class="tweet-useravatar">
-  </div>
-  <div class="tweet-content">
-    <div class="tweet-top">
-      <span class="tweet-topleft"><%= user.display_name %></span>
-      <span class="tweet-topright"><%= link_to "@#{user.username}", user_path(user) %>  - <%= print_date_tweet(tweet.created_at) %></span>
+<div class="separator">
+  <article class="tweet">
+    <div class="tweet-avatar">
+      <img src=<%= get_avatar(user) %> alt="" class="tweet-useravatar">
     </div>
-    <p class="tweet-body">
-      <%= tweet.body %>
-    </p>
-    <div class="tweet-bottom">
-      <div class="tweet-comments">
-        <i class="far fa-comment"></i>
-        <span class="tweet-bottomtext"><%= tweet.comments_count %></span>
+    <div class="tweet-content">
+      <div class="tweet-top">
+        <span class="tweet-topleft"><%= user.display_name %></span>
+        <span class="tweet-topright"><%= link_to "@#{user.username}", user_path(user) %>  - <%= print_date_tweet(tweet.created_at) %></span>
       </div>
-      <div class="tweet-likes">
-        <i class="far fa-heart"></i>
-        <span class="tweet-bottomtext"><%= tweet.likes_count %></span>
+      <p class="tweet-body">
+        <%= tweet.body %>
+      </p>
+      <div class="tweet-bottom">
+        <div class="tweet-comments">
+          <i class="far fa-comment"></i>
+          <span class="tweet-bottomtext"><%= tweet.comments_count %></span>
+        </div>
+        <div class="tweet-likes">
+          <i class="far fa-heart"></i>
+          <span class="tweet-bottomtext"><%= tweet.likes_count %></span>
+        </div>
       </div>
     </div>
-  </div>
-</article>
+  </article>
+</div>
