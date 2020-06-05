@@ -5,5 +5,5 @@
     <p> <%= @user.bio%> <p>
     <span><%= @user.location%> <span>
     <span> <%=@user.created_at.strftime("%-d %B")%> </span>
-    <%= link_to  "Edit Profile"%>
+    <%= link_to  "Edit Profile", edit_user_path(@user)%>
 <section>
