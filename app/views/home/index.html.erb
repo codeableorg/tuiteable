@@ -17,7 +17,7 @@
   <% @tuits.each do |tuit| %>
   <div class="tuit">
     <div class="tuit-image">
-      <%= image_tag("girl.jpeg" , alt:"girl" ) %>
+      <%= show_avatar(tuit.user) %>
     </div>
     <div class="tuit-body">
       <a class="tuit-title" href="<%= tuit_path(tuit) %>">
