@@ -14,7 +14,7 @@
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
-    <%= form.text_field :content, placeholder: "What's going on?" %>
+    <%= form.text_field :content, placeholder: "What's going on?", maxlength: 280 %>
   </div>
 
   <div class="actions">
