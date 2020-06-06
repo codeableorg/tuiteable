@@ -1,33 +1,3 @@
-.asideright form {
-  margin: 5vh auto;
-  padding: 2vh;
-  width: 80%;
-  background: rgba(153, 155, 158, 0.25);
-  
-  label {
-    margin-bottom: 1vh;
-  }
-  
-  .actions {
-    text-align: center;
-  }
-  
-  .input {
-    max-width: 100%;
-    border-radius: 30px;
-    border: none;
-    height: 24px;
-    padding: 10px;
-  }
-  
-  input[type='submit'] {
-    background: #1da1f2;
-    color: white;
-    width: 60px;
-    height: 30px;
-    padding: unset;
-  }
-}
 
 .sign-up {
   text-align: center;
@@ -39,8 +9,8 @@
 
 .sign-up__btn {
   font-weight: bold;
-  color: #1DA1F2 !important;
-  border: 1px solid #1DA1F2;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
   border-radius: 30px;
   background: rgba(153, 155, 158, 0.25);
   padding: 10px;

@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  get 'explorer/index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :tweets, only: [:create, :destroy, :show] do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
+  get 'follows/create'
+  get 'follows/destroy'
   resources :users do
     resources :tweets, only: [:index]
     resources :favorites, only: [:index]
+    resources :follows, only: [:create, :destroy]
   end
   namespace :api, defaults: {format: :json}  do
       devise_scope :user do

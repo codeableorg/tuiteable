@@ -1,28 +1,11 @@
-
-<% if !user_signed_in? %>
-  <%= form_for(:user, :url => session_path(:user)) do |f| %>
-    <div>
-      <%= f.label :email, "Email:" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
-    </div>
-
-    <div>
-      <%= f.label :password, "Password:" %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
-    </div>
-
-    <div>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Log in", class: "input" %>
-    </div>
-
-    <div class="sign-up">
-      <p>Not registered yet?</p>
-      <%= link_to "Sign Up with email", "users/sign_up", class: "sign-up__btn" %>
-    </div>
-  <% end %>
+<% if user_signed_in? %>
+  <div class="new-feature">
+    <h2>New features coming soon!</h2>
+    <%= image_tag "soon.png", alt: "New features" %>
+  </div>
+<% else %>
+  <%= render partial: "users/new_form" %>
 <% end %>
+<footer>
+  Made with bravery by Jorge Gonzalez, Andres Del Carpio and Nicolle Quispe {codeable} cohort #2
+</footer>
