@@ -6,11 +6,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    # like = Like.find(params[:id])
-    # like.destroy!
-
-    tweet = Tweet.find(params[:tweet_id])
-    tweet.likes.destroy!(user: current_user)
+    Like.destroy(params[:id])
     redirect_to root_path
   end
 end
