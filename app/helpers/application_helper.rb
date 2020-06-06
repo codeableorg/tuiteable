@@ -3,6 +3,10 @@ module ApplicationHelper
     date.strftime("%B %d, %Y")
   end
 
+  def add_followed(user)
+    current_user.followed_users << user
+  end
+
   def heart_img(tuit)
     if current_user && current_user.likes.find_by(tuit: tuit)
       image_tag('red-heart.png')

@@ -42,6 +42,12 @@
 
       <aside class="aside-right">
         <% if current_user %>
+          <div class="follows">
+            <h3 class="follow-title" >You may want to follow</h3>
+            <% User.all.sample(5).each do |user| %>
+              <%= render partial: "user/follow", locals: { user: user }  %>
+            <% end %>
+          </div>
           <div class="text-center">
           <h4>New features coming soon!</h4>
             <%= image_tag("new_feature.jpg", class: "new-image") %>
