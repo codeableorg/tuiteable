@@ -1,6 +1,80 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.tweet-container {
+  display: flex;
+}
+.user-photo {
+  width: 12%;
+}
+.tweet-form {
+  width: 88%;
+}
+.tweet-text-area {
+  background: transparent;
+  border: 1px solid #1d2128;
+  color: #ffffff;
+  border-color: none;
+  width: 97%;
+  height: 7em;
+  resize: none;
+  padding-top: 15px;
+  font-family: "Roboto";
+}
+.tweet-text-area:focus {
+  outline: 0px;
+}
+.tweet-text-area::placeholder {
+  font-family: "Roboto";
+  font-size: 17px;
+  color: #999b9e;
+}
+.tweet-button {
+  color: #ffffff;
+  background: #1da1f2;
+  border: transparent;
+  padding: 5px 9px;
+  border-radius: 7em;
+}
+.tweet-submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0.7em;
+}
+
+.tweet-info {
+  width: 100%;
+  padding: 5px 0px;
+}
+.tweet-info h2 {
+  font-size: 16px;
+  letter-spacing: 0.9px;
+}
+.tweet-info h2 span {
+  color: #999b9e;
+  font-weight: normal;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+.tweet-info .tweet-body {
+  margin: 11px 0px 7px 0px;
+}
+.tweet-reaction {
+  display: flex;
+  margin: 5px 0px;
+}
+.tweet-reaction .r-r {
+  margin: 0px 30px 0px 0px;
+}
+.tweet-reaction .reaction i {
+  cursor: pointer;
+}
+.tweet-reaction .reaction .fa-heart:active {
+  color: red;
+}
+.tweet-reaction .reaction .fa-retweet:active {
+  color: green;
+}
 .tweetdetail {
   width: 100%;
   display: flex;

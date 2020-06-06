@@ -1,14 +1,15 @@
 class Api::DestroySessionsController < ApiController
+  acts_as_token_authentication_handler_for User
   def destroy
     @user = current_user
     @user.authentication_token = nil if !@user.authentication_token.blank?
-    p @user
     @user.save
     if !@user.authentication_token.blank?
+      sign_out @user
       render json: {
           messages: "Sigout In Successfully",
           is_success: true,
-          data: {user: @user}
+          data: {user: @user.email}
       }, status: :ok
     else
       render json: {
