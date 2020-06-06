@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :tweets, only: [:destroy, :create, :show]
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "tweets#index"
+  get 'profile/show'
   resources :tweets do
     resources :comments
     post 'like', on: :member
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :comments do
     resources :comments 
   end
-  
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
