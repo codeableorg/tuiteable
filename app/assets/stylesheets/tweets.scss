@@ -2,38 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.index-page {
-  display: flex;
-  justify-content: center;
-  background-color: #e5e5e5;
-}
+// .index-page {
+//   display: flex;
+//   justify-content: center;
+//   background-color: #e5e5e5;
+// }
+
+//Tweet
+
 .tweet-header {
   display: flex;
 }
-.tweet-header h3 {
-  font-family: Roboto;
+.tweet-name {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
+  margin-right: 4px;
+}
+.tweet-username {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #999b9e;
+}
+.tweet-body {
+  margin-top: 11px;
+  margin-bottom: 7px;
+  text-decoration: none;
+}
+.tweet-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-.column-left {
-  width: 174px;
-  height: 100vh;
-  background-color: #1d2128;
-}
-.column-middle {
-  width: 600px;
-  height: 100vh;
-  background-color: #1d2128;
-  border: 1px solid #999b9e;
-}
-.column-right {
-  width: 270px;
-  height: 100vh;
-  background-color: #1d2128;
-}
+//Columns
+
 .group {
   margin-bottom: 15px;
 }

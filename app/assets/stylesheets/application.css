@@ -142,3 +142,21 @@ textarea{
   padding: 10px;
 }
 /************** end new_user **************/
+body{
+  background-color: #E5E5E5;
+}
+
+/* main container */
+.index-page{
+  width: 85%;
+  margin: 0 auto;
+  height: 100vh;  
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-row: 1fr;
+  gap: 1px
+}
+
+.column-left, .column-middle, .column-right{
+  background-color: #1D2128;
+}

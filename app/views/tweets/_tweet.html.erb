@@ -1,22 +1,30 @@
-<article class="tweet">
-  
-  <div>
+<article class="tweet">  
+  <%= image_tag(url_for(tweet.user.avatar), class: "tweet-img") %>
+  <div class="tweet-text-icons">
     <header class="tweet-header">
       <p class="tweet-name"><%= tweet.user.name %></p>
-      <p class="tweet-metadata">
-        <%= tweet.created_at.strftime("%-d %B") %>
+      <p class="tweet-username">@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%-d %B") %></p>        
       </p>
       <% if user_signed_in? and current_user==tweet.user %>                    
           <%= link_to "Delete", tweet_path(tweet), method: :delete%>
       <%end%>      
     </header>
-    <%= link_to tweet_path(tweet), class: "tweet-link" do %>  
+    <%= link_to tweet_path(tweet), class: "tweet-body" do %>  
         <p class="tweet-body"><%= tweet.body %></p>  
     <% end %>   
     <footer>
       <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%></span><%=tweet.comments_count%>
       <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
+
+      <% if user_signed_in? %>
+        <% unless tweet.has_liked?(current_user) %>
+          <%= button_to "Like", tweet_likes_path(tweet), method: :post %>
+        <% else %>         
+          <%= button_to "Dislike", tweet_like_path(tweet, id: tweet.likes.find_by(user: current_user).id ), method: :delete %>           
+        <% end %>
+      <% end %>
+
+
     </footer>    
-  </div>
-   
+  </div>   
 </article>
