@@ -7,6 +7,7 @@
     <% end %>
   </div>
   <div>
+    <a href="tuits/<%= tuit.id %>">
     <span><%= tuit.user.name %></span>
     <span class="nickname"><%= tuit.user.username %> - <%= tuit.created_at.strftime("%b %-d")%></span>
     <p><%= tuit.body %></p>

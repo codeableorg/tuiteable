@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TuitsController < ApplicationController
   def index
     @tuits = Tuit.all.order(created_at: :desc)
@@ -6,6 +8,7 @@ class TuitsController < ApplicationController
 
   def show
     @tuit = Tuit.find(params[:id])
+    @comment = Comment.new
   end
 
   def create
