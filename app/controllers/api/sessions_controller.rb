@@ -7,7 +7,7 @@ class Api::SessionsController < Devise::SessionsController
       sign_in :user, @user
       render json: {
         success: true,
-        data: @user,
+        data: { user: @user },
         message: 'Login Successful!',
       }, status: :ok
     else

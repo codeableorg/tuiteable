@@ -7,7 +7,7 @@ class Api::UsersController < Devise::RegistrationsController
     if user.save
       render json: {
         success: true,
-        data: user,
+        data: { user: user },
       }, status: :ok
     else
       render json: {
