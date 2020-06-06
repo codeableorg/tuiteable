@@ -46,8 +46,8 @@
         <% if current_user %>
           <div class="follows">
             <h3 class="follow-title" >You may want to follow</h3>
-            <% 5.times do %>
-              <%= render "layouts/follow" %>
+            <% User.all.sample(5).each do |user| %>
+              <%= render partial: "user/follow", locals: { user: user }  %>
             <% end %>
           </div>
           <div class="text-center">
