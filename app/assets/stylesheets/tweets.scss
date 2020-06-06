@@ -7,17 +7,6 @@
   justify-content: center;
   background-color: #e5e5e5;
 }
-.tweet-header {
-  display: flex;
-}
-.tweet-header h3 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 20px;
-}
-
 .column-left {
   width: 174px;
   height: 100vh;
@@ -33,19 +22,4 @@
   width: 270px;
   height: 100vh;
   background-color: #1d2128;
-}
-.group {
-  margin-bottom: 15px;
-}
-.group-title {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.tweets-group {
-  padding-left: 15px;
-}
-.tweets-count-icon {
-  width: 15.64px;
-  height: 15.64px;
 }
