@@ -1,3 +1,4 @@
+<%= link_to 'Back', tuits_path %>
 <h1>Tuit</h1>
 
 <div>
@@ -15,6 +16,14 @@
   </div>
 </div>
 
+<%# Insert a comment %>
+<% if user_signed_in? %>
+  <%= form_for @comment, url: tuit_comments_path(@tuit) do |f| %>
+    <%= f.text_area :body, placeholder: 'Think...' %>
+    <button>comment!</button>
+  <% end %>
+<% end %>
+
 <div>
   <% @tuit.comments.each do |comment| %>
     <div>
@@ -25,3 +34,4 @@
     <p><%= comment.body %></p>
   <% end %>
 </div>
+
