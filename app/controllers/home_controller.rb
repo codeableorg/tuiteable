@@ -4,6 +4,4 @@ class HomeController < ApplicationController
     @user = User.new
   end
 
-
-
 end

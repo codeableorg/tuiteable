@@ -18,28 +18,4 @@
 
 <div class="div_separator"></div>
 
-<% @tweets.each do |tweet|%>
-  <%= link_to tweet_path(tweet), :class=>"select_tweet" do%> 
-    <article class="tweet_container">
-      <% if tweet.owner.avatar.attached?%>
-        <%= image_tag(tweet.owner.avatar, :class=>"owner-image")%>
-      <%else%>
-        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
-      <%end%>
-      <div class="tweet_content">
-        <p class="tweet_details">
-          <span class="owner_name"><%= tweet.owner.name%></span> 
-          @<%= tweet.owner.username%> - <%= tweet.created_at.to_date.strftime('%-d %B')%>
-        </p>
-        <p class="tweet_body"><%= tweet.body%></p>
-        <span class="tweet_reaction">
-          <span class="tweet_comments_count"><%= image_tag("comments.png", :class=>"comment_icon")%><%= tweet.comments.count%></span> 
-          <span class="tweet_likes_count"><%= image_tag("likes.png", :class=>"comment_icon") %><%= tweet.likers.count%></span>
-        </span>
-      </div>
-    </article>
-  <% end%>
-<%end%>
-  
-
-
+<%= render partial: 'tweets/tweet', collection: @tweets, :as => :tweet%>
