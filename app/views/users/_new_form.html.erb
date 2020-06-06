@@ -1,16 +1,16 @@
 <div class="container-login">
   <h2>Log in to {tuiteable}</h2>
   
-  <%= form_with(url: "/users/new_form", method: "post") do |f| %>
+  <%= form_for(:user, url: new_user_session_path, method: "post") do |f| %>
     <div class="field-login">
       <%= f.label :email, 'Email:', class:"label" %>
       <br/>
-      <%= email_field_tag :email, nil , autofocus: true, autocomplete: "email", class:"input-login" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-login" %>
     </div>
 
     <div class="field-login">
       <%= f.label :password,'Password:', class:"label" %>
-      <%= password_field_tag :password, nil, autocomplete: "current-password", class:"input-login" %>
+      <%= f.password_field :password, autocomplete: "current-password", class:"input-login" %>
     </div>
 
     <div class="actions">
