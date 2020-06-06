@@ -7,9 +7,24 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/de8d320d41.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+
   </head>
 
   <body>
-    <%= yield %>
+  <main class="wrapper">
+    <aside class="sidebar">
+      <%= render 'sidebar' %>
+    </aside>
+    <section class="mainpage">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </section>
+    <aside class="asideright">
+      <%= render 'asideright' %>
+    </aside>
+  </main>
   </body>
 </html>

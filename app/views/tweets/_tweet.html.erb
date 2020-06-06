@@ -1,0 +1,26 @@
+<article class="tweet">
+  <div class="tweet-avatar">
+    <%= link_to (user_path(user_tweet)) do %>
+      <img src=<%= get_avatar(user_tweet) %> alt="" class="tweet-useravatar">
+    <% end %>
+  </div>
+  <div class="tweet-content">
+    <div class="tweet-top">
+      <span class="tweet-topleft"><%= link_to "#{user_tweet.display_name}", user_path(user_tweet) %></span>
+      <span class="tweet-topright"><%= link_to "@#{user_tweet.username}", user_path(user_tweet) %>  - <%= link_to "#{print_date_tweet(tweet.created_at)}", tweet_path(tweet) %></span>
+    </div>
+    <p class="tweet-body">
+      <%= tweet.body %>
+    </p>
+    <div class="tweet-bottom">
+      <div class="tweet-comments">
+        <i class="far fa-comment"></i>
+        <span class="tweet-bottomtext"><%= tweet.comments_count %></span>
+      </div>
+      <div class="tweet-likes">
+        <i class="far fa-heart"></i>
+        <span class="tweet-bottomtext"><%= tweet.likes_count %></span>
+      </div>
+    </div>
+  </div>
+</article>

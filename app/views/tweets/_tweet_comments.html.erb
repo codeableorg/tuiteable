@@ -1,0 +1,19 @@
+<% comments.each do |comment| %>
+  <div class="separator">
+    <article class="tweet">
+      <div class="tweet-avatar">
+        <img src=<%= get_avatar(comment.user) %> alt="" class="tweet-useravatar" />
+      </div>
+      <div class="tweet-content">
+        <div class="tweet-top">
+          <span class="tweet-topleft"><%= comment.user.display_name %></span>
+          <span class="tweet-topright"><%= link_to "@#{comment.user.username}", user_path(comment.user)%></span>
+          <span class="tweet-topright">&nbsp;- <%= print_date_tweet(comment.created_at) %></span>
+        </div>
+        <p class="tweet-body">
+          <%= comment.body %>
+        </p>
+      </div>
+    </article>
+  </div>
+<% end %>

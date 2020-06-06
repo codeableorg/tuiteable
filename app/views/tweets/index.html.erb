@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="separator">
+  <%= render "users/user", locals: {user: @user } %>
+</div>
+<div class="separator">
+  <div class="profile-linksclasstweet">
+    <%= link_to "TUITS", user_tweets_path(@user), class: "profile-linksclasstweet link-actived" %>
+    <%= link_to "LIKES", user_favorites_path(@user), class: "profile-linksclasstweet" %>
+  </div>
+</div>
+<% @tweets.each do |tweet| %>
+  <div class="separator">
+    <%= render "tweets/tweet", locals: {tweet: tweet, user: @user} %>
+  </div>
+<%end %>

@@ -1,0 +1,7 @@
+<div class="back-button">
+  <%= link_to @user do %>
+    <i class="fas fa-arrow-left"></i>Back to Profile
+  <% end %>
+</div>
+
+<%= render 'edit_form', user: @user %>

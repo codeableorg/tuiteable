@@ -1,0 +1,22 @@
+
+.sign-up {
+  text-align: center;
+
+  p {
+    margin: 2vh auto;
+  }
+}
+
+.sign-up__btn {
+  font-weight: bold;
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  border-radius: 30px;
+  background: rgba(153, 155, 158, 0.25);
+  padding: 10px;
+}
+
+.sign-up__btn:hover {
+  color: #1DA1F2;
+  background: rgba(153, 155, 158, 0.25);
+}

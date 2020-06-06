@@ -1,0 +1,224 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//Login
+.container-login {
+  position: relative;
+  top: 7px;
+  margin: 0 auto;
+  width: 19em;
+  background: rgba(153, 155, 158, 0.25);
+  padding: 10px 15px 20px 15px;
+}
+
+//title and label
+.container-login h2 {
+  text-align: center;
+  margin-bottom: 0.7em;
+}
+.container-login .field-login {
+  margin: 0 auto;
+  width: 13em;
+  height: 5em;
+}
+.container-login .label,
+.container-login h2 {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+.container-login .label {
+  margin-bottom: 5px;
+}
+
+//input
+.container-login .input-login {
+  background: #ffffff;
+  border: transparent;
+  width: 10.7em;
+  padding-left: 7px;
+  height: 2.3em;
+  border-radius: 0.9em;
+}
+.container-login .input-login:focus {
+  outline: 0px;
+}
+
+//button login
+.container-login .login {
+  background: #1da1f2;
+  padding: 10px 12px;
+  border: transparent;
+}
+
+//container facebook and github
+.container-login .container-link {
+  margin-bottom: 10px;
+}
+.container-login .facebook {
+  background: #1d5cd7;
+  width: 7.7em;
+  margin-bottom: 10px;
+}
+.container-login .github {
+  background: #191a1b;
+  width: 6.8em;
+}
+//button facebook and github
+.container-login .button-log {
+  color: #ffffff;
+  border-radius: 7em;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+}
+.provider-link {
+  text-decoration: none;
+  padding: 4px 8px;
+  text-align: center;
+}
+
+//no registered text
+.container-login p {
+  font-size: 12px;
+  margin-top: 25px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+//button sign up
+.container-login .sign-up {
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+  background: transparent;
+  width: 10em;
+}
+
+.alert {
+  background-color: #d66d6d;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+  width: 22em;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+  z-index: 1;
+}
+
+.notice {
+  background-color: #7bd66d;
+  font-size: 12px;
+  color: #000000;
+  text-align: center;
+  width: 37em;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+}
+.tweet {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tweet-avatar {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.tweet-useravatar {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+}
+
+.tweet-content {
+  width: 90%;
+}
+
+.tweet-top {
+  display: flex;
+  margin-bottom: 1.1rem;
+}
+
+.tweet-topleft {
+  font-weight: bold;
+  font-size: 1.6rem;
+  display: inline-block;
+  margin-right: 0.8rem;
+  color: white;
+}
+
+.tweet-topright {
+  font-size: 1.6rem;
+  color: #999b9e;
+  display: inline-block;
+}
+
+.tweet-body {
+  font-size: 1.6rem;
+  color: white;
+}
+
+.tweet-datetime {
+  margin: 5px auto;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  color: #999b9e;
+}
+
+.tweet-bottom {
+  display: flex;
+  margin-top: 0.7rem;
+}
+
+.tweet-comments {
+  margin-right: 12rem;
+  color: white;
+}
+
+.tweet-bottomtext {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: inherit;
+  font-size: 1.2rem;
+}
+
+.tweet-likes {
+  margin-right: 12rem;
+  color: white;
+}
+
+// new feature
+.new-feature {
+  background: rgba(153, 155, 158, 0.25);
+  position: relative;
+  top: 9px;
+  margin: 0 auto;
+  width: 18em;
+  padding: 10px 15px 7px 15px;
+}
+.new-feature h2 {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.new-feature img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+footer {
+  margin: 30px 30px 0px 30px;
+  text-align: center;
+}

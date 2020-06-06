@@ -1,0 +1,30 @@
+<div class="container-login">
+  <h2>Log in to {tuiteable}</h2>
+  
+  <%= form_for(:user, url: new_user_session_path, method: "post") do |f| %>
+    <div class="field-login">
+      <%= f.label :email, 'Email:', class:"label" %>
+      <br/>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-login" %>
+    </div>
+
+    <div class="field-login">
+      <%= f.label :password,'Password:', class:"label" %>
+      <%= f.password_field :password, autocomplete: "current-password", class:"input-login" %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Log in", class:"button-log login" %>
+    </div>
+  <% end %>
+
+  <div class="container-link">
+    <%= link_to "Use FaceBook", user_facebook_omniauth_authorize_path, class:"button-log facebook provider-link" %>
+  </div>
+  <div class="container-link">
+    <%= link_to "Use Github", user_github_omniauth_authorize_path, class:"button-log github provider-link" %>
+  </div>
+  
+  <p>Not registered yet?</p>
+  <%= link_to "Sign Up with email",new_user_registration_path, class: "button-log sign-up provider-link" %>
+</div>

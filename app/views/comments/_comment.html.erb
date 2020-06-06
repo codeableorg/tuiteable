@@ -1,0 +1,15 @@
+<div class="comment">
+  <div class="comment-avatarcontainer">
+    <img src=<%= get_avatar(user) %> class="comment-avatar" />
+  </div>
+  <div class="comment-content">
+    <div class="comment-top">
+      <span class="comment-displayname"><%=user.display_name %></span>
+      <%= link_to "@#{@user.username}", @user %>
+      <span class="comment-date">- <%= print_date_time_tweet(comment.created_at) %></span>
+    </div>
+    <p class="comment-body">
+      <%= comment.body %>
+    </p>
+  </div>
+</div>
