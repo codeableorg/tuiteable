@@ -10,8 +10,35 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <header class="main-header">
+    <%= image_tag "logo.png", class: 'main-logo' %>
+    <nav class="main-header-nav">
+      <ul class="main-header-nav-links">
+        <li><a href="/"><%= image_tag "hash.png"%>Explorer</a></li>
+        <li><a href="/profile"><%= image_tag "hash.png"%>Profile</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete', :class => "ghost-red-btn" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+  <main class="main-content">
+    <!--  <p class="notice"><%#= notice %></p>-->
+    <!--  <p class="alert"><%#= alert %></p>-->
     <%= yield %>
+  </main>
+  <footer class="main-footer">
+    <aside class="login-sign">
+      <% if user_signed_in? %>
+        <div class="login-form">
+          <h2>New features coming soon!</h2>
+          <%= image_tag "coming-soon.png", class: 'comming_soon_logo' %>
+        </div>
+      <% else %>
+        <%= render 'devise/shared/login_form' %>
+      <% end %>
+    </aside>
+    <p class="main-footer-text">Made with bravery by {codeable} cohort #2 (Joel, Zamir y Orlando)</p>
+  </footer>
   </body>
 </html>

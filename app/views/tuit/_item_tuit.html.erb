@@ -4,7 +4,9 @@
   </div>
   <div>
     <div>
-      <%= tuit.user.name %>
+      <a href="tuits/<%= tuit.id %>">
+        <%= tuit.user.name %>
+      </a>
       <%= tuit.user.username %> -
       <%= tuit.created_at.strftime("%b %-d")%>
     </div>
