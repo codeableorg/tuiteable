@@ -74,6 +74,8 @@
  }
 
  .tweets_container {
+   border-left: 1px solid #999B9E;
+   border-right: 1px solid #999B9E;
    width: 600px;
    display: flex;
    flex-direction: column;

@@ -6,6 +6,16 @@
   <%end%>
   <p class="name"><%= current_user().name %></p>
   <p class="username">@<%= current_user().username %></p>
-  <p class="description"><%= current_user().bio %></p>
-  <%=link_to "Edit Profile", edit_user_registration_path%>
+  <p class="bio"><%= current_user().bio %></p>
+  <div class="location-date">
+    <div class="location">
+      <%= image_tag("location.svg") %>
+      <p><%= current_user().location %></p>
+    </div>
+    <div class="joined">
+      <%= image_tag("calendar.svg") %>
+      <p>Joined <%= current_user().created_at.strftime("%B, %Y") %></p>
+    </div>
+  </div>
+  <%=link_to "Edit Profile", edit_user_registration_path, :class => "edit_profile"%>
 </div>
