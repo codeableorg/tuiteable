@@ -35,10 +35,12 @@
   <div class="tweet-comment">
     <%= show_user_avatar(comment.user)%>
     <div class="content">
-      <% if current_user.is_admin? || comment.user == current_user %>
-        <%= button_to 'Delete', tuit_comment_path(@tuit,comment), method: :delete, class: 'comment-delete', form_class: 'comment-delete-form' %>
-      <% end %>
-      <h3><%= comment.user.name %><span>@<%= comment.user.username %> - <%= comment.created_at.strftime '%-d %B' %></span> </h3>
+      <h3>
+        <%= comment.user.name %><span>@<%= comment.user.username %> - <%= comment.created_at.strftime '%-d %B' %></span>
+        <% if current_user.is_admin? || comment.user == current_user %>
+          <%= button_to 'Delete', tuit_comment_path(@tuit,comment), method: :delete, class: 'comment-delete', form_class: 'comment-delete-form' %>
+        <% end %>
+      </h3>
       <p id='comment' ><%= comment.body %></p>
     </div>
   </div>

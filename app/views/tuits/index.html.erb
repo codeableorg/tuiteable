@@ -14,15 +14,16 @@
 <% end %>
 <% @tuits.each do |tuit|%>
   <div class="tweet-wrapper">
-    <% if user_signed_in? %>
-      <% if current_user.is_admin? || tuit.owner == current_user %>
-        <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
-      <% end %>
-    <% end %>
     <%= link_to tuit, class:'tweet' do %>
       <%= show_user_avatar(tuit.owner)%>
       <div class="content">
-        <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
+        <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span>
+          <% if user_signed_in? %>
+            <% if current_user.is_admin? || tuit.owner == current_user %>
+              <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
+            <% end %>
+          <% end %>
+        </h3>
         <p id='comment' ><%=tuit.body%></p>
       </div>
     <% end %>
