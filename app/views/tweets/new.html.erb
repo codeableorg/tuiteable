@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+    <section>
+    <%= form_for @tweet do |f| %>
+      <p>
+        <%= f.text_area :body %>
+      </p>
+      <%= f.submit %>      
+    <% end %>
+  </section>  
+<%end%>

@@ -7,18 +7,28 @@
   </aside>
   <%
 =end%>
-  <div>
-    <header class="tweet-header">
-      <h3 class="tweet-name"><%= tweet.user.name %></h3>
-      <p class="tweet-metadata">
-        <%= tweet.created_at.strftime("%-d %B") %>
-      </p>
-    </header>
-    <p class="tweet-body"><%= tweet.body%></p>
+    <div>
+      <header class="tweet-header">
+        <h3 class="tweet-name"><%= tweet.user.name %></h3>
+        <p>@<%= tweet.user.username %></p>
+        <p class="tweet-metadata">
+          <%= tweet.created_at.strftime("%-d %B") %>
+        </p>
+      </header>
+      <p class="tweet-body"><%= tweet.body%></p>    
+    </div>
+  <% end %>
     <footer>
       <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%></span><%=tweet.comments_count%>
       <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
-    </footer>
-  </div>
-  <% end %>
+
+      <% if user_signed_in? %>
+        <% unless tweet.has_liked?(current_user) %>
+          <%= button_to "Like", tweet_likes_path(tweet), method: :post %>
+        <% else %>
+          <%= button_to "Dislike", tweet_like_path(tweet), method: :delete %>
+        <% end %>
+      <% end %>
+
+    </footer>    
 </article>
