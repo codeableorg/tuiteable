@@ -1,4 +1,4 @@
-class Api::Session::SessionController < Devise::SessionsController
+class Api::SessionController < Devise::SessionsController
   protect_from_forgery prepend: true
 
   before_action :sign_in_params, only: :create
