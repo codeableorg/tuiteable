@@ -1,13 +1,11 @@
 Rails.application.routes.draw do  
-  get 'explorer', to: 'tweets#index'
-  get 'porfile' ,to: 'users#index'  
-  get 'profile' ,to: 'users#index'
-  get 'tcreate', to: 'tweets#new'
+  
+  get 'profile' ,to: 'users#index'  
   resources :users , only:[:update, :edit]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root 'tweets#index'  
+  root 'tweets#index'
   
-  resources :tweets, only: [:index, :show, :create, :new] do
+  resources :tweets, only: [:index, :show, :create, :new, :destroy] do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end

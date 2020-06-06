@@ -1,23 +1,19 @@
 <article class="tweet">
-  <%= link_to tweet_path(tweet), class: "tweet-link" do %>
-  <%
-=begin%>
-  <aside class="tweet-image-container">
-    <%= tweet_image(tweet, class: "tweet-image") %>
-  </aside>
-  <%
-=end%>
-    <div>
-      <header class="tweet-header">
-        <h3 class="tweet-name"><%= tweet.user.name %></h3>
-        <p>@<%= tweet.user.username %></p>
-        <p class="tweet-metadata">
-          <%= tweet.created_at.strftime("%-d %B") %>
-        </p>
-      </header>
-      <p class="tweet-body"><%= tweet.body%></p>    
-    </div>
-  <% end %>
+  
+  <div>
+    <header class="tweet-header">
+      <p class="tweet-name"><%= tweet.user.name %></p>
+      <p>@<%= tweet.user.username %></p>
+      <p class="tweet-metadata">
+        <%= tweet.created_at.strftime("%-d %B") %>
+      </p>
+      <% if user_signed_in? and current_user==tweet.user %>                    
+          <%= link_to "Delete", tweet_path(tweet), method: :delete%>
+      <%end%>      
+    </header>
+    <%= link_to tweet_path(tweet), class: "tweet-link" do %>  
+        <p class="tweet-body"><%= tweet.body %></p>  
+    <% end %>   
     <footer>
       <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%></span><%=tweet.comments_count%>
       <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
@@ -31,4 +27,6 @@
       <% end %>
 
     </footer>    
+  </div>
+   
 </article>

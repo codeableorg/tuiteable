@@ -1,9 +1,11 @@
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all.order(created_at: :desc)#.includes(user: :avatar_attachment)
+    @tweet= Tweet.new
+    # listo
   end
   def new
-    @tweet=Tweet.new
+    @tweet=Tweet.new  
   end
   def show
     @tweet = Tweet.find(params[:id])
@@ -20,7 +22,11 @@ class TweetsController < ApplicationController
       redirect_to root_path
     end
   end
-
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+    redirect_to root_path
+  end
   private
   def tweet_params
     params.require(:tweet).permit(:body)
