@@ -25,7 +25,6 @@ gem 'devise'
 gem 'simple_token_authentication'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'omniauth-facebook'
@@ -33,11 +32,21 @@ gem 'omniauth-github'
 gem 'active_storage_validations'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'faker'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+  end
+  gem "factory_bot_rails"
+end
+group :test do
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers'
+
 end
 
 group :development do

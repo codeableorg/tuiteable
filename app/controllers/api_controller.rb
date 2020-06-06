@@ -1,3 +1,8 @@
 class ApiController < ActionController::API
-  acts_as_token_authentication_handler_for User
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    render json: {error: e.message}, status: :bad_request
+  end
+  rescue_from ActiveRecord::RecordInvalid do |e|
+    render json: {error: e.message}, status: :unprocessable_entity
+  end
 end

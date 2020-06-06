@@ -3,7 +3,7 @@ class Api::SessionsController < Devise::SessionsController
   before_action :sign_in_params, only: :create
   before_action :load_user, only: :create
   skip_before_action :verify_authenticity_token, :only => :create
-  # sign in
+
   def create
     if @user.valid_password?(sign_in_params[:password])
       sign_in "user", @user
@@ -27,21 +27,6 @@ class Api::SessionsController < Devise::SessionsController
   end
 
   def load_user
-    p "dsa"
-    p "dsa"
-    p "dsa"
-    p "dsa"
-    p "dsa"
-
     @user = User.find_for_database_authentication(email: sign_in_params[:email])
-    if @user
-      return @user
-    else
-      render json: {
-          messages: "Cannot get User",
-          is_success: false,
-          data: {}
-      }, status: :bad_request
-    end
   end
 end
