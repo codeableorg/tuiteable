@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'explorer/index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :tweets, only: [:create, :destroy, :show] do
     resources :likes, only: [:create, :destroy]
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
         resources :tuits, only: [:show,:index]
       end
   end
+  get "explorer", to: "explorer#index"
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
