@@ -1,0 +1,3 @@
+<%= render partial: "profile" %>
+<%= render partial: "nav" %>
+<%= render partial: "tweets", locals: {tweets: current_user().tweets, current_user: current_user()} %>

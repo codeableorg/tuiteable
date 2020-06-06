@@ -56,20 +56,17 @@ end
 User.insert_all!(users)
 
 p "Seed tweets"
-tweets = []
-30.times do |i|
-  tweets << { owner_id: rand(1..23), body: Faker::Lorem.sentence, created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
+User.all.each do |user|
+  rand(5..20).times  do |i|
+    Tweet.create(owner: user, body: Faker::Lorem.sentence)
+  end
 end
-Tweet.insert_all!(tweets)
 
 p "Seed comments"
-comments = []
-30.times do |i|
-  comments << { user_id: rand(1..23), tweet_id: rand(1..30), body: Faker::Lorem.sentence, created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
-end
-Comment.insert_all!(comments)
-Tweet.all.each do |tweet|
-  Tweet.reset_counters(tweet.id, :comments)
+Tweet.all do |tweet|
+  rand(1..13).times  do |i|
+    Comment.create(tweet: tweet, user_id: rand(1..23), body: Faker::Lorem.sentence)
+  end
 end
 
 p "Seed likes"
@@ -77,7 +74,7 @@ p "Seed likes"
 tweets = Tweet.all
 
 User.all.map do |user|
-  tweets.sample(rand(1..30)).each do |tweet|
+  tweets.sample(rand(4..30)).each do |tweet|
     Like.create(user: user, tweet: tweet)
   end
 end

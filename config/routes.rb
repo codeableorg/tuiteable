@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'profile/show'
+  get 'profile/tweets'
+  get 'profile/liked_tweets'
   resources :tweets do
     resources :comments
     post 'like', on: :member

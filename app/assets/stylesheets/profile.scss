@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .profile{
-  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
@@ -11,6 +12,7 @@
   font-family: Roboto;
   font-style: normal;
   text-align: center;
+  border-bottom: 1px solid #999B9E;
 
   .owner-image{
     width: 100px;
@@ -68,5 +70,39 @@
     border: 2px solid #1DA1F2;
     border-radius: 100px;
     padding: 4px 8px 4px 8px;
+  }
+
+  
+}
+
+.liked{
+  color: red;
+}
+
+.profile_nav{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  a{
+    text-decoration: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #999B9E;
+  }
+
+  A.active{
+    color: #FFFFFF;
+  }
+
+  a:first-child{
+    margin-right: 150px;
   }
 }
