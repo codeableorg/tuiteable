@@ -20,8 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: josuenarro
-  password: <%= ENV['PASS'] %>
+  #username: postgres
+  #password: <%= ENV['PASS'] %>
 
 development:
   <<: *default
@@ -78,5 +78,5 @@ test:
 production:
   <<: *default
   database: tuiteable_production
-  #username: tuiteable
-  #password: <%= ENV['TUITEABLE_DATABASE_PASSWORD'] %>
+  username: tuiteable
+  password: <%= ENV['TUITEABLE_DATABASE_PASSWORD'] %>

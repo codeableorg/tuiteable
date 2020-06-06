@@ -16,9 +16,8 @@
     <nav class="main-header-nav">
       <ul class="main-header-nav-links">
         <li><a href="/"><%= image_tag "hash.png"%>Explorer</a></li>
-        <li><a href="/profile"><%= image_tag "hash.png"%>Profile</a></li>
         <% if user_signed_in? %>
-          <li><a href="#"><%= image_tag "user.png"%>Profile</a></li>
+          <li><a href="/profile"><%= image_tag "user.png"%>Profile</a></li>
           <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete', :class => "ghost-red-btn" %></li>
         <% end %>
       </ul>
