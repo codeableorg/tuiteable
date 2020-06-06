@@ -1,0 +1,39 @@
+<%= link_to 'Back', tuits_path %>
+<h1>Tuit</h1>
+
+<div>
+  <div>
+    <img src="" alt="" />
+  </div>
+  <div>
+    <p><%= @tuit.user.name %></p>
+    <p><%= @tuit.user.username %></p>
+    <p><%= @tuit.body %></p>
+    <p><%= @tuit.created_at.strftime("%l:%M %p - %b %e, %Y") %></p> 
+    <div>
+      <% if user_signed_in? %>
+        <%= button_to '<3', tuit_likes_path(@tuit), method: :post %>
+      <% end %>
+      L: <%= @tuit.likes_count %>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <%= form_for @comment, url: tuit_comments_path(@tuit) do |f| %>
+    <%= f.text_area :body, placeholder: 'Think before write...' %>
+    <button>Comment!</button>
+  <% end %>
+<% end %>
+
+<div>
+  <% @tuit.comments.each do |comment| %>
+    <div>
+      <%= comment.user.name %>
+      <%= comment.user.username %> - 
+      <%= comment.created_at.strftime("%e %B")%>
+    </div>
+    <p><%= comment.body %></p>
+  <% end %>
+</div>
+

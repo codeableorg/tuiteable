@@ -1,0 +1,68 @@
+<div>
+  <div>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, class: "img-avatar" %>
+    <% else%>
+      <%= image_tag("avatar.png", class: "img-avatar")  %>
+    <% end %>
+    <%= @user.name %>
+    <%= @user.username %>
+    <%= @user.bio %>
+  </div>
+  <div>
+    <%= @user.location %>
+    Joined <%= @user.created_at.strftime("%b %Y") %>
+  </div>
+  <div>
+    <a href="users/edit">Edit profile</a>
+  </div>
+</div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'tuits')">TUITS</button>
+  <button class="tablinks" onclick="openTab(event, 'likes')">LIKES</button>
+</div>
+
+<div id="tuits" class="tabcontent">
+  <ul>
+    <% @user.tuits.each do |tuit| %>
+      <li>
+        <%= render '/tuit/item_tuit', tuit: tuit %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="likes" class="tabcontent">
+  <ul>
+    <% @user.likes.each do |like| %>
+      <li>
+        <%= render '/tuit/item_tuit', tuit: like.tuit %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<style>
+  .tab button.active {
+    background-color: #ccc;
+  }
+  #likes {
+    display: none;
+  }
+</style>
+<script>
+  function openTab(evt, tabName) {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
