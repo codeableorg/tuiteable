@@ -1,3 +1,220 @@
 // Place all the styles related to the Tweet controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.explorer_tuit span{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    margin-left: 50px;
+   }
+   .explorer_tuit{
+    text-decoration: none;
+   }
+.top_show_tuit{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #999B9E;
+    height: 56px;
+    padding: 16px;
+}  
+.tweet{
+    padding: 20px;
+    border: 1px solid #999B9E;
+    max-height: 180px;
+    display: flex;
+}
+.details-tuit-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 100%;
+}
+.tuit-owner-name{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+}
+.tuit-owner-username{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #999B9E;
+    margin-top:4px;
+    
+}
+.tuit-owner{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 5px;
+
+}
+.tuit-time{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #999B9E;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #999B9E;
+    width: 100%;
+}
+.tuit-likes{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #999B9E;
+    padding-left: 8px;
+}
+.tuit-likes-count{
+    margin-top:15px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    display:flex;
+}
+.create_comment_container {
+    border: 1px solid #999B9E;
+    display: flex;
+    padding: 20px;
+}
+
+.tuit-comment-user{
+    display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 10px;
+}
+.tuit_comments_container {
+    padding: 15px 15px 42px 15px;
+    border: 1px solid #999B9E;
+    max-height: 108px;
+
+    
+  }
+.username_tuit_comment{
+    display:flex;
+    flex-direction: row;
+    margin-left: 75px;
+    
+
+}
+.username-tuit-body{
+    margin-left: 75px;
+    margin-top: 15px
+}
+.tuit-username-comment{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 4px;
+}
+.tuit-userusername-comment{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #999B9E;
+    margin-right: 4px;
+}
+.tuit-userusername-time{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #999B9E;
+    margin-right: 4px;
+}
+
+.buttonTo {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    color: white;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.likeButton {
+    margin-left: 40px;
+}
+
+.tweetCount {
+    font-weight: bold;
+}
+
+.comment {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    border-color: #999B9E;
+    border-width: 0.5px;
+    border-style: solid;
+}
+
+.comment_content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.user_comment {
+    padding: 5px 0;
+}
+
+.comment_comment {
+    padding-left: 5px;
+}
+.textarea_comment{
+    background: transparent;
+  color: white;
+  resize: none;
+  border: 0 none;
+  width: 100%;
+  outline: none;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_comment {
+    display: flex;
+    flex-direction: column;
+    width: 100;
+    align-items: flex-end;
+}
+
+.submit_comment {
+    background: #1DA1F2;
+    border-radius: 100px;
+    color: white;
+    padding: 8px;
+    font-family: Roboto;
+    font-size: 16px;
+    border: none;
+}
