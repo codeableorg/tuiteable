@@ -1,0 +1,9 @@
+<section>
+    <%= image_tag(url_for(@user.avatar)) %>
+    <h2><%= @user.name%> </h2>
+    <span> @<%= @user.username%> </span>
+    <p> <%= @user.bio%> <p>
+    <span><%= @user.location%> <span>
+    <span> <%=@user.created_at.strftime("%-d %B")%> </span>
+    <%= link_to  "Edit Profile", edit_user_path(@user)%>
+<section>
