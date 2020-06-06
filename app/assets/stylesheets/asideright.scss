@@ -8,15 +8,16 @@
     margin-bottom: 1vh;
   }
   
-  input {
+  .actions {
+    text-align: center;
+  }
+  
+  .input {
+    max-width: 100%;
     border-radius: 30px;
     border: none;
     height: 24px;
     padding: 10px;
-  }
-  
-  .actions {
-    text-align: center;
   }
   
   input[type='submit'] {
@@ -38,7 +39,7 @@
 
 .sign-up__btn {
   font-weight: bold;
-  color: #1DA1F2;
+  color: #1DA1F2 !important;
   border: 1px solid #1DA1F2;
   border-radius: 30px;
   background: rgba(153, 155, 158, 0.25);
