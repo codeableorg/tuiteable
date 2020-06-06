@@ -31,12 +31,12 @@ class User < ApplicationRecord
   end
 
   ## Association
-  has_many :tweets, foreign_key: :owner_id, dependent: :destroy
+  has_many :tweets, -> { order created_at: :desc }, foreign_key: :owner_id, dependent: :destroy
   has_many :providers, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :commented_tweets, through: :comments, source: :tweet
   has_many :likes, -> { order created_at: :desc }, dependent: :destroy
-  has_many :liked_tweets, through: :likes, source: :tweet
+  has_many :liked_tweets, -> { order created_at: :desc }, through: :likes, source: :tweet
   has_one_attached :avatar
 
   ## Validation

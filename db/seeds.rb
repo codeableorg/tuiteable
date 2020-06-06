@@ -8,6 +8,13 @@
 
 require 'bcrypt'
 require 'faker'
+require 'open-uri'
+
+def image_fetcher
+  URI.open(Faker::Avatar.image(size: "100x100", format: "jpg", set: "set#{rand(1..4)}"))
+  rescue
+  URI.open("https://robohash.org/sitsequiquia.jpg?size=100x100&set=set1")
+end
 
 p "Seed admins"
 
@@ -44,32 +51,36 @@ admins = [
   }
 ]
 
-admins.map{|admin| User.create(admin)}
+admins.map do |admin| 
+  admin_record = User.create(admin)
+  admin_record.avatar.attach({
+      io: image_fetcher,
+      filename: "#{admin_record.id}_faker_image.jpg"
+  })
+end
 
 p "Seed regular user"
 
-users = []
 20.times do |i|
   password = "123456"
-  users << { name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, encrypted_password: BCrypt::Password.create(password), bio: Faker::Lorem.sentence, location: Faker::Address.city,created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
+  user = User.create(name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, bio: Faker::Lorem.sentence, location: Faker::Address.city, password: "123456")
+  user.avatar.attach({
+      io: image_fetcher,
+      filename: "#{user.id}_faker_image.jpg"
+  })
 end
-User.insert_all!(users)
 
+users = User.all
 p "Seed tweets"
-tweets = []
-30.times do |i|
-  tweets << { owner_id: rand(1..23), body: Faker::Lorem.sentence, created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
+130.times do |i|
+  Tweet.create(owner: users.sample(), body: Faker::Lorem.sentence)
 end
-Tweet.insert_all!(tweets)
 
 p "Seed comments"
-comments = []
-30.times do |i|
-  comments << { user_id: rand(1..23), tweet_id: rand(1..30), body: Faker::Lorem.sentence, created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
-end
-Comment.insert_all!(comments)
-Tweet.all.each do |tweet|
-  Tweet.reset_counters(tweet.id, :comments)
+Tweet.all do |tweet|
+  rand(1..13).times  do |i|
+    Comment.create(tweet: tweet, user_id: rand(1..23), body: Faker::Lorem.sentence)
+  end
 end
 
 p "Seed likes"
@@ -77,7 +88,7 @@ p "Seed likes"
 tweets = Tweet.all
 
 User.all.map do |user|
-  tweets.sample(rand(1..30)).each do |tweet|
+  tweets.sample(rand(4..30)).each do |tweet|
     Like.create(user: user, tweet: tweet)
   end
 end

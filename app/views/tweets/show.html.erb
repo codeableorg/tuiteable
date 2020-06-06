@@ -4,11 +4,11 @@
         <%end %>
 </div>
 <div class="tweet">
- <% if @tweet.owner.avatar.attached?%>
-        <%= image_tag(@tweet.owner.avatar, :class=>"owner-image")%>
-      <%else%>
-        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
-      <% end%>
+    <% if @tweet.owner.avatar.attached?%>
+      <%= image_tag(@tweet.owner.avatar, :class=>"owner-image")%>
+    <%else%>
+      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
+    <% end%>
    <div class="details-tuit-container">
     <span class= "tuit-owner-name"><%= @tweet.owner.name %></span>
     <span class = "tuit-owner-username"><%= '@' + @tweet.owner.username %></span>
@@ -45,7 +45,7 @@
   <% if !comment.user.nil? %>
     <div class="comment">
       <% if comment.user.avatar.attached?%>
-        <%= image_tag(current_user.avatar, :class=>"owner-image")%>
+        <%= image_tag(comment.user.avatar, :class=>"owner-image")%>
       <%else%>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
       <%end%>

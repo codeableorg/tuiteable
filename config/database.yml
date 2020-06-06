@@ -27,8 +27,6 @@ development:
   <<: *default
   database: tuiteable_development
   host: localhost
-  username: postgres
-  password: codeable
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -64,8 +62,6 @@ test:
   <<: *default
   database: tuiteable_test
   host: localhost
-  username: postgres
-  password: codeable
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

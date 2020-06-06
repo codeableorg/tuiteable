@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   resources :tweets, only: [:destroy, :create, :show]
   root to: "tweets#index"
-  get 'profile/show'
+  get 'profile/tweets'
+  get 'profile/liked_tweets'
+  
   resources :tweets do
     resources :comments
     post 'like', on: :member, defaults: { format: 'js' }
