@@ -7,4 +7,5 @@
   <p class="name"><%= current_user().name %></p>
   <p class="username">@<%= current_user().username %></p>
   <p class="description"><%= current_user().bio %></p>
+  <%=link_to "Edit Profile", edit_user_registration_path%>
 </div>
