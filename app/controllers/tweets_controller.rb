@@ -1,8 +1,7 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all.order(created_at: :desc)#.includes(user: :avatar_attachment)
-    @tweet= Tweet.new
-    # listo
+    @tweets = Tweet.all.order(created_at: :desc)#includes(user: :avatar_attachment)         
+    @tweet= Tweet.new     
   end
   def new
     @tweet=Tweet.new  
@@ -31,4 +30,7 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:body)
   end
+  def user_params
+    params.require(:user).permit(:username, :name, :location, :bio, :avatar)
+  end 
 end

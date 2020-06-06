@@ -1,8 +1,7 @@
 <h1>Explorer</h1>
 <% if user_signed_in? %>
-    <section>
-    <%= form_for @tweet do |f| %>
-    <%# listo %>
+    <section>    
+    <%= form_for @tweet do |f| %>    
       <p>
         <%= f.text_area :body %>
       </p>
