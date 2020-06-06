@@ -7,6 +7,17 @@
   justify-content: center;
   background-color: #e5e5e5;
 }
+.tweet-header {
+  display: flex;
+}
+.tweet-header h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .column-left {
   width: 174px;
   height: 100vh;
