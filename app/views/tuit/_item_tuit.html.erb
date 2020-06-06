@@ -14,6 +14,9 @@
       <%= tuit.body %>
     </div>
     <div>
+      <% if user_signed_in? %>
+        <%= button_to '<3', tuit_likes_path(tuit), method: :post %>
+      <% end %>
       L: <%= tuit.likes_count %>
       C: <%= tuit.comments_count %>
     </div>
