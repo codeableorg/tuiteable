@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   get 'users/show'
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   resources :users, only: :show
   get 'home/index'
   resources :tuits do
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root to: 'tuits#index'
   get '/my_profile', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'profile', to: 'user#profile'
 
   # API
   namespace :api, defaults: { format: :json } do

@@ -1,19 +1,14 @@
 <%= form_for(resource, as: resource_name, url: new_user_session_url, :html => {class: 'login-form'}) do |f| %>
-  <h2>Log in to {tuitiable}</h2>
-  <div class="field field-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <br>
-
-  <div class="field field-group">
-    <%= f.label :password %>
+  <h2>Log in to {tuiteable}</h2>
+  <div class="login-fields">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
+    <%= f.label :password %><br>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-  <br>
 
   <div class="actions">
-    <%= f.submit "Log In"%>
+  <%= f.submit "Log In"%>
+    <%= render "devise/shared/links" %>
   </div>
-  <%= render "devise/shared/links" %>
 <% end %>

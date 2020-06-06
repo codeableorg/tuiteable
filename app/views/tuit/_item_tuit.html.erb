@@ -1,24 +1,23 @@
-<div>
-  <div>
-    <img src="" alt="">
+<div class="tuit-content">
+  <div class="avatar-div">
+    <% if tuit.user.avatar.attached? %>
+      <%= image_tag tuit.user.avatar, class: "img-avatar" %>
+    <% else%>
+      <%= image_tag("avatar.png", class: "img-avatar")  %>
+    <% end %>
   </div>
   <div>
-    <div>
-      <a href="tuits/<%= tuit.id %>">
-        <%= tuit.user.name %>
-      </a>
-      <%= tuit.user.username %> -
-      <%= tuit.created_at.strftime("%b %-d")%>
-    </div>
-    <div>
-      <%= tuit.body %>
-    </div>
-    <div>
+    <a href="tuits/<%= tuit.id %>">
+    <span><%= tuit.user.name %></span>
+    </a>
+    <span class="nickname"><%= tuit.user.username %> - <%= tuit.created_at.strftime("%b %-d")%></span>
+    <p><%= tuit.body %></p>
+    <div class="comments-likes">
       <% if user_signed_in? %>
         <%= button_to '<3', tuit_likes_path(tuit), method: :post %>
       <% end %>
-      L: <%= tuit.likes_count %>
-      C: <%= tuit.comments_count %>
+      <span class="comments"><%= image_tag("comments.png")%><%= tuit.comments_count %></span>
+      <span class="likes"><%= image_tag("likes.png")%> <%= tuit.likes_count %></span>
     </div>
   </div>
 </div>

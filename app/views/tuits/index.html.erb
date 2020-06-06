@@ -1,4 +1,4 @@
-<h1>Explorer</h1>
+<h1 class="explorer-title">Explorer</h1>
 
 <% if user_signed_in? %>
   <%= form_with model: @tuit do |f| %>
@@ -7,6 +7,8 @@
   <% end %>
 <% end %>
 
-<% @tuits.each do |tuit| %>
+<div class="tuit">
+  <% @tuits.each do |tuit| %>
     <%= render '/tuit/item_tuit', tuit: tuit %>
-<% end %>
+  <% end %>
+<div>
