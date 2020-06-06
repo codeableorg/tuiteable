@@ -1,3 +1,13 @@
-
-<h1>ALL TWEETS</h1>
+<h1>Explorer</h1>
+<% if user_signed_in? %>
+    <section>
+    <%= form_for @tweet do |f| %>
+    <%# listo %>
+      <p>
+        <%= f.text_area :body %>
+      </p>
+      <%= f.submit %>      
+    <% end %>
+  </section>  
+<%end%>
 <%= render :partial => "tweet", :collection => @tweets%>

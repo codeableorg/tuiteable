@@ -1,11 +1,10 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  
   get 'comments/create'
-  get 'profile' ,to: 'users#index'
+  get 'profile' ,to: 'users#index'  
   resources :users , only:[:update, :edit]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root 'tweets#index'
-
-  resources :tweets, only: [:index, :show] do
+  root 'tweets#index'  
+  resources :tweets, only: [:index, :show, :create, :new, :destroy] do
     resources :comments, only: [:create]
   end
 

@@ -2,12 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
 .index-page {
   display: flex;
   justify-content: center;
   background-color: #e5e5e5;
 }
+.tweet-header {
+  display: flex;
+}
+.tweet-header h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .column-left {
   width: 174px;
   height: 100vh;
@@ -34,4 +44,8 @@
 
 .tweets-group {
   padding-left: 15px;
+}
+.tweets-count-icon {
+  width: 15.64px;
+  height: 15.64px;
 }
