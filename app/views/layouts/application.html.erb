@@ -35,6 +35,12 @@
           <p>
             <%= yield :page_heading %>
           </p>
+          <% unless alert.nil? %>
+            <span class="flash flash-alert"><%= alert %></span>
+          <% end %>
+          <% unless notice.nil? %>
+            <span class="flash flash-notice"><%= notice %></span>
+          <% end %>
         </div>
         <%= yield %>
       </div>

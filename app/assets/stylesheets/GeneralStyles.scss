@@ -350,6 +350,9 @@ form button {
   color: #fff;
   font-size: 16px;
   padding: 16px;
+  .content {
+    flex: 1;
+  }
 }
 
 .tweet img#image,
@@ -375,6 +378,10 @@ form button {
   position: relative;
   z-index: 1;
   margin-left: 62px;
+  .is-liked {
+    transform: all 0.1s ease-in;
+    filter: brightness(0.5) sepia(1) saturate(10000%);
+  }
 }
 
 .comments {
@@ -387,6 +394,21 @@ form button {
 .comments img {
   height: 15px;
   margin-right: 5px;
+}
+
+.comment-delete-form,
+.tuit-delete-form {
+  text-align: right;
+}
+
+.comment-delete,
+.tuit-delete {
+  background: none;
+  border-radius: 8px;
+  border: 1px solid #e0245e;
+  color: #e0245e;
+  padding: 2px 8px;
+  box-shadow: none;
 }
 
 .likes {
@@ -481,4 +503,25 @@ form button {
 
 .windowActive {
   color: gray !important;
+}
+
+.flash {
+  color: #fff;
+  display: block;
+  padding: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.flash-alert {
+  background: #d66d6d;
+}
+
+.flash-notice {
+  background: #7bd66d;
+  color: #000;
+}
+
+.head {
+  position: relative;
 }

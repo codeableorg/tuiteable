@@ -11,6 +11,9 @@
 <div class="tuits">
   <% current_user.liked_tuits.each do |tuit|%>
     <div class="tweet-wrapper">
+      <% if current_user.is_admin? || tuit.owner == current_user %>
+        <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
+      <% end %>
       <%= link_to tuit, class:'tweet' do %>
         <img id="image" src="/img/tanus.png">
         <div class="content">
@@ -24,7 +27,7 @@
           <p><%=tuit.comments.count%></p>
         <% end %>
         <%= link_to like_tuit_path(tuit), class:'likes' do %>
-          <img src="/img/like.png">
+          <img class='<%= is_liked(tuit) && 'is-liked' %>' src="/img/like.png">
           <p><%=tuit.votes.count%></p>
         <% end %>
       </div>
