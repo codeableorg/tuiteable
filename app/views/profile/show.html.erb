@@ -1,0 +1,10 @@
+<div class="profile">
+  <% if current_user.avatar.attached?%>
+    <%= image_tag(current_user.avatar, :class=>"owner-image")%>
+  <%else%>
+      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
+  <%end%>
+  <p class="name"><%= current_user().name %></p>
+  <p class="username">@<%= current_user().username %></p>
+  <p class="description"><%= current_user().bio %></p>
+</div>
