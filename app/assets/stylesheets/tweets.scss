@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.index-page {
-  display: flex;
-  justify-content: center;
-  background-color: #e5e5e5;
-}
+// .index-page {
+//   display: flex;
+//   justify-content: center;
+//   background-color: #e5e5e5;
+// }
 
 //Tweet
 
@@ -40,22 +40,6 @@
 
 //Columns
 
-.column-left {
-  width: 174px;
-  height: 100vh;
-  background-color: #1d2128;
-}
-.column-middle {
-  width: 600px;
-  height: 100vh;
-  background-color: #1d2128;
-  border: 1px solid #999b9e;
-}
-.column-right {
-  width: 270px;
-  height: 100vh;
-  background-color: #1d2128;
-}
 .group {
   margin-bottom: 15px;
 }
