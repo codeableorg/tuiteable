@@ -11,29 +11,36 @@
 
   <body>
 
-    <div class="index-page">
-      <div class="column-left">
+    <main class="index-page">
+
+      <section class="column-left">
         <%= link_to  "#Explore", root_path %>
         <% if user_signed_in? %>                    
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <%= link_to  "Perfil", '/profile' %>          
         <%end%>
-      </div>
-      <div class="column-middle">
-
-      <section>
-        <div class="notice"><%= notice%></div>
-        <div class="alert"><%= alert%></div>
       </section>
-        
+
+      <section class="column-middle">
+
+        <section>
+          <div class="notice"><%= notice%></div>
+          <div class="alert"><%= alert%></div>
+        </section>
+          
         <%= yield %>
         
-      </div>
-      <div class="column-right">
+      </section>
+
+      <section class="column-right">
         
-        <% unless user_signed_in? %>
-          <%= render  file:"devise/sessions/new" %>
-        <% end %>
+        <div class="content-right">
+          <% unless user_signed_in? %>
+            <%= render  file:"devise/sessions/new" %>
+          <%else%>
+            <%= render  'layouts/baner' %>
+          <% end %>
+        </div>
 
         <footer>
           <p>Made with bravery by {codeable} cohort #2 
@@ -43,8 +50,8 @@
           </p>
         </footer>
    
-      </div>
+      </section>
 
-    </div>
+    </main>
   </body>
 </html>
