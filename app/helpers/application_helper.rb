@@ -18,4 +18,16 @@ module ApplicationHelper
       render inline: "<span>#{tuit.likes_count}</span>"
     end
   end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def resource_name
+    :user
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end
