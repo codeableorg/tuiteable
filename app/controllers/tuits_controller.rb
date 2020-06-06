@@ -20,7 +20,10 @@ class TuitsController < ApplicationController
   end
 
   def destroy
-    @tuit = Tuit.find(tuit_params).destroy
+    @tuit = Tuit.find(params[:id])
+    authorize @tuit
+    @tuit.destroy
+    redirect_to root_path
   end
 
   def like
