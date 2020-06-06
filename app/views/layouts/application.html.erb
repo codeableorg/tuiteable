@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -17,6 +18,7 @@
         <li><a href="/"><%= image_tag "hash.png"%>Explorer</a></li>
         <li><a href="/profile"><%= image_tag "hash.png"%>Profile</a></li>
         <% if user_signed_in? %>
+          <li><a href="#"><%= image_tag "user.png"%>Profile</a></li>
           <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete', :class => "ghost-red-btn" %></li>
         <% end %>
       </ul>
