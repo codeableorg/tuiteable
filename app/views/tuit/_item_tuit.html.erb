@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <img src="" alt="">
+  </div>
+  <div>
+    <div>
+      <a href="tuits/<%= tuit.id %>">
+        <%= tuit.user.name %>
+      </a>
+      <%= tuit.user.username %> -
+      <%= tuit.created_at.strftime("%b %-d")%>
+    </div>
+    <div>
+      <%= tuit.body %>
+    </div>
+    <div>
+      L: <%= tuit.likes_count %>
+      C: <%= tuit.comments_count %>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook github]
+  has_one_attached :avatar
   has_many :likes  
   has_many :comments
   has_many :tuits
