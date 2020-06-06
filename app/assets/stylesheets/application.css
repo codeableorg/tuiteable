@@ -31,15 +31,18 @@ textarea{
   color: black;
 }
 
+.content-right{
+  background-color:  rgba(153, 155, 158, 0.25);
+  margin: 7px 20px 10px 20px;
+  text-align: center;
+}
 
  /************** start new_session **************/
 
  .session_new{
-   background-color:  rgba(153, 155, 158, 0.25);
    display: flex;
    flex-direction: column;
    align-items: center;
-   margin: 7px 20px 10px 20px;
  }
 
  .new_user input{
@@ -152,7 +155,7 @@ body{
   margin: 0 auto;
   height: 100vh;  
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: minmax(auto,174px) 1fr minmax(auto,270px);
   grid-row: 1fr;
   gap: 1px
 }
