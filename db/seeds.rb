@@ -8,6 +8,13 @@
 
 require 'bcrypt'
 require 'faker'
+require 'open-uri'
+
+def image_fetcher
+  URI.open(Faker::Avatar.image(size: "100x100", format: "jpg", set: "set#{rand(1..4)}"))
+  rescue
+  URI.open("https://robohash.org/sitsequiquia.jpg?size=100x100&set=set1")
+end
 
 p "Seed admins"
 
@@ -44,22 +51,29 @@ admins = [
   }
 ]
 
-admins.map{|admin| User.create(admin)}
+admins.map do |admin| 
+  admin_record = User.create(admin)
+  admin_record.avatar.attach({
+      io: image_fetcher,
+      filename: "#{admin_record.id}_faker_image.jpg"
+  })
+end
 
 p "Seed regular user"
 
-users = []
 20.times do |i|
   password = "123456"
-  users << { name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, encrypted_password: BCrypt::Password.create(password), bio: Faker::Lorem.sentence, location: Faker::Address.city,created_at: Faker::Time.between(from: 3.days.ago, to: Time.now), updated_at: Time.now }
+  user = User.create(name: Faker::Name.unique.name, username: Faker::Internet.unique.username, email: Faker::Internet.email, bio: Faker::Lorem.sentence, location: Faker::Address.city, password: "123456")
+  user.avatar.attach({
+      io: image_fetcher,
+      filename: "#{user.id}_faker_image.jpg"
+  })
 end
-User.insert_all!(users)
 
+users = User.all
 p "Seed tweets"
-User.all.each do |user|
-  rand(5..20).times  do |i|
-    Tweet.create(owner: user, body: Faker::Lorem.sentence)
-  end
+130.times do |i|
+  Tweet.create(owner: users.sample(), body: Faker::Lorem.sentence)
 end
 
 p "Seed comments"
