@@ -15,6 +15,16 @@
     <footer>
       <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%></span><%=tweet.comments_count%>
       <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
+
+      <% if user_signed_in? %>
+        <% unless tweet.has_liked?(current_user) %>
+          <%= button_to "Like", tweet_likes_path(tweet), method: :post %>
+        <% else %>         
+          <%= button_to "Dislike", tweet_like_path(tweet, id: tweet.likes.find_by(user: current_user).id ), method: :delete %>           
+        <% end %>
+      <% end %>
+
+
     </footer>    
   </div>   
 </article>
