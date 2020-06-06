@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get '/', to: 'users#show', as: 'profile'
     get '/likes', to: 'users#show_likes', as: 'profile_likes'
   end
-  
+
   resources :tuits do
     resources :comments
     member do
