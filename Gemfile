@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+
+
+#gem rspec
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+end
+
+#simple token authentication
+gem 'simple_token_authentication', '~> 1.0'
 #Sign_in with github
 gem 'omniauth-github'
 #Sign_in with fb

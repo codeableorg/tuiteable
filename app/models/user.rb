@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  acts_as_token_authenticatable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github]
@@ -14,6 +17,8 @@ class User < ApplicationRecord
   has_many :liked_tweets, through: :likes, source: :tweet, dependent: :destroy
          
   has_one_attached :avatar
+
+  
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
