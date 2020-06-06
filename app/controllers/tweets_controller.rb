@@ -2,7 +2,6 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :create, :like]
   def index
     @tweets = Tweet.all.order(created_at: :desc).limit(40)
-    @user = User.new
     @tweet = Tweet.new
   end
 

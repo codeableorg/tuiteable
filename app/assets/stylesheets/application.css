@@ -66,16 +66,35 @@
    margin-top: 20px;
  }
 
+
  .tweets_container {
    width: 600px;
    display: flex;
    flex-direction: column;
+   position: relative;
  }
+
+ .messages {
+   position: absolute;
+   top: 18px;
+   right: 10px;
+ }
+
+ .notice {
+  background-color: #7bd66d;
+  font-size: 12px;
+  font-weight: normal;
+  color: #000000;
+  padding: 5px;
+}
+
+.alert {
+  background-color: #d66d6d;
+}
 
  .aside_footer_container {
    width: 270px;
    padding-top: 7px;
-  
  }
 
  .new_features_container{
@@ -126,6 +145,7 @@
    background-color: #ffffff;
    margin-top: 5px;
    margin-bottom: 10px;
+   padding-left: 5px;
  }
 
  .actions{

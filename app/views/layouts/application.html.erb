@@ -26,6 +26,12 @@
       </nav>
      
       <main class="tweets_container">
+        <div class = "messages">
+          <% if !notice.nil?%>
+          <p class="notice"><%= notice %></p>
+          <%end%>
+          <p class="alert"><%= alert %></p>
+        </div>
         <%= yield %>
       </main>
      
