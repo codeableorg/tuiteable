@@ -1,0 +1,26 @@
+
+<div class="profile_container">
+<%= show_avatar(current_user)%>
+<h1 class="profile_name "><%= current_user.name %></h1>
+<h2 class="profile_username ">@<%= current_user.username%></h2>
+<p class="profile_bio"><%= current_user.bio%></p>
+<div>
+  <p><%= image_tag("location.png") %><%= current_user.location%></p>
+  <p><%= image_tag("calendar.png") %><%= current_user.created_at.to_date%></p>
+</div>
+<div>
+  <p><%= current_user.followed_users.count %> Following </p>
+  <p><%= current_user.followers.count %> Followers</p>
+</div>
+<% current_user.tuits.each do |tuit_item| %>
+  <%= render partial: "home/tuit", locals: { tuit: tuit_item } %>  
+<% end %>
+<h1>liked_tuits</h1>
+ <% @tuits_liked = Tuit.joins("join likes as l on l.tuit_id = tuits.id join users as u on l.user_id = u.id where u.id = #{current_user.id}") %>
+  <% @tuits_liked.each do |liked_tuit| %>
+  <%= render partial: "home/tuit", locals: { tuit: liked_tuit} %>  
+<% end %>
+</div>
+
+
+

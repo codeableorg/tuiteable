@@ -64,7 +64,7 @@
   <% @comments.each do |comment| %>
     <article class="show-page__article">
       <aside class="show-page__article-figure">
-        <%= show_avatar(@comment.user, class: 'show-page__article-image') %>
+        <%= show_avatar(comment.user, class: 'show-page__article-image') %>
       </aside>
 
       <section class="show-page__article-body">
