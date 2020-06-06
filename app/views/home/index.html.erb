@@ -1,0 +1,21 @@
+<div class="top_explore_page">
+  <h1 class ="explorer_title">Explorer</h1>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
+
+  <%if user_signed_in?%>
+    <div class="write_tweet_container">
+      <% if current_user.avatar.attached?%>
+        <%= image_tag(current_user.avatar, :class=>"owner-image")%>
+      <%else%>
+         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
+      <%end%>
+      <p class="tweet_placeholder">What you are thinking about is...</p>
+      <button class="btn-tweet">tuiteable!</button>
+    </div>
+  <%end%>
+
+<div class="div_separator"></div>
+
+<%= render partial: 'tweets/tweet', collection: @tweets, :as => :tweet%>

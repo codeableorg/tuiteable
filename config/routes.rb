@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'profile/show'
   resources :tweets do
     resources :comments
-    post 'like', on: :member
+    post 'like', on: :member, defaults: { format: 'js' }
   end
   resources :comments do
     resources :comments 
