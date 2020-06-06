@@ -17,6 +17,19 @@
       <span class="profile-date">Joined <%= format_date_profile( @user.created_at) %></span>
     </div>
   </div>
+  <div class="profile-followcontainer">
+    <p class="profile-following">
+      <%=@user.followings_count %><span> Following</span>
+    </p>
+    <p class="profile-follower">
+      <%=@user.followers_count %><span> Followers</span>
+    </p>
+  </div>
+  <% if user_signed_in?  %>
+    <div class="profile-button-follow">
+      <%= link_to "Follow", user_follows_path(user_id: @user.id) , class:"profile-follow", method: :post%>
+    </div>
+  <% end %>
   <% if user_signed_in? && current_user %>
     <%= link_to "Edit Profile", edit_user_path , class:"profile-edit"%>
   <% end %>

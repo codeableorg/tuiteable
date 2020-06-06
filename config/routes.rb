@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'follows/create'
+  get 'follows/destroy'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :tweets, only: [:create, :destroy, :show] do
     resources :likes, only: [:create, :destroy]
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :tweets, only: [:index]
     resources :favorites, only: [:index]
+    resources :follows, only: [:create, :destroy]
   end
   namespace :api do
       devise_scope :user do

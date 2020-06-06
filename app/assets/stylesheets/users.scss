@@ -205,7 +205,7 @@ textarea {
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 5.6rem;
+  margin-bottom: 1.4rem;
 }
 
 .profile-locationcontainer {
@@ -241,4 +241,34 @@ textarea {
 
 .link-actived {
   color: white !important;
+}
+
+.profile-followcontainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+
+.profile-following {
+  margin-right: 5.4rem;
+}
+
+.profile-following,
+.profile-follower {
+  font-size: 1.6rem;
+}
+
+.profile-followcontainer span {
+  color: #999b9e;
+}
+
+.profile-follow {
+  color: #1da1f2;
+  font-size: 1.6rem;
+  border: 1px solid #1da1f2;
+  padding: 0.5rem 0.9rem;
+  margin-left: auto;
+  border-radius: 10rem;
 }
