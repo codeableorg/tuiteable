@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <% if tweet.user.id == current_user.id  %>
+    <%= link_to 'Delete', tweet_path(tweet), method: 'delete', class: 'bg-transparent hover:bg-red-800 text-red-700 font-semibold hover:text-white py-1 px-2 border border-red-800 hover:border-transparent rounded-full' %>
+  <% end %>
+<% end %>

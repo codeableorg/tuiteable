@@ -1,0 +1,33 @@
+<article class="flex flex-row w-full border border-gray-600 p-3">
+  <aside class="w-16 flex items-center">
+    <img class="rounded-full" src="https://www.geo-sight.co.uk/wp-content/uploads/2014/10/Person-PlaceHolder.png" alt="">
+  </aside>
+  <main class="flex-grow flex flex-col px-5">
+    <header class="w-full my-1">
+      <a href="<%= tweet_url(tweet) %>" class="font-bold"><%=tweet.user.name%></a>
+      <a href="#" class="text-gray-500"> @<%= tweet.user.tag %></a>
+      <span class="text-gray-500"> - <%= tweet.created_at.strftime("%B %-d") %></span>
+    </header>
+    <p class="w-full my-1">
+      <%= tweet.content %>
+    </p>
+    <footer class="w-full my-1 flex flex-row">
+      <div class="flex flex-row items-center mr-20">
+        <p class="mr-20"><span class="font-bold"><%= tweet.likes.size %></span> <%= tweet.likes.size == 1 ? 'Like' : 'Likes' %></p>
+        <% if user_signed_in? %>
+          <% pre_like = tweet.likes.find { |like| like.user_id == current_user.id } %>
+          <% if pre_like %>
+            <%= link_to image_tag("unlike.svg"), tweet_like_path(tweet, pre_like), method: :delete %>
+          <% else %>
+            <%= link_to image_tag("like.svg"), tweet_likes_path(tweet), method: :post %>
+          <% end %>
+        <% else %>
+          <%= link_to image_tag("like.svg"), new_user_session_path %>
+        <% end %>
+      </div>
+    </footer>
+  </main>
+  <aside class="w-16">
+    <%= render 'tweets/delete_tweet', tweet: tweet %>
+  </aside>
+</article>

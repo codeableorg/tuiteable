@@ -1,0 +1,6 @@
+<%= render 'layouts/navigation', title: 'Tuit', to_link: request.referer.present? ? request.referer : default_path, arrow: true %>
+<%= render 'pages/tweet_alt', tweet: @tweet %>
+<%= render 'layouts/input_tweet', tweet: Tweet.new, button_text: 'Comment!' if user_signed_in? %>
+<% @tweet.responses.each do |t| %>
+  <%= render 'pages/tweet', tweet: t %>
+<% end %>

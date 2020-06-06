@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'pages#root'
+  resources :tweets do
+    resources :likes
+  end
+  devise_for :users
+  resources :users
+  ## API
+  namespace :api do
+    resources :tweets
+    resources :users
+    resources :likes
+  end
 end
