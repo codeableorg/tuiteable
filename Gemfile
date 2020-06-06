@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-#ruby '2.6.3'
+# ruby '2.6.3'
 require 'rbconfig'
 
 gem 'activestorage'
@@ -13,9 +13,6 @@ gem 'dotenv-rails', groups: %i[development test]
 gem 'omniauth-facebook'
 gem 'pundit'
 gem 'devise'
-
-gem 'wdm' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i #Necesito esto en windows :(
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
@@ -59,7 +56,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # token authentication
 gem 'simple_token_authentication', '~> 1.0'
