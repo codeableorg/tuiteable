@@ -24,6 +24,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
     <div class="field">
+      <%= f.label :avatar, "Avatar:" %><br />
+      <%= f.label :avatar, "Upload File", class: "button_avatar" %>
+      <%= f.file_field :avatar, style: "display: none;" %>
+    </div>
+    <div class="field">
       <%= f.label :location, 'Location:' %>
       <%= f.text_field :location, autocomplete: "location" %>
     </div>

@@ -5,7 +5,7 @@
   <%= form_with(model: Tuit) do |f|%>
     <div class="about">
       <div class="content">
-        <img id="image" src="../img/fire.png">
+        <%= show_user_avatar(current_user)%> 
         <%= f.text_field :body, placeholder: 'What you are thinking about is...' %>
       </div>
       <%= f.button 'Tuiteable!' %>
@@ -20,7 +20,7 @@
       <% end %>
     <% end %>
     <%= link_to tuit, class:'tweet' do %>
-      <img id="image" src="/img/tanus.png">
+      <%= show_user_avatar(tuit.owner)%>
       <div class="content">
         <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
         <p id='comment' ><%=tuit.body%></p>

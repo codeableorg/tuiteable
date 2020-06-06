@@ -20,7 +20,7 @@ class Api::UsersController < Devise::RegistrationsController
   private
 
   def user_params
-    params.require(:user).permit(%i(username password name email location bio))
+    params.require(:user).permit(%i(username password name email location bio avatar))
   end
 
   def ensure_params_exist

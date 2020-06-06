@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :email, :location, :bio])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :email, :avatar, :location, :bio])
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

@@ -4,7 +4,7 @@
 <div class="showTuit">
   <div class="tweet-wrapper">
     <div class="tweet">
-      <img id="image" src="/img/goku.png">
+      <%= show_user_avatar(@tuit.owner)%> 
       <div class="content">
         <h3><%= @tuit.owner.name %></h3>
         <span>@<%= @tuit.owner.username %> - <%= @tuit.created_at.strftime '%-d %B' %></span>
@@ -24,7 +24,7 @@
   <%= form_with(model: [@tuit, Comment], local:true) do |f|%>
     <div class="about">
       <div class="content">
-        <img id="image" src="/img/fire.png">
+        <%= show_user_avatar(current_user)%>
         <%= f.text_field :body, placeholder: 'Think before write...' %>
       </div>
       <%= f.button 'Comment!', name: nil %>
@@ -33,7 +33,7 @@
 <% end %>
 <% @tuit.comments.each do |comment| %>
   <div class="tweet-comment">
-    <img id="image" src="/img/tanus.png">
+    <%= show_user_avatar(comment.user)%>
     <div class="content">
       <% if current_user.is_admin? || comment.user == current_user %>
         <%= button_to 'Delete', tuit_comment_path(@tuit,comment), method: :delete, class: 'comment-delete', form_class: 'comment-delete-form' %>

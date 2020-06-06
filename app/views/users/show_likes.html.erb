@@ -15,7 +15,7 @@
         <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
       <% end %>
       <%= link_to tuit, class:'tweet' do %>
-        <img id="image" src="/img/tanus.png">
+        <%= show_user_avatar(tuit.owner)%>
         <div class="content">
           <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
           <p id='comment' ><%=tuit.body%></p>
