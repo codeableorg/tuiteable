@@ -1,9 +1,11 @@
 class User < ApplicationRecord
+  acts_as_token_authenticatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, 
+         :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github]
+  # Associations
   has_many :tuits
   has_many :likes
   has_many :comments
@@ -18,5 +20,4 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
-
 end
