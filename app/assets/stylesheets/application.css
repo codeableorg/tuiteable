@@ -126,12 +126,14 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-.tuit-image {
+.tuit-image,
+.follow-card__image {
   width: 50px;
   height: 50px;
 }
 
-.tuit-image img {
+.tuit-image img,
+.follow-card__image img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -282,7 +284,7 @@ body {
   line-height: 20px;
 }
 .show-page__article-metadata--inline {
-  color: #999B9E;
+  color: #999b9e;
   font-weight: normal;
 }
 .show-page__article-reactions {
@@ -300,7 +302,7 @@ body {
   background-color: transparent;
   border: 0;
   outline: 0;
-  color: #999B9E;
+  color: #999b9e;
   font-size: 20px;
   font-family: "Roboto";
   line-height: 24px;
@@ -312,11 +314,52 @@ body {
 .show-page__form-submit {
   align-self: flex-end;
   padding: 5px 15px;
-  background-color: #1DA1F2;
+  background-color: #1da1f2;
   border: 0;
   border-radius: 50px;
   color: #ffffff;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
+}
+
+/* follos section */
+
+.follows {
+  background: rgba(153, 155, 158, 0.25);
+  padding: 7px;
+}
+
+.follow-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.follow-card {
+  display: flex;
+  background-color: #1d2128;
+  padding: 5px 10px;
+  margin: 5px 0;
+  justify-content: space-between;
+}
+
+.follow-card__body {
+  padding-left: 5px;
+  position: relative;
+  width: 75%;
+}
+
+.follow-card__name {
+  font-size: 16px;
+}
+
+.follow-card__username {
+  font-size: 12px;
+}
+
+.button-blue-outline {
+  color: #1da1f2;
+  border: 2px solid #1da1f2;
+  background: none;
 }
