@@ -27,7 +27,6 @@ development:
   <<: *default
   database: tuiteable_development
   host: localhost
-  host: localhost
   username: postgres
   password: codeable
 

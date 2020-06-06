@@ -38,6 +38,9 @@
           <span class="tweet_comments_count"><%= image_tag("comments.png", :class=>"reaction_icon")%><%= tweet.comments_count%></span> 
           <span class="tweet_likes_count"><%= image_tag("likes.png", :class=>"reaction_icon") %><%= tweet.likes_count%></span>
         </span>
+        <%if tweet.owner == current_user%>
+        <%=link_to "Delete", tweet_path(tweet), method: :delete, :class=> "log_out_link delete_btn"%>
+        <%end %>
       </div>
     </article>
   <% end%>

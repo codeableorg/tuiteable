@@ -76,6 +76,7 @@
   padding: 15px;
   border: 1px solid #999b9e;
   display: flex;
+  position: relative;
 }
 
 .tweet_content {
@@ -105,6 +106,13 @@
   display: flex;
   justify-content: space-between;
   width: 175.6px;
+}
+
+
+.delete_btn {
+  position: absolute;
+  right: 10px;
+  bottom: 60%;
 }
 
 .reaction_icon {
