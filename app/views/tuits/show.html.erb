@@ -16,11 +16,10 @@
   </div>
 </div>
 
-<%# Insert a comment %>
 <% if user_signed_in? %>
   <%= form_for @comment, url: tuit_comments_path(@tuit) do |f| %>
-    <%= f.text_area :body, placeholder: 'Think...' %>
-    <button>comment!</button>
+    <%= f.text_area :body, placeholder: 'Think before write...' %>
+    <button>Comment!</button>
   <% end %>
 <% end %>
 
