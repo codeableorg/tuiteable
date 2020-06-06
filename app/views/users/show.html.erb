@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'user' %>
-
+<div class="separator">
+  <%= render 'user' %>
+</div>
 <% @user.tweets.each do |tweet| %>
-  <%= render partial: 'tweets/tweet', locals: { user: @user, tweet: tweet } %>
+  <div class="separator">
+    <%= render partial: 'tweets/tweet', locals: { user_tweet: @user, tweet: tweet } %>
+  </div>
 <% end %>

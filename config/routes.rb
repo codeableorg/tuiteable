@@ -4,9 +4,12 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
+  get 'follows/create'
+  get 'follows/destroy'
   resources :users do
     resources :tweets, only: [:index]
     resources :favorites, only: [:index]
+    resources :follows, only: [:create, :destroy]
   end
   namespace :api, defaults: {format: :json}  do
       devise_scope :user do
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
         resources :tuits, only: [:show,:index]
       end
   end
+  get "explorer", to: "explorer#index"
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
