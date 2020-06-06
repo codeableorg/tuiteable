@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="info">
-      <p><%= pluralize(@tuit.votes.count,'Like')%></p>
+      <p><%= pluralize(@tuit.votes_count,'Like')%></p>
       <%= link_to like_tuit_path(@tuit), class:'likes' do %>
         <img class='<%= is_liked(@tuit) && 'is-liked' %>' src="/img/like.png">
       <% end %>

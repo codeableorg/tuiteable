@@ -29,11 +29,11 @@
     <div class="info">
       <%= link_to tuit, class:'comments' do %>
         <img src="/img/comment.png">
-        <p><%=tuit.comments.count%></p>
+        <p><%=tuit.comments_count%></p>
       <% end %>
       <%= link_to like_tuit_path(tuit), class:'likes' do %>
         <img class='<%= is_liked(tuit) && 'is-liked' %>' src="/img/like.png">
-        <p><%=tuit.votes.count%></p>
+        <p><%=tuit.votes_count%></p>
       <% end %>
     </div>
   </div>
