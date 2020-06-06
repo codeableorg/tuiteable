@@ -351,11 +351,12 @@ body {
 }
 
 .follow-card__name {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .follow-card__username {
   font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .button-blue-outline {
