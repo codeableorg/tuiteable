@@ -4,10 +4,14 @@
 </header>
 <div class="profile-content">
   <section class="person-profile">
-    <%= image_tag "noavatar.png" %>
+    <% if @user.avatar.attached? %>
+      <%= image_tag url_for(@user.avatar), class: 'avatar-profile' %>
+    <% else %>
+      <%= image_tag "noavatar.png" %>
+    <% end %>
     <h2 class="person-profile-name"><%= @user.name %></h2>
     <span class="person-profile-username">@<%= @user.username %></span>
-    <p class="person-profile-bio">asdasdasd<!--    @<%#= @user.bio %>--> </p>
+    <p class="person-profile-bio"><%= @user.bio %> </p>
 
     <div class="person-profile-extra-info">
     <span>
