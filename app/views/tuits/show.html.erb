@@ -11,6 +11,9 @@
     <p><%= @tuit.body %></p>
     <p><%= @tuit.created_at.strftime("%l:%M %p - %b %e, %Y") %></p> 
     <div>
+      <% if user_signed_in? %>
+        <%= button_to '<3', tuit_likes_path(@tuit), method: :post %>
+      <% end %>
       L: <%= @tuit.likes_count %>
     </div>
   </div>
