@@ -11,7 +11,7 @@
     </div>
     <div class="tweetdetail-content">
       <p class="tweetdetail-userdisplayname"><%= @user.display_name %></p>
-      <a href="#" class="tweetdetail-username"><%= @user.username %></a>
+      <%= link_to "@#{@user.username}", @user %>
       <p class="tweetdetail-body">
         <%= @tweet.body %>
       </p>
@@ -37,10 +37,11 @@
      <%end %>
   </div>
 </div>
-<%end %>
 
-    <% @comments.each do |comment| %>
-    <div class="separator">
-      <%= render partial: "comments/comment" , locals: {comment: comment, user: comment.user}%>
-    </div>
-    <% end %>
+<% end %>
+<% @comments.each do |comment| %>
+  <div class="separator">
+    <%= render partial: "comments/comment" , locals: {comment: comment, user: comment.user}%>
+  </div>
+<% end %>
+
