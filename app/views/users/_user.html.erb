@@ -27,7 +27,13 @@
   </div>
   <% if user_signed_in?  %>
     <div class="profile-button-follow">
-      <%= link_to "Follow", user_follows_path(user_id: @user.id) , class:"profile-follow", method: :post%>
+      <% if @user.id != current_user.id%>
+        <% if !current_user.followings.where(following_id: @user.id).first %>
+          <%= link_to "Follow", user_follows_path(user_id: @user.id) , class:"profile-follow", method: [:post]%> 
+        <% else %>
+        <%= link_to "Following", user_follow_path(user_id: @user.id) , class:"profile-follow", method: [:delete]%>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
   <% if user_signed_in? && current_user %>
