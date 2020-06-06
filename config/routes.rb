@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tweets, only: [:destroy, :create, :show]
+  root to: "tweets#index"
   get 'profile/show'
   resources :tweets do
     resources :comments
@@ -8,9 +10,7 @@ Rails.application.routes.draw do
     resources :comments 
   end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
-  root to: "home#index"
   
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :api, defaults: {format: :json} do
