@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 describe Api::TuitsController do
-  before :all do
-    @user = User.create(name:'User Example', username:'@userexample',email:'user@example.com', bio:'Hi5!', password:123123)
+  before :each do
+    @user = User.create(name:'User Example 7', username:'@example7',email:'example7@example.com', bio:'Hi5!', password:123123)
     @tuit = Tuit.create(body:'Tuit example', user_id: @user.id)
-    @params_second_user = {name:'User Example 2', username:'@userexample2',email:'user2@example.com', bio:'Hi5!', password:123123}
-    @params_second_tuit = {body:'Tuit example 2', user: @user}
-    puts '**********************'
-    puts @user.email
-    puts '**********************'
+    @params_second_tuit = {body:'Tuit example 2'}
   end
 
   describe 'GET to index' do
@@ -43,53 +39,28 @@ describe Api::TuitsController do
   end
 
   describe 'POST to create' do
-    it 'returns http status unauthorized if there is no correct header' do
-      post :create, params: { tuit: @params_second_tuit }
-      expect(response).to have_http_status(:created)
+    it 'returns http status found to redirect if there is no correct header' do
+      post :create, params: @params_second_tuit
+      expect(response).to have_http_status(:found)
     end
 
     it 'returns http status created' do
       request.headers['X-User-Token'] = @user.authentication_token
       request.headers['X-User-Email'] = @user.email
-      post :create, params: { tuit: @params_second_tuit }
+      post :create, params: @params_second_tuit 
       expect(response).to have_http_status(:created)
     end
 
     it 'returns the created tuit' do
       request.headers['X-User-Token'] = @user.authentication_token
       request.headers['X-User-Email'] = @user.email
-      expect{post :create, params: { tuit: @params_second_tuit }}.to change(Tuit, :count).by(1)
-    end
-  end
-
-  describe 'PATCH to update' do
-    it 'returns http status unauthorized if there is no correct header' do
-      my_params = {body: 'Example edited'}
-      patch :update, params: { id: @tuit.id, tuit: my_params }
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'returns http status ok' do
-      my_params = {body: 'Example edited'}
-      request.headers['X-User-Token'] = @user.authentication_token
-      request.headers['X-User-Email'] = @user.email
-      patch :update, params: { id: @tuit.id, tuit: my_params }
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'returns the updated tuit' do
-      my_params = {body: 'Example edited'}
-      request.headers['X-User-Token'] = @user.authentication_token
-      request.headers['X-User-Email'] = @user.email
-      patch :update, params: { id: @tuit.id, tuit: my_params }
-      expected_tuit = JSON.parse(response.body)
-      expect(expected_tuit["id"]).to eql(@tuit.id)
+      expect{post :create, params: @params_second_tuit }.to change(Tuit, :count).by(1)
     end
   end
 
   describe 'DELETE to destroy' do
-    it 'returns http status unauthorized if there is no correct header' do
-      expect(delete :destroy, params: { id: @tuit.id }).to have_http_status(:no_content)
+    it 'returns http status found to redirect if there is no correct header' do
+      expect(delete :destroy, params: { id: @tuit.id }).to have_http_status(:found)
     end
 
     it 'returns http status no content' do
