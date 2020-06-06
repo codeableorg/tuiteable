@@ -1,0 +1,24 @@
+<div class= "sign_in_container">
+<h2 class="sign_in_title">Log in to {tuiteable}</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label "email:", class: "label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email_field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "password:", class: "label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class: "password_field" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Log in", class: "button_submit" %>
+    <%= link_to "Use Facebook", user_facebook_omniauth_authorize_path, class: "fb_link" %>
+    <%= link_to "Use Github", user_github_omniauth_authorize_path, class: "gh_link" %>
+    <p>Not registered yet?</p>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>
+</div>

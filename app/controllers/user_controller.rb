@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   def show
-    @user = User.all
+    @show_likes = params[:likes]
   end
+
 end

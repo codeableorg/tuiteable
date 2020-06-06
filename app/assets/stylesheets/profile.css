@@ -1,0 +1,110 @@
+.back_link {
+  margin: 10px 0px;
+}
+
+.profile_container {
+  border-top: 1px solid #ffffff;
+  margin-top: 15px;
+}
+
+.profile_main_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.profile_img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+.profile_name {
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.profile_username {
+  font-size: 16px;
+  line-height: 20px;
+  color: #999B9E;
+  margin-bottom: 10px;
+}
+
+.profile_bio {
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.profile_stats {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ grid-template-rows: repeat(2, 20px);
+ gap: 10px;
+ grid-template-areas: 
+  "a1 a2 a3 a4"
+  "b1 b2 b3 b4"
+ ;
+}
+
+.profile_stats span {
+  font-size: 16px;
+  line-height: 20px;
+  color: #999B9E;
+}
+
+.profile_location_info {
+  grid-area: a2;
+  text-align: center;
+}
+
+.profile_since_date {
+  grid-area: a3;
+}
+
+.profile_following_count {
+  grid-area: b2;
+  text-align: center;
+}
+
+.profile_followers_count {
+  grid-area: b3;
+}
+
+.profile_edit_link {
+  margin: 20px 0px 10px 0px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+  
+}
+
+.edit_link {
+  border: 1px solid #1DA1F2;
+  border-radius: 100px;
+  background-color: rgb(27, 30, 36);
+  color: #1DA1F2;
+  text-decoration: none;
+  height: 28px;
+  width: 95px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.profile_tuits_likes {
+  border-top: 1px solid #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.profile_links {
+  margin: 10px 0px;
+  padding: 0px 32.5px 0px 32.5px;
+  text-transform: uppercase;
+}
