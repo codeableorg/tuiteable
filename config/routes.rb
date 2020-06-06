@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  get 'profile/tweets'
-  get 'profile/liked_tweets'
-=======
+
   resources :tweets, only: [:destroy, :create, :show]
   root to: "tweets#index"
-  get 'profile/show'
->>>>>>> 60ae457c7f16040aa03d68616d7d89298a0b6ddf
+  get 'profile/tweets'
+  get 'profile/liked_tweets'
+  
   resources :tweets do
     resources :comments
     post 'like', on: :member, defaults: { format: 'js' }
