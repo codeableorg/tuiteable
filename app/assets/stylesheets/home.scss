@@ -1,0 +1,71 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+$bg-color: #1d2128;
+$font-color: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $bg-color;
+  color: #ffffff;
+}
+.home {
+  display: grid;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  justify-content: center;
+  grid-template-columns: 15% 60% 25%;
+  background-color: $bg-color;
+}
+.home-section {
+  border: 1px solid black;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  list-style: none;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+.nav-logo {
+  text-align: center;
+  margin-top: 17px;
+}
+.nav-icon {
+  margin-right: 10px;
+}
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+h2 {
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+.explorer-header {
+  height: 56px;
+  border-bottom: 2px solid #999b9e;
+}
+.explorer-header h1 {
+  margin: 16px auto 16px 16px;
+}

@@ -1,0 +1,46 @@
+<div class="tuit-card" id="tuit-card-<%=tuit.id %>">
+  <%= link_to tuit_path(tuit.id), class:"tuit-link" do%>
+    <div class="tuit-avatar">
+      <img src="<%=(url_for(tuit.user.avatar)) %>" alt="">
+    </div>
+  <% end %>
+  <div class="tuit-body">
+    <div class="body-author">
+      <%= link_to  "#{root_path + 'users/profile/'+ tuit.user.id.to_s}" do %>
+        <strong class="author-name"><%= tuit.user.name %></strong>
+        <span class="author-username grey_text">@<%=tuit.user.username %></span>
+      <% end %>
+      <span class="info-date grey_text">- <%=tuit.created_at.strftime("%b, %d") %></span>
+    </div>
+    <%= link_to tuit_path(tuit.id), class:"tuit-link" do%>
+      <div class="body-text">
+        <p><%= tuit.body  %></p>
+      </div>
+    <% end %>
+    <div class="body-info">
+      <div class="info-reactions" id="info-reactions">
+        <% if user_signed_in? %>
+          <%= link_to  root_path , remote: true, class: "comment" do%>
+            <i class="far fa-comment "></i>
+          <% end %>
+          <% like = Like.find_by(user_id: current_user.id, tuit_id: tuit.id) %>
+          <% class_like = "liked" unless like.nil?  %>
+          <span class=""><%= tuit.comments_count%></span>
+          <%= link_to  root_path  + "from_liked/" + tuit.id.to_s , remote: true, class:"like" do%>
+            <i class="far fa-heart <%= class_like %>"></i>
+            <span class="<%= class_like %>"><%= tuit.likes_count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_registration_path , remote: true, class: "comment" do%>
+            <i class="far fa-comment "></i>
+          <% end %>
+          <span class=""><%= tuit.comments_count%></span>
+          <%= link_to  new_user_registration_path, class:"like" do%>
+            <i class="far fa-heart "></i>
+            <span class="<%= class_like %>"><%= tuit.likes_count %></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

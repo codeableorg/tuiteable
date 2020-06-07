@@ -1,0 +1,74 @@
+<%=render partial: "/partials/back_button", locals: {url: root_path, title: 'Tuit'}%>
+<div class="show__tuit-card" id="tuit-card-<%= @tuit.id %>">
+  <div class="tuit-card">
+    <div class="tuit-avatar">
+      <img src="<%=(url_for(@tuit.user.avatar)) %>" alt="">
+    </div>
+    <div class="tuit-body">
+      <div class="body-author">
+        <strong class="author-name"><%= @tuit.user.name %></strong>
+        <div class="show__author-username grey_text">@<%=@tuit.user.username %></div>
+      </div>
+      <div class="show__body-text">
+        <p><%= @tuit.body  %></p>
+        <span class="show__info-date grey_text"><%=@tuit.created_at.strftime("%I:%M %p - %b, %d") %></span>
+      </div>
+      <div class="show__body-info">
+        <div class="info-reactions" id="info-reactions">
+          <% if user_signed_in? %>
+            <% like = Like.find_by(user_id: current_user.id, tuit_id: @tuit.id) %>
+            <%= link_to  root_path + "like/" + @tuit.id.to_s , remote: true do%>
+              <span><%= @tuit.likes_count %> <span class="grey_text">Likes</span></span>
+              <i class="far fa-heart <%= "liked" unless like.nil?  %> "></i>
+            <% end %>
+          <% else %>
+            <%= link_to  new_user_registration_path do%>
+              <i class="far fa-heart "></i>
+              <span><%= @tuit.likes_count %> <span class="grey_text">Likes</span></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <% if user_signed_in? %>
+      <%= form_with url:"/comment/#{@tuit.id}",method: :post, class:"tuit__create_comment" do |f| %>
+        <div class="tuit__create_comment__body">
+          <div class="tuit-avatar">
+            <img src="<%=(url_for(current_user.avatar)) %>" alt="">
+          </div>
+          <%= f.text_area :body, class:"tuit__create_comment__comment", cols:"10", rows:"10", placeholder:"Think before write..." %>
+        </div>
+        <div class="tuit__create_comment__footer">
+          <%= f.submit"Comment!", class:"tt_btn_solid" %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="tuit__comments">
+      <% if @tuit.comments.empty? %>
+        <h1>No comments yet</h1>
+      <% else %>
+        <% @tuit.comments.order(created_at: :desc).each do |comment| %>
+          <div class="tuit__comment tuit-card">
+            <div class="tuit__comment__user_picture tuit-avatar">
+              <img src="<%=(url_for(comment.user.avatar)) %>" alt="">
+            </div>
+            <div class="tuit-body">
+              <div class="body-author">
+                <%= link_to profile_path(comment.user.id) do %>
+                  <strong class="author-name"><%= comment.user.name %></strong>
+                  <span class="author-username grey_text">@<%=comment.user.username %></span>
+                <% end %>
+                <span class="info-date grey_text">- <%=comment.created_at.strftime("%b, %d") %></span>
+                <div class="body-text">
+                  <p><%=comment.body%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

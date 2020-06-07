@@ -1,0 +1,40 @@
+<div class="profile__details">
+  <div class="profile__header">
+    <div class="profile__picture_container">
+      <img  class="profile__picture" src="<%=url_for(@user.avatar)%>  " alt="">
+    </div>
+    <h1><%=@user.name %></h1>
+    <p>@<%=@user.username %></p>
+  </div>
+  <div class="profile__bio">
+    <p><%=@user.bio %></p>
+  </div>
+  <div class="profile__footer">
+    <div class="profile__footer__location">
+      <img src="/assets/location.png" alt="">
+      <%=@user.location %>
+    </div>
+    <div class="profile__footer__date">
+      <img src="/assets/calendar.png" alt="">
+      Joined <%=@user.created_at.strftime("%d %B, %Y") %>
+    </div>
+  </div>
+  <% if user_signed_in? && current_user.id == @user.id %>
+    <div class="profile__edit__button">
+      <%= link_to  "Edit profile", edit_user_registration_path(current_user), class:"tt_btn"%>
+    </div>
+  <% end %>
+  <div class="profile__footer" id="follows_counts">
+    <div id="refresh">
+      <div class="profile__footer__location">
+        <%=@user.followers.size %>
+        <strong> Followers</strong>
+      </div>
+      <div class="profile__footer__date">
+        <%=@user.followings.size %>
+        <strong> Following</strong>
+      </div>
+      <%= render  partial: "profiles/button_follow", locals:{user: @user} %>
+    </div>
+  </div>
+</div>

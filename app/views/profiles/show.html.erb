@@ -1,0 +1,14 @@
+<div class="profile__container">
+  <div class="back_nav">
+    <%= render partial: "/partials/back_button", locals: { url: url_for(root_path), title: 'Back to Explorer'  }%>
+  </div>
+  <%= render  partial: "profiles/profile_details",locals:{user: @user} %>
+  <div class="profile__nav">
+    <p id="profile_nav_tuits" class="visited"><%= link_to  "tuits", root_path+'profiles/profile/' + @user.id.to_s %></p>
+    <p id="profile_nav_likes"><%= link_to  "likes", root_path + 'profiles/profile/' + "#{@user.id.to_s}/liked", remote: true %></p>
+  </div>
+  <div class="profile__content" id="profile_content">
+    <%= render  "profiles/profile_tuits", locals:{tuits: @tuits} %>
+    <%= render  "profiles/profile_tuits_liked", locals:{likes: @likes, owner: @owner } %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/assets/tuit.css">
+<div class="tuit-new">
+  <div class="tuit-avatar">
+    <img src="<%=url_for(@user.avatar)%>" alt="User avatar">
+  </div>
+  <div class="tuit-new-form">
+  <%= form_for @ntuit do |f| %>  
+    
+    <%= f.text_field :body, class: "tuit-new-txt", placeholder: "What you are thinking about is...", minlength:"0", maxlength:"280" %><br /> 
+    
+    
+    <%= f.submit "tuiteable!", class: "tuit-new-btn"%>
+    
+    <% end %>
+  </div>
+</div>

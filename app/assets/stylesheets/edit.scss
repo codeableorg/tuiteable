@@ -1,0 +1,83 @@
+.edit_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit_user .field {
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.edit_user .field input {
+  height: 40px;
+  padding: 10px;
+  border-radius: 12px;
+}
+.edit_user .field label {
+  align-self: center;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.edit_user .field-avatar {
+  display: flex;
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  height: 200px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.field-avatar label {
+  align-self: center;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.edit_user .actions {
+  margin-top: 20px;
+}
+.field-avatar .profile__picture_container {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+.field-avatar .profile__picture_container img {
+  margin-bottom: 10px;
+}
+label.btn-upload {
+  border-radius: 15px;
+  border: 1px solid #1da1f2;
+  color: #1da1f2;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 5px 7px;
+  transition: all 0.5s;
+}
+label.btn-upload:hover {
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.cancel-account {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cancel-account .button_to input[type="submit"] {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: #000000;
+  padding: 5px 7px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 25px 0;
+}

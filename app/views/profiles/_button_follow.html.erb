@@ -1,0 +1,10 @@
+<% if current_user.id != @user.id %>
+  <div class="follow-button" id="follow-button">
+    <% follow =  Follow.find_by(follower_id: current_user.id, followed_user_id: @user.id) %>
+    <% if follow.nil? %>
+      <%= link_to "Follow"  ,root_path + "follow/#{@user.id.to_s}", remote: :true, id:"button-follow-a", class:"unfollowed"%>
+    <% else %>
+      <%= link_to "Unfollow" , root_path + "unfollow/#{@user.id.to_s}", remote: :true, id:"button-follow-a"%>
+    <% end %>
+  </div>
+<% end %>

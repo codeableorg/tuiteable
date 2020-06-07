@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+.index {
+   border-left: 1px solid #999B9E;
+   border-right: 1px solid #999B9E;
+}
+
+
+.back_nav {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+
+.back_nav__link{
+    margin-left: 15px;
+    width: 300px;
+    font-weight: bold;
+}
+
+.back_nav__link__text {
+    margin-left: 45px;
+    font-size: 20px;
+}
+
+.tuit-card:first-child {
+    border-top: 2px solid #999B9E;
+}
+
+.tuit-card {
+    border-bottom: 2px solid #999B9E;
+}

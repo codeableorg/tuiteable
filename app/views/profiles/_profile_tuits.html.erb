@@ -1,0 +1,7 @@
+<div class="profile__tuits" id="profile_tuits">
+  <% unless @tuits.empty? %>
+    <%@tuits.each do |tuit| %>
+      <%=render partial: "/tuits/tuit", locals: {tuit: tuit}%>
+    <%end %>
+  <% end %>
+</div>

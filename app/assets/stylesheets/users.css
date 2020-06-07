@@ -1,0 +1,100 @@
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.tt_btn {
+  background: transparent;
+  border: 1px solid #1da1f2;
+  color: #1da1f2;
+  padding: 1vh;
+  border-radius: 40px;
+  outline: none;
+  cursor: pointer;
+}
+.profile__container {
+  border-left: 1px solid #999b9e;
+  border-right: 1px solid #999b9e;
+}
+.back_nav,
+.profile__details,
+.profile__content {
+  /*border-top: 1px solid #999B9E;*/
+  border-bottom: 2px solid #999b9e;
+}
+
+.profile__container {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.15fr 0.4fr 0.1fr 1fr;
+  grid-template-areas:
+    "nav"
+    "profile"
+    "tuits"; */
+  display: flex;
+  flex-direction: column;
+}
+
+.back_nav {
+  grid-area: nav;
+}
+.profile__details {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  grid-area: profile;
+}
+
+.profile__details * {
+  margin: 7px;
+}
+
+.profile__header {
+  text-align: center;
+}
+
+.profile__picture_container {
+  display: flex;
+  justify-content: center;
+}
+
+.profile__picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.profile__footer {
+  width: 70%;
+  max-width: 450px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.profile__footer__location,
+.profile__footer__date {
+  display: flex;
+  align-items: center;
+}
+
+.profile__edit__button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.profile__nav {
+  justify-self: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  text-transform: uppercase;
+  border-bottom: 2px solid #999b9e;
+}

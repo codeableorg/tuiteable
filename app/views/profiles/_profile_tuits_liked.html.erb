@@ -1,0 +1,7 @@
+<div class="profile__tuits__liked hidden" id="profile_tuits_liked">
+  <% unless @likes.empty? %>
+    <%@likes.each do |tuit| %>
+      <%=render partial: "/tuits/tuit", locals: {tuit: tuit}%>
+    <%end %>
+  <% end %>
+</div>

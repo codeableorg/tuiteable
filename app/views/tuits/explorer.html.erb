@@ -1,0 +1,9 @@
+<div class="back_nav">
+  <%= render partial: "/partials/back_button", locals: { url: nil, title: 'Explorer'  }%>
+</div>
+<% if user_signed_in? %>
+  <%= render partial: "tuits/new-tuit", object: @user %>
+<% end %>
+<% @tuits.each do |tuit| %>
+  <%= render partial: "tuits/tuit", locals:{tuit:tuit} %>
+<% end %>

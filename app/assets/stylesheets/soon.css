@@ -1,0 +1,14 @@
+.side-bar-soon {
+  background-color: rgba(153, 155, 158, 0.25);
+  padding: 28px;
+  text-align: center;
+  width: 80%;
+  margin: 7px auto 5px auto;
+}
+.side-bar-soon h2 {
+  display: grid;
+  font-size: 20px;
+  gap: 10px;
+  grid-template-rows: repeat(2, auto);
+  justify-content: center;
+}
