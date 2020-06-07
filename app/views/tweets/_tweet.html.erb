@@ -13,17 +13,20 @@
         <p class="tweet-body"><%= tweet.body %></p>  
     <% end %>   
     <footer>
-      <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%></span><%=tweet.comments_count%>
-      <span class="tweet-count"><%=image_tag "likes-icon.png", class: "tweets-count-icon"%></span><%=tweet.likes_count%>
-
+      <span class="tweet-count"><%=image_tag "messages-icon.png", class: "tweets-count-icon"%><%=tweet.comments_count%></span>
+      
       <% if user_signed_in? %>
         <% unless tweet.has_liked?(current_user) %>
-          <%= button_to "Like", tweet_likes_path(tweet), method: :post %>
-        <% else %>         
-          <%= button_to "Dislike", tweet_like_path(tweet, id: tweet.likes.find_by(user: current_user).id ), method: :delete %>           
+          <%= link_to (image_tag ("likes-icon.png")), tweet_likes_path(tweet), method: :post %>
+          <span><%=tweet.likes_count%></span>
+        <% else %>  
+            <div class="tweet-count">     
+            <%= link_to (image_tag ("likes-icon-red.png")), tweet_like_path(tweet, id: tweet.likes.find_by(user: current_user).id ), method: :delete %>
+            <span class="tweet-liked"><%=tweet.likes_count%></span> 
+            </div>                                     
         <% end %>
       <% end %>
-
+       
 
     </footer>    
   </div>   
