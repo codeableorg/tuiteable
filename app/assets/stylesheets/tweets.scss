@@ -27,6 +27,7 @@
   line-height: 20px;
   color: #999b9e;
 }
+
 .tweet-body {
   margin-top: 11px;
   margin-bottom: 7px;
@@ -36,6 +37,40 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: 10px;
+}
+.tweet {
+  display: flex;
+  border: 1px solid #999b9e;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.tweet-liked {
+  color: #e0245e;
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.tweet-comments-icon {
+  margin-left: 5px;
+}
+.tweet-not-liked {
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.tweet-count-likes {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-left: 120px;
+}
+.tweet-count-comments {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-footer {
+  display: flex;
+  align-items: center;
 }
 
 //Columns

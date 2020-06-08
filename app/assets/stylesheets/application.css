@@ -14,114 +14,111 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-a{
+a {
   text-decoration: none;
 }
 form input,
-textarea{
+textarea {
   color: black;
 }
 
-.content-right{
-  background-color:  rgba(153, 155, 158, 0.25);
+.content-right {
+  background-color: rgba(153, 155, 158, 0.25);
   margin: 7px 20px 10px 20px;
   text-align: center;
 }
 
- /************** start new_session **************/
+/************** start new_session **************/
 
- .session_new{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
+.session_new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
- .new_user input{
+.new_user input {
   border: 1px #000000 solid;
   border-radius: 10px;
   height: 40px;
   font-size: 15px;
   margin-bottom: 14px;
   max-width: 200px;
-  
- }
- .actions{
-   text-align: center;
- }
- .btn__submit{
-  border: 1px #1DA1F2 solid !important;
-  background-color: #1DA1F2 !important;
+}
+.actions {
+  text-align: center;
+}
+.btn__submit {
+  border: 1px #1da1f2 solid !important;
+  background-color: #1da1f2 !important;
   color: #ffffff;
   border-radius: 100px !important;
   padding: 5px 10px;
   cursor: pointer;
   margin-top: 15px;
-  
- }
- .btn__submit:hover{
+}
+.btn__submit:hover {
   background-color: transparent !important;
-  color: #1DA1F2;
- }
- .btn-social__media{
+  color: #1da1f2;
+}
+.btn-social__media {
   border-radius: 100px;
   padding: 5px 10px;
   margin-bottom: 14px;
- }
+}
 
- .facebook{
-  border: 1px #1D5CD7 solid;
-  background-color:  #1D5CD7;
- }
+.facebook {
+  border: 1px #1d5cd7 solid;
+  background-color: #1d5cd7;
+}
 
- .github{
-  border: 1px #191A1B solid;
-  background-color:  #191A1B;
- }
+.github {
+  border: 1px #191a1b solid;
+  background-color: #191a1b;
+}
 
- .btn-social__media:hover{
+.btn-social__media:hover {
   background-color: transparent;
-  }
- .email{
-  border: 1px #1DA1F2 solid;
+}
+.email {
+  border: 1px #1da1f2 solid;
   background-color: transparent;
-  color: #1DA1F2;
+  color: #1da1f2;
   margin-top: 14px;
- }
- .email:hover{
-   color: #ffffff;
-   background-color: #1DA1F2 ;
- }
- /************** end new_session **************/
+}
+.email:hover {
+  color: #ffffff;
+  background-color: #1da1f2;
+}
+/************** end new_session **************/
 
 /************** start new_user **************/
 
-.new_user{
+.new_user {
   margin: 10px 100px;
 }
-.field{
+.field {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
-
-.file-avatar{
+.file-avatar {
   display: none;
 }
 
 .form__load-avatar {
-  border: 1px #1DA1F2 solid;
-  color: #1DA1F2;
+  border: 1px #1da1f2 solid;
+  color: #1da1f2;
   background-color: transparent;
   cursor: pointer;
   border-radius: 100px;
@@ -129,15 +126,15 @@ textarea{
   text-align: center;
 }
 
-.form__load-avatar:hover{
+.form__load-avatar:hover {
   color: #ffffff;
-  background-color: #1DA1F2;
+  background-color: #1da1f2;
 }
-.content-upload__file{
+.content-upload__file {
   width: 50%;
 }
 
-.form__text-area{
+.form__text-area {
   height: 120px;
   width: 100%;
   border: 1px #000000 solid;
@@ -145,21 +142,27 @@ textarea{
   padding: 10px;
 }
 /************** end new_user **************/
-body{
-  background-color: #E5E5E5;
+body {
+  background-color: #e5e5e5;
 }
 
 /* main container */
-.index-page{
+.index-page {
   width: 85%;
   margin: 0 auto;
-  height: 100vh;  
+  height: 100vh;
   display: grid;
-  grid-template-columns: minmax(auto,174px) 1fr minmax(auto,270px);
+  grid-template-columns: minmax(auto, 174px) 1fr minmax(auto, 270px);
   grid-row: 1fr;
-  gap: 1px
+  gap: 1px;
 }
 
-.column-left, .column-middle, .column-right{
-  background-color: #1D2128;
+.column-left,
+.column-middle,
+.column-right {
+  background-color: #1d2128;
+}
+
+.column-middle {
+  overflow: auto;
 }
