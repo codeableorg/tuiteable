@@ -134,7 +134,12 @@
 .unique_tweet_container{
   padding: 1em;
   border-bottom: .5px solid #fff;
+  display: flex;
 }
+.unique_tweet_container div{
+  margin-left: 1em;
+}
+
 .create_comment{
   padding: 1em;
   border-bottom: .5px solid #fff;
