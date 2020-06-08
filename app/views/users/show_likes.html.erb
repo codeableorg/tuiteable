@@ -1,15 +1,15 @@
 <% content_for :page_heading do %>
-  <a href="#">←</a> Back to Explorer
+  <%= link_to '←', profile_path  %> Back to Explorer
 <% end %>
 <%= render partial: 'profile' %>
 <div class="tuitsAndLikes">
   <div class="windows">
     <%= link_to 'Tuits', profile_path, class: 'windowActive' %>
-    <%= link_to 'Likes', profile_likes_path, class: '' %>
+    <%= link_to 'Likes', likes_profile_path, class: '' %>
   </div>
 </div>
 <div class="tuits">
-  <% current_user.liked_tuits.each do |tuit|%>
+  <% @user.liked_tuits.each do |tuit|%>
     <div class="tweet-wrapper">
       <% if current_user.is_admin? || tuit.owner == current_user %>
         <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>

@@ -22,11 +22,14 @@
           <% if signed_in? %>
             <div class="user hidden">
               <img src="/img/user.png" alt="">
-              <%= link_to 'Profile', profile_path %>
+              <%= link_to 'Profile', profile_path(current_user) %>
             </div>
             <div class="user hidden">
               <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'sign_out' %>
             </div>
+            <% if current_user.is_admin? %>
+            <p>Admin mode</p>
+            <% end %>
           <% end %>
         </div>
       </div>

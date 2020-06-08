@@ -1,21 +1,23 @@
 <% content_for :page_heading do %>
-  <a href="#">←</a> Back to Explorer
+  <%= link_to '←', root_path %> Back to Explorer
 <% end %>
 <%= render partial: 'profile' %>
 <div class="tuitsAndLikes">
   <div class="windows">
     <%= link_to 'Tuits', profile_path, class: '' %>
-    <%= link_to 'Likes', profile_likes_path, class: "windowActive" %>
+    <%= link_to 'Likes', likes_profile_path, class: "windowActive" %>
   </div>
 </div>
 <div class="tuits">
-  <% current_user.tuits.each do |tuit|%>
+  <% @user.tuits.each do |tuit|%>
     <div class="tweet-wrapper">
+    <% if tuit.owner == current_user || current_user.is_admin? %>
       <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
+    <% end %>
       <%= link_to tuit, class:'tweet' do %>
         <%= show_user_avatar(tuit.owner)%>
         <div class="content">
-          <h3><%= current_user.name%><span> @<%=current_user.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
+          <h3><%= @user.name%><span> @<%=@user.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
           <p id='comment' ><%=tuit.body%></p>
         </div>
       <% end %>

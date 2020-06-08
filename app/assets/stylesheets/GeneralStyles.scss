@@ -341,6 +341,9 @@ form button {
   text-decoration: none;
   display: flex;
   color: inherit;
+  .content {
+    flex: 1;
+  }
 }
 
 .tweet-comment {
@@ -478,7 +481,8 @@ form button {
   align-items: center;
 }
 
-.profile .edit-profile {
+.profile .edit-profile,
+.follow-profile {
   background: transparent;
   color: #1da1f2;
   border: solid 2px #1da1f2;
@@ -487,6 +491,10 @@ form button {
   font-size: 16px;
   margin: 14px 0 0 auto;
   text-decoration: none;
+}
+
+.follow-profile {
+  display: block;
 }
 
 .tuitsAndLikes {
@@ -531,4 +539,9 @@ form button {
 
 .head {
   position: relative;
+}
+
+.profile-link {
+  color: inherit;
+  text-decoration: none;
 }

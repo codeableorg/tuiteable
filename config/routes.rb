@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
-  scope '/profile' do
-    get '/', to: 'users#show', as: 'profile'
-    get '/likes', to: 'users#show_likes', as: 'profile_likes'
+  resources :users, path: 'profile', as: 'profile', only: :show do
+    member do
+      get '/likes', to: 'users#show_likes' # , as: '_likes'
+    end
   end
 
   resources :tuits do
