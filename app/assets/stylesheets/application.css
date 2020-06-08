@@ -26,10 +26,17 @@
 a {
   text-decoration: none;
 }
-form input,
-textarea {
+form input{
   color: black;
+  padding-left: 1em ;
+  padding-right: 1em;
 }
+textarea{
+  padding: 1em;
+  color: #fff;
+  background-color: #1D2128;
+}
+
 
 .content-right {
   background-color: rgba(153, 155, 158, 0.25);
@@ -148,7 +155,7 @@ body {
 
 /* main container */
 .index-page {
-  width: 85%;
+  width: 70%;
   margin: 0 auto;
   height: 100vh;
   display: grid;
@@ -166,3 +173,29 @@ body {
 .column-middle {
   overflow: auto;
 }
+
+/* COLUMN LEFT */
+.column-left div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+}
+.logout_button{
+  border: 1px solid #E0245E;
+  color: #E0245E;
+  padding: .3em 1em;
+  border-radius: 1em;
+}
+
+
+/* COLUMN LEFT */
+.column-right footer{
+  padding: 2em 2em;
+  font-size: .85em;
+  text-align: center;
+}
+
+
+/* COLUMN MIDDLE */

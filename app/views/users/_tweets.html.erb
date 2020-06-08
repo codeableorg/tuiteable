@@ -1,7 +1,7 @@
-<section>
+<section class="data_container">
     <%@user.tweets.order(created_at: :desc).each do |tweet|%>
-         <div>
-            <%= image_tag(url_for(@user.avatar)) %>
+        <%= image_tag(url_for(@user.avatar), class: "tweet-img") %>
+        <div>
             <span>@<%= @user.username%> </span>
             <span> <%= tweet.created_at.strftime("%-d %B")%> </span>
             <p> <%=tweet.body%> </p>
