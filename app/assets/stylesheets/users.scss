@@ -1,3 +1,32 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.edit_profile_btn{
+  color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  border-radius: 1em;
+  padding: .3em .7em;
+}
+
+.data_user_container{
+  border-bottom: .5px solid #fff;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu_data{
+  padding: .5em 1em;
+  border-bottom: .5px solid #fff;
+  display: flex;
+  justify-content: space-around;
+}
+
+.data_container{
+  padding: 1em;
+  display: flex;
+}
+.data_container div{
+  margin-left: 1em;
+}

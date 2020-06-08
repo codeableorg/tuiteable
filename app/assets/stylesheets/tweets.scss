@@ -55,3 +55,61 @@
   width: 15.64px;
   height: 15.64px;
 }
+
+.tweet{
+  width: 100%;
+  border-bottom: .1px solid white;
+  padding: 1em;
+}
+
+// new tweet section
+.new_tweet_container{
+  padding: 1em;
+  display: flex;
+  border-bottom: 1px solid #fff;
+}
+.new_tweet,
+.new_comment{
+  width: 100%;
+}
+.tweet_text_area,
+.comment_text_area{
+  width: 100%;
+  background-color: #1D2128;
+  border: none;
+  resize: none;
+}
+.tuiteable_btn,
+.comment_btn{
+  width: 80px;
+  border: none;
+  border-radius: 1em;
+  background-color: #1DA1F2;
+  color: #fff;
+  font-weight: bold;
+  padding: .5em 1em;
+  display: block;
+  margin-left: auto;
+}
+.tuiteable_btn:hover,
+.comment_btn:hover{
+  cursor: pointer;
+}
+
+.unique_tweet_container{
+  padding: 1em;
+  border-bottom: .5px solid #fff;
+}
+.create_comment{
+  padding: 1em;
+  border-bottom: .5px solid #fff;
+  display: flex;
+}
+.comments_container{
+  padding: 1em;
+  border-bottom: .5px solid #fff;
+  display: flex;
+}
+.comments_container div{
+  margin-left: 1em;
+}

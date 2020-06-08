@@ -1,10 +1,9 @@
-<h1>SHOW ONE TWEET</h1>
-<section>
-  <%= image_tag(url_for(@tweet.user.avatar), class: "algo") %>
+<section class="unique_tweet_container">
+  <%= image_tag(url_for(@tweet.user.avatar), class: "tweet-img") %>
   <h2> <%= @tweet.user.name %> </h2>
-  <p>@<%= @tweet.user.username %></p>
+  <p class="tweet-username">@<%= @tweet.user.username %></p>
   <p> <%= @tweet.body %> </p>
-  <p><%= @tweet.created_at.strftime('%H:%M %p - %b %e, %Y') %></p>
+  <p class="tweet-username"><%= @tweet.created_at.strftime('%H:%M %p - %b %e, %Y') %></p>
   <span><%= @tweet.likes_count %> Likes</span>
 
   <% if user_signed_in? %>
@@ -14,25 +13,29 @@
       <%= image_tag "likes-icon.png" %>
     <% end %>
   <% end %>
-
 </section>
 
-<hr>
-
 <% if user_signed_in? %>
-  <section>
+  <section class="create_comment">
+    <%= image_tag(url_for(current_user.avatar), class: "tweet-img") %>
     <%= form_for @comment, url: tweet_comments_path(@tweet) do |f| %>
       <p>
-        <%= f.text_area :body %>
+        <%= f.text_area :body, class: "comment_text_area", placeholder: "Think before write..." %>
       </p>
-      <%= f.submit %>
+      <%= f.submit "Comment!", class: "comment_btn" %>
     <% end %>
   </section>
 <% end %>
 
 <% @tweet.comments.each do |comment| %>
-  <section>
-    <p><%= comment.user.name %> @<%= comment.user.username %> - <%= comment.created_at.strftime('%e %B') %></p>
-    <p><%= comment.body %></p>
+  <section class="comments_container">
+    <%= image_tag(url_for(comment.user.avatar), class: "tweet-img") %>
+    <div>
+      <p><%= comment.user.name %> 
+        <span class="tweet-username">
+          @<%= comment.user.username %> - <%= comment.created_at.strftime('%e %B') %></p>
+        </span> 
+      <p><%= comment.body %></p>
+    </div>
   </section>
 <% end %>
