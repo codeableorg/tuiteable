@@ -5,10 +5,8 @@
       <p class="tweet-name"><%= tweet.user.name %></p>
       <p class="tweet-username">@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%-d %B") %></p>        
       </p>
-      <% if user_signed_in? and current_user==tweet.user %>
-      <div class="tweet-delete">
-        <%= link_to "Delete", tweet_path(tweet), method: :delete%>
-      </div>         
+      <% if user_signed_in? and current_user==tweet.user %>      
+        <%= link_to "Delete", tweet_path(tweet), method: :delete, class: "logout_button tweet-delete"%>              
       <%end%>      
     </header>
     <%= link_to tweet_path(tweet), class: "tweet-body" do %>  
@@ -31,6 +29,11 @@
             <span class="tweet-liked"><%=tweet.likes_count%></span> 
             </div>                                     
         <% end %>
+      <% else %>
+        <div class="tweet-count-likes">
+            <%= link_to (image_tag ("likes-icon.png")), new_user_registration_path %>
+            <span class="tweet-not-liked"><%=tweet.likes_count%></span>
+        </div>
       <% end %>
     </footer>    
   </div>   
