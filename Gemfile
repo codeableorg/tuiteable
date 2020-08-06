@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
@@ -25,11 +23,21 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# gem 'wdm'
+gem 'pundit'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'wdm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  %w(rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support).each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+  end
+  
+  gem 'dotenv-rails'
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -44,3 +52,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "devise", "~> 4.7"
+
+gem "omniauth-github", "~> 1.4"
+
+gem "omniauth-facebook", "~> 6.0"
+
+gem "simple_token_authentication", "~> 1.17"
+
+gem "faker", "~> 2.12"

@@ -1,0 +1,36 @@
+<% content_for :page_heading do %>
+  <%= link_to '←', profile_path  %> Back to Explorer
+<% end %>
+<%= render partial: 'profile' %>
+<div class="tuitsAndLikes">
+  <div class="windows">
+    <%= link_to 'Tuits', profile_path, class: 'windowActive' %>
+    <%= link_to 'Likes', likes_profile_path, class: '' %>
+  </div>
+</div>
+<div class="tuits">
+  <% @user.liked_tuits.each do |tuit|%>
+    <div class="tweet-wrapper">
+      <% if current_user.is_admin? || tuit.owner == current_user %>
+        <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
+      <% end %>
+      <%= link_to tuit, class:'tweet' do %>
+        <%= show_user_avatar(tuit.owner)%>
+        <div class="content">
+          <h3><%= tuit.owner.name%><span> @<%=tuit.owner.username%> - <%= tuit.created_at.strftime '%-d %B' %></span> </h3>
+          <p id='comment' ><%=tuit.body%></p>
+        </div>
+      <% end %>
+      <div class="info">
+        <%= link_to tuit, class:'comments' do %>
+          <img src="/img/comment.png">
+          <p><%=tuit.comments_count%></p>
+        <% end %>
+        <%= link_to like_tuit_path(tuit), class:'likes' do %>
+          <img class='<%= is_liked(tuit) && 'is-liked' %>' src="/img/like.png">
+          <p><%=tuit.votes_count%></p>
+        <% end %>
+      </div>
+    </div>
+  <%end%>
+</div>

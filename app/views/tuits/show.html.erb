@@ -1,0 +1,47 @@
+<% content_for :page_heading do %>
+  <% link_to '<-', root_path %>Tuit
+<% end %>
+<div class="showTuit">
+  <div class="tweet-wrapper">
+    <div class="tweet">
+      <%= show_user_avatar(@tuit.owner)%>
+      <div class="content">
+        <h3><%= @tuit.owner.name %></h3>
+        <span>@<%= @tuit.owner.username %> - <%= @tuit.created_at.strftime '%-d %B' %></span>
+        <p id='comment' ><%= @tuit.body %></p>
+        <span><%= @tuit.created_at.strftime '%I:%M %p - %b %-d, %Y' %></span>
+      </div>
+    </div>
+    <div class="info">
+      <p><%= pluralize(@tuit.votes_count,'Like')%></p>
+      <%= link_to like_tuit_path(@tuit), class:'likes' do %>
+        <img class='<%= is_liked(@tuit) && 'is-liked' %>' src="/img/like.png">
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if user_signed_in? %>
+  <%= form_with(model: [@tuit, Comment], local:true) do |f|%>
+    <div class="about">
+      <div class="content">
+        <%= show_user_avatar(current_user)%>
+        <%= f.text_field :body, placeholder: 'Think before write...' %>
+      </div>
+      <%= f.button 'Comment!', name: nil %>
+    </div>
+  <% end %>
+<% end %>
+<% @tuit.comments.each do |comment| %>
+  <div class="tweet-comment">
+    <%= show_user_avatar(comment.user)%>
+    <div class="content">
+      <h3>
+        <%= comment.user.name %><span>@<%= link_to(comment.user.username, profile_path(comment.user), class: 'profile-link')  %> - <%= comment.created_at.strftime '%-d %B' %></span>
+        <% if current_user.is_admin? || comment.user == current_user %>
+          <%= button_to 'Delete', tuit_comment_path(@tuit,comment), method: :delete, class: 'comment-delete', form_class: 'comment-delete-form' %>
+        <% end %>
+      </h3>
+      <p id='comment' ><%= comment.body %></p>
+    </div>
+  </div>
+<% end %>

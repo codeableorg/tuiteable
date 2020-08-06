@@ -1,0 +1,22 @@
+<div class="profile">
+  <%= show_user_avatar(@user)%>
+  <h1><%= @user.name%></h1>
+  <span>@<%= @user.username%></span>
+  <p><%= @user.bio%></p>
+  <div class="profinfo">
+    <div class="location">
+      <img src="/img/location.png">
+      <span><%= @user.location%></span>
+    </div>
+    <div class="calendar">
+      <img src="/img/calendar.png">
+      <span>Joined <%= @user.created_at.strftime '%B %Y'%></span>
+    </div>
+  </div>
+  <% if @user != current_user %>
+    <div><a href="#" class='follow-profile'>Follow</a></div>
+  <% end %>
+  <% if @user == current_user || current_user.is_admin? %>
+    <%= link_to "Edit Profile", edit_user_registration_path, class: 'edit-profile' %>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<% content_for :page_heading do %>
+  Explorer
+<% end %>
+<% if user_signed_in? %>
+  <%= form_with(model: Tuit) do |f|%>
+    <div class="about">
+      <div class="content">
+        <%= show_user_avatar(current_user)%>
+        <%= f.text_field :body, placeholder: 'What you are thinking about is...' %>
+      </div>
+      <%= f.button 'Tuiteable!' %>
+    </div>
+  <% end %>
+<% end %>
+<% @tuits.each do |tuit|%>
+  <div class="tweet-wrapper">
+    <div class="tweet">
+      <%= show_user_avatar(tuit.owner)%>
+      <div class="content">
+        <h3><%= tuit.owner.name%><span> @<%= link_to_tuit_owner(tuit) %> - <%= tuit.created_at.strftime '%-d %B' %></span>
+          <% if user_signed_in? %>
+            <% if current_user.is_admin? || tuit.owner == current_user %>
+              <%= button_to 'Delete', tuit_path(tuit), method: :delete, class: 'tuit-delete', form_class: 'tuit-delete-form' %>
+            <% end %>
+          <% end %>
+        </h3>
+        <p id='comment' ><%=tuit.body%></p>
+      </div>
+    </div>
+    <div class="info">
+      <%= link_to tuit, class:'comments' do %>
+        <img src="/img/comment.png">
+        <p><%=tuit.comments_count%></p>
+      <% end %>
+      <%= link_to like_tuit_path(tuit), class:'likes' do %>
+        <img class='<%= is_liked(tuit) && 'is-liked' %>' src="/img/like.png">
+        <p><%=tuit.votes_count%></p>
+      <% end %>
+    </div>
+  </div>
+<%end%>

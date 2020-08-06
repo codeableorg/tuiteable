@@ -1,0 +1,547 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: #1d2128;
+}
+
+.mainContainer {
+  display: flex;
+}
+
+.first {
+  border-right: 2px solid grey;
+  width: fit-content;
+  padding: 10px 28px;
+  padding-top: 10px;
+}
+
+.first img {
+  margin-top: 5px;
+}
+
+.firstColumn {
+  display: flex;
+  align-items: center;
+  margin-left: -7px;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.firstColumn .hash {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.firstColumn .user {
+  display: flex;
+  align-items: center;
+}
+
+.firstColumn .sign_out {
+  color: red;
+  border: solid 2px red;
+  border-radius: 15px;
+  padding: 5px;
+  background: transparent;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+  color: red;
+}
+
+.firstColumn a {
+  text-decoration: none;
+  font-size: 19px;
+  color: #fff;
+  margin-left: 12px;
+}
+
+.second {
+  border-right: 2px solid grey;
+  padding-bottom: 20px;
+  max-width: 56em;
+  flex: 1;
+}
+
+.second .head {
+  border-bottom: 2px solid grey;
+}
+
+.second .head p {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 15px 25px;
+}
+
+.head a {
+  color: rgb(0, 171, 238);
+  text-decoration: none;
+}
+
+.about {
+  border-bottom: 7px solid grey;
+  text-align: right;
+}
+
+.about button {
+  padding: 7px 13px;
+  background: #1da1f2;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.about .content input {
+  height: 50px;
+  background: transparent;
+  padding-left: 15px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  flex: 1;
+}
+
+.about .content {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.about .content img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.form {
+  border-bottom: 2px solid gray;
+  font-weight: bold;
+  padding-top: 17px;
+  border-bottom: none;
+}
+
+.signup-form {
+  border-bottom: 2px solid gray;
+  font-weight: bold;
+  padding-top: 17px;
+  border-bottom: none;
+  .field {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+  .actions {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .text-area {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.form-center {
+  text-align: center;
+}
+
+#username {
+  margin: 10px 50px;
+  padding: 0 0 0 15px;
+}
+
+#namee {
+  margin: 10px 80px;
+  padding: 0 0 0 15px;
+}
+
+#emaill {
+  margin: 10px 83px;
+  padding: 0 0 0 15px;
+}
+
+#passwordd {
+  margin: 10px 52px;
+  padding: 0 0 0 15px;
+}
+
+#pc {
+  margin: 10px 58px;
+  padding: 0 0 0 15px;
+}
+
+#location {
+  margin: 10px 62px;
+  padding: 0 0 0 15px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.form input {
+  height: 35px;
+  border-radius: 14px;
+  border: none;
+  width: 230px;
+}
+
+.form label {
+  color: #fff;
+}
+
+.form textarea {
+  width: 362px;
+  height: 140px;
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+form button {
+  border: 2px solid #1da1f2;
+  background: #1da1f2;
+  color: #fff;
+  padding: 5px;
+  border-radius: 15px;
+  margin: 5px;
+  /* margin-left: 119px; */
+}
+
+.avatar button {
+  border: 2px solid #1da1f2;
+  background: transparent;
+  color: #1da1f2;
+  padding: 5px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-left: 74px;
+}
+
+.third {
+  color: #fff;
+}
+
+.third .card {
+  background: rgba(153, 155, 158, 0.25);
+  margin: 7px 18px 30px 18px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 13px;
+  min-width: 210px;
+  align-items: center;
+}
+
+.card button {
+  width: fit-content;
+}
+
+.card form {
+  width: 213px;
+  /* margin: 11px 0; */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card input {
+  height: 35px;
+  border-radius: 14px;
+  border: none;
+  width: 201px;
+  margin: 7px 0;
+  padding: 0 0 0 12px;
+}
+
+.card h1#title {
+  margin-bottom: 10px;
+}
+
+.card h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card #login {
+  color: #fff;
+  background: #1da1f2;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  /* margin-bottom: 10px; */
+}
+
+.card #facebook {
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 4px 6px;
+  background: #1d5cd7;
+  border: none;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
+.card #github {
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 4px 6px;
+  background: #000;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.card #signup {
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+  color: #1da1f2;
+  border: 2px solid #1da1f2;
+  border-radius: 20px;
+  padding: 10px;
+  background: transparent;
+  margin-top: 10px;
+  /* margin: 10px 0; */
+}
+
+.third p#message {
+  font-size: 13px;
+  text-align: center;
+  margin: 0 18px;
+}
+
+/* Tweet */
+
+.tweet-wrapper {
+  font-size: 16px;
+  color: #fff;
+  padding: 16px;
+
+  min-width: 20em;
+  border-bottom: 2px solid grey;
+}
+
+.tweet {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+  .content {
+    flex: 1;
+  }
+}
+
+.tweet-comment {
+  text-decoration: none;
+  display: flex;
+  color: inherit;
+  color: #fff;
+  font-size: 16px;
+  padding: 16px;
+  .content {
+    flex: 1;
+  }
+}
+
+#traueaa {
+  height: 50px;
+  width: 50px;
+  display: block;
+}
+
+.tweet img#image,
+.tweet-comment img#image {
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.tweet span,
+.tweet-comment span {
+  color: grey;
+  font-weight: 300;
+}
+
+.content p#comment {
+  margin: 10px 0 7px 0;
+}
+
+.info {
+  display: flex;
+  margin-top: 13px;
+  position: relative;
+  z-index: 1;
+  margin-left: 62px;
+  .is-liked {
+    transform: all 0.1s ease-in;
+    filter: brightness(0.5) sepia(1) saturate(10000%);
+  }
+}
+
+.comments {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.comments img {
+  height: 15px;
+  margin-right: 5px;
+}
+
+.comment-delete-form,
+.tuit-delete-form {
+  float: right;
+  text-align: right;
+}
+
+.comment-delete,
+.tuit-delete {
+  background: none;
+  border-radius: 8px;
+  border: 1px solid #e0245e;
+  color: #e0245e;
+  padding: 2px 8px;
+  box-shadow: none;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  margin-left: 110px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.likes img {
+  height: 15px;
+  margin-right: 5px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  border-bottom: 2px solid grey;
+  padding: 20px 0;
+}
+
+.profile span {
+  color: grey;
+}
+
+.profile img#profile {
+  height: 105px;
+  border-radius: 50%;
+}
+
+.profile p {
+  margin: 20px 0;
+}
+
+.profile .profinfo {
+  display: flex;
+
+  width: 280px;
+  justify-content: space-between;
+}
+
+.profinfo .location span {
+  margin-left: 7px;
+}
+
+.profinfo .calendar span {
+  margin-left: 7px;
+}
+
+.profinfo .location {
+  display: flex;
+  align-items: center;
+}
+
+.profinfo .calendar {
+  display: flex;
+  align-items: center;
+}
+
+.profile .edit-profile,
+.follow-profile {
+  background: transparent;
+  color: #1da1f2;
+  border: solid 2px #1da1f2;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin: 14px 0 0 auto;
+  text-decoration: none;
+}
+
+.follow-profile {
+  display: block;
+}
+
+.tuitsAndLikes {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid grey;
+}
+
+.tuitsAndLikes .windows {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.tuitsAndLikes a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.windowActive {
+  color: gray !important;
+}
+
+.flash {
+  color: #fff;
+  display: block;
+  padding: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.flash-alert {
+  background: #d66d6d;
+}
+
+.flash-notice {
+  background: #7bd66d;
+  color: #000;
+}
+
+.head {
+  position: relative;
+}
+
+.profile-link {
+  color: inherit;
+  text-decoration: none;
+}

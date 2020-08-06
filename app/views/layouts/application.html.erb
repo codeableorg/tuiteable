@@ -4,12 +4,80 @@
     <title>Tuiteable</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="mainContainer">
+      <div class="first">
+        <a href="/"><img src="/img/logo.png" height="43"></a>
+        <div class="firstColumn">
+          <div class="hash">
+            <img src="/img/hash.png" alt="">
+            <%= link_to 'Explorer', root_path %>
+          </div>
+          <% if signed_in? %>
+            <div class="user hidden">
+              <img src="/img/user.png" alt="">
+              <%= link_to 'Profile', profile_path(current_user) %>
+            </div>
+            <div class="user hidden">
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'sign_out' %>
+            </div>
+            <% if current_user.is_admin? %>
+            <p>Admin mode</p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="second">
+        <div class="head">
+          <p>
+            <%= yield :page_heading %>
+          </p>
+          <% unless alert.nil? %>
+            <span class="flash flash-alert"><%= alert %></span>
+          <% end %>
+          <% unless notice.nil? %>
+            <span class="flash flash-notice"><%= notice %></span>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+      <div class="third">
+        <div class="card">
+          <% if !signed_in? %>
+            <%= form_with(url: user_session_path, scope: 'user', local:true) do |f| %>
+              <h1 class="form-title">Log in to { tuiteable }</h1>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+              <div class="form-center">
+                <div>
+                  <button type="submit" id="login">Log in</button>
+                </div>
+                <div>
+                  <%= link_to 'Use Facebook',omniauth_authorize_path('user', :facebook),id: 'facebook'%>
+                </div>
+                <div>
+                  <%= link_to 'Use Github',omniauth_authorize_path('user', :github),id: 'github'%>
+                </div>
+                <p>Not registered yet?</p>
+                <%= link_to 'Sign up with email', new_user_registration_path, id: 'signup'%>
+              </div>
+            <% end %>
+          <% else %>
+            <h1 id="title">New features coming soon!</h1>
+            <img src="/img/feature.png">
+          <% end %>
+        </div>
+        <p id="message">Made with bravery by <br>
+          {<%= '%s - %s - %s' % ['Jorge', 'Marcelo', 'Franco'].shuffle %>}</p>
+      </div>
+    </div>
   </body>
 </html>
