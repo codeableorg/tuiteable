@@ -3,6 +3,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+
+
+#gem rspec
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+end
+
+#simple token authentication
+gem 'simple_token_authentication', '~> 1.0'
+#Sign_in with github
+gem 'omniauth-github'
+#Sign_in with fb
+gem 'omniauth-facebook'
+#
+gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
@@ -44,3 +59,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'

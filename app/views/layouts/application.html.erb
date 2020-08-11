@@ -10,6 +10,51 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <main class="index-page">
+
+      <section class="column-left">
+      <div>
+        <img src="/assets/tuiteable.png" alt="" >
+        <%= link_to  "#Explore", root_path %>
+        <% if user_signed_in? %>                    
+          <%= link_to  "Profile", '/profile' %>          
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logout_button"%>
+        <%end%>      
+      </div>
+      </section>
+
+      <section class="column-middle">
+
+        <section>
+          <div class="notice"><%= notice%></div>
+          <div class="alert"><%= alert%></div>
+        </section>
+          
+        <%= yield %>
+        
+      </section>
+
+      <section class="column-right">
+        
+        <div class="content-right">
+          <% unless user_signed_in? %>
+            <%= render  file:"devise/sessions/new" %>
+          <%else%>
+            <%= render  'layouts/baner' %>
+          <% end %>
+        </div>
+
+        <footer>          
+          <p>Made with bravery by {codeable}</p>
+          <p>Cohort #2:</p>
+          <p><a href="https://github.com/alexRai98" target="_blank">Rai Delgado</a></p>
+          <p><a href="https://github.com/gpanebra" target="_blank">Gustavo Panebra</a></p>
+          <p><a href="https://github.com/marccmartian" target="_blank">Marvin Carrasco</a></p>            
+        </footer>
+   
+      </section>
+
+    </main>
   </body>
 </html>

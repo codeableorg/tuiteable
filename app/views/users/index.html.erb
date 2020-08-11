@@ -1,0 +1,11 @@
+<%= render "data_user" %>
+<div class="menu_data">
+    <%= link_to "Tuits", partial: :tweets, class: "tuits_data" %>
+    <%= link_to "Likes", partial: :likes, class: "likes_data" %>
+</div>
+
+<%if params[:partial] == "tweets" || params[:partial].nil?%>
+    <%= render 'tweets' %>
+<%else%>
+    <%= render 'likes' %>
+<%end%>

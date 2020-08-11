@@ -1,0 +1,12 @@
+<%@user.likes.order(created_at: :desc).each do |like|%>
+    <section class="data_container">   
+        <%= image_tag(url_for(@user.avatar), class: "tweet-img") %>
+        <div>
+            <span>@<%= @user.username%> </span>
+            <span> <%= like.created_at.strftime("%-d %B")%> </span>
+            <p> <%=like.tweet.body%> </p>
+            <span><%= like.tweet.comments_count%> </span>
+            <span> <%=like.tweet.likes_count%> </span>
+        </div>
+    </section>
+<%end%>

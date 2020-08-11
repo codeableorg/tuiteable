@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <section class="new_tweet_container">
+    <%= image_tag(url_for(current_user.avatar), class: "tweet-img") %>
+    <%= form_for @tweet do |f| %>    
+      <p>
+        <%= f.text_area :body, class: "tweet_text_area", 
+        placeholder: "What you are thinking about is..." %>
+      </p>
+      <%= f.submit "tuiteable!", class: "tuiteable_btn" %>      
+    <% end %>
+  </section>  
+<%end%>
+<%= render :partial => "tweet", :collection => @tweets%>
