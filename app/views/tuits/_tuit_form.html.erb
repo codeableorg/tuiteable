@@ -1,0 +1,13 @@
+<% @tuit = Tuit.new %>
+<%= form_for(@tuit) do |t| %>
+  <ul> 
+    <% @tuit.errors.full_messages.each do |error| %>
+      <li>
+        <%= error %> 
+      </li>
+    <% end %> 
+  </ul>
+  <%= t.text_area :body, size: "40x4", placeholder:"What you are thinking about is...", maxlength: 280, class: "tuit-write" %>
+  <div class="text-right" >
+  <%= t.submit "Tuiteable!", class: "tuit-button tuit-button-blue" %></div>
+<% end %>

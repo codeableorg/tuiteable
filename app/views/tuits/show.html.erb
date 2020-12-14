@@ -1,0 +1,86 @@
+<h1>Tuits</h1>
+
+<article class="show-page__article">
+  <aside class="show-page__article-figure">
+    <%= show_avatar(@tuit.user, class: 'show-page__article-image') %>
+  </aside>
+
+  <section class="show-page__article-body">
+    <h1 class="show-page__article-title">
+      <%= @tuit.user.name %>
+    </h1>
+    <div class="show-page__article-subtitle">
+      <%= "@#{@tuit.user.username}" %>
+    </div>
+    <div class="show-page__article-description">
+      <%= @tuit.body %>
+    </div>
+    <div class="show-page__article-metadata">
+      <%= format(@tuit.created_at) %>
+    </div>
+    <div class="show-page__article-reactions">
+      <div class="show-page__article-likes">
+        <%= @tuit.likes_count %>
+        <span class="show-page__article-reactions--gray">Likes</span>
+      </div>
+      <div>
+        <%=
+          render(
+            partial: 'layouts/like_button',
+            locals: { tuit: @tuit, count: false, redirect: tuit_path(@tuit) },
+          )
+        %>
+      </div>
+    </div>
+  </section>
+</article>
+
+<% if user_signed_in? %>
+  <%=
+    form_with(
+      model: Comment.new,
+      url: tuit_comments_path(@tuit),
+      class: 'show-page__article show-page__form',
+    ) do |f|
+  %>
+    <aside class="show-page__article-figure">
+      <%= show_avatar(current_user, class: 'show-page__article-image') %>
+    </aside>
+
+    <section class="show-page__article-body show-page__form-body">
+      <%=
+        f.text_area(
+          :body,
+          class: 'show-page__form-textarea',
+          placeholder: 'Think before write...',
+        )
+      %>
+      <%= f.submit 'Comment!', class: 'show-page__form-submit' %>
+    </section>
+  <% end %>
+<% end %>
+
+<section class="show-page__articles">
+  <% @comments.each do |comment| %>
+    <article class="show-page__article">
+      <aside class="show-page__article-figure">
+        <%= show_avatar(comment.user, class: 'show-page__article-image') %>
+      </aside>
+
+      <section class="show-page__article-body">
+        <div class="show-page__article-title">
+          <span class="show-page__article-name">
+            <%= comment.user.name %>
+          </span>
+          <span class="show-page__article-metadata--inline">
+            @<%= comment.user.username %> -
+            <%= format(comment.created_at) %>
+          </span>
+        </div>
+        <div class="show-page__article-body">
+          <%= comment.body %>
+        </div>
+      </section>
+    </article>
+  <% end %>
+</section>

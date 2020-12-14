@@ -1,0 +1,23 @@
+<div class="follow-card">
+  <div class="follow-card__image">
+    <%= image_tag("girl.jpg") %>
+  </div>
+  <div class="follow-card__body">
+    <h2 class="follow-card__name"><%= user.name %></h2>
+    <p class="follow-card__username">@<%= user.username %></p>
+    <div class="text-right">
+      <%# <button
+        onclick="#{add_followed(user)}"
+        class="tuit-button button-blue-outline"
+      >
+        Follow
+      </button> %>
+      <%# current_user.followers.push(user) %> <%# TODO falta la operación de
+      seguir a alguien %> <%# es posible seguir a alguien asi
+      User.first.follows.create(followed: User.find(13)) %> <%# o asi
+      User.first.followed_users << User.find(13) %> <%# la cuestion es colocar
+      eso aqui %>
+        <%= button_to 'Follow', follows_path(user, current_user), method: :post, class: "tuit-button button-blue-outline" %>
+    </div>
+  </div>
+</div>
