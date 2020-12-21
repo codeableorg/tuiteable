@@ -1,0 +1,61 @@
+form.sign_up{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  .field{
+    width: 380px;
+
+    label{
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 20px;
+
+      color: #FFFFFF;
+    }
+
+    textarea{
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 15px;
+      resize: none;
+      height: 140px;
+    }
+  }
+
+  .field.inline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+    
+    label{
+      width: 120px;
+    }
+
+    input{
+      width: 250px;
+      border-radius: 15px;
+      height: 40px;
+      padding: 10px;
+    }
+  }
+
+  .actions input{
+    margin-top: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+    background: #1DA1F2;
+    border-radius: 100px;
+    padding: 4px 8px 4px 8px;
+    border: none;
+  }
+}

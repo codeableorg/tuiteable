@@ -1,0 +1,48 @@
+<div class="top_explore_page">
+  <h1 class ="explorer_title">Explorer</h1>
+  
+</div>
+
+  <%if user_signed_in?%>
+    <div class="write_tweet_container">
+      <% if current_user.avatar.attached?%>
+        <%= image_tag(current_user.avatar, :class=>"owner-image")%>
+      <%else%>
+         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
+      <%end%>
+
+    <%= form_for(@tweet, url: tweets_path , method: "post") do |f| %>
+      <%= f.text_area :body, placeholder: "What you are thinking about is...", :class => "new_tweet_body"%>
+      <%= f.submit "tuiteable!", :class => "btn-tweet" %>
+    <% end%>
+    </div>
+  <%end%>
+
+<div class="div_separator"></div>
+
+<% @tweets.each do |tweet|%>
+  <%= link_to tweet_path(tweet), :class=>"select_tweet" do%> 
+    <article class="tweet_container">
+      <% if tweet.owner.avatar.attached?%>
+        <%= image_tag(tweet.owner.avatar, :class=>"owner-image")%>
+      <%else%>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", :class=>"owner-image")%>
+      <%end%>
+      <div class="tweet_content">
+        <p class="tweet_details">
+          <span class="owner_name"><%= tweet.owner.name%></span> 
+          @<%= tweet.owner.username%> - <%= tweet.created_at.to_date.strftime('%-d %B')%>
+        </p>
+        <p class="tweet_body"><%= tweet.body%></p>
+        <span class="tweet_reaction">
+          <span class="tweet_comments_count"><%= image_tag("comments.png", :class=>"reaction_icon")%><%= tweet.comments_count%></span> 
+          <span class="tweet_likes_count"><%= image_tag("likes.png", :class=>"reaction_icon") %><%= tweet.likes_count%></span>
+        </span>
+        <%if current_user.admin?|| tweet.owner == current_user%>
+        <%=link_to "Delete", tweet_path(tweet), method: :delete, :class=> "log_out_link delete_btn"%>
+        <%end %>
+      </div>
+    </article>
+  <% end%>
+<%end%>
+  

@@ -1,0 +1,10 @@
+<h1>Tweets<h1>
+<% @tweets.each do |tweet| %>
+    <h3><%= tweet.owner.name %></h3>
+    <h4><%= '@' + tweet.owner.username %></h4>
+    <p><%= tweet.body %>
+    <p><%= 'comments' + tweet.comments.count.to_s %>
+    <p><%= 'likes: ' + tweet.likers.count.to_s %>
+    <p><%= tweet.created_at.strftime("%B %d, %Y")%>
+    <%= link_to "Read More", tweet_path(tweet) %>
+<% end %>

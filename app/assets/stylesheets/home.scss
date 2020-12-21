@@ -1,0 +1,125 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top_explore_page {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #999B9E;
+  height: 56px;
+  padding: 16px;
+}
+
+.notice, .alert {
+  background-color: #7BD66D;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #000000;
+}
+
+
+.explorer_title {
+  font-size: 20px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+
+.owner-image {
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+}
+
+.write_tweet_container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #999B9E;
+  height: 107px;
+  position: relative;
+  padding: 15px 15px 42px 15px;
+}
+
+.tweet_placeholder {
+  font-size: 20px;
+  font-weight: normal;
+  color: #999B9E;
+  margin-left: 5px;
+}
+
+.btn-tweet {
+  position: absolute;
+  top: 64px;
+  left: 82%;
+  background-color: #1DA1F2;
+  border-radius: 100px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-style: none;
+  
+}
+
+.div_separator {
+  width: 100%;
+  height: 5px;
+  background-color: #999B9E;
+}
+
+.select_tweet {
+  text-decoration: none;
+  color: #ffffff;
+  line-height: 20px;
+}
+
+.tweet_container {
+  padding: 15px 15px 42px 15px;
+  border: 1px solid #999B9E;
+  display: flex;
+  max-height: 108px;
+}
+
+.tweet_content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.tweet_details {
+  color: #999B9E;
+  margin-bottom: 11px;
+}
+
+.owner_name {
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+
+.tweet_body {
+  margin-bottom: 7px;
+
+}
+
+.tweet_reaction{
+  display: flex;
+  justify-content: space-between;
+  width: 175.6px;
+}
+
+.comment_icon{
+  margin-right: 5px;
+  vertical-align: -2px;
+}
+
+.text_decoration_none {
+  text-decoration: none;
+  color: #ffffff;
+}
